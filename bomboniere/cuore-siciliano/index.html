@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bomboniera Cuore Siciliano | Le Ceramiche di Caltagirone</title>
+    <meta name="description" content="Bomboniera artigianale Cuore Siciliano in ceramica di Caltagirone. Disponibile in 5 colori, personalizzabile per il tuo evento speciale.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        html {
+    overflow: visible;
+    padding-bottom: 52px;
+}
+
+        .page-wrapper {
+    overflow-x: hidden;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #C4923A; --primary-light: #E8B86D; --primary-dark: #8B6420;
+            --secondary: #2C4A3E; --accent: #D4522A;
+            --white: #FEFAF5; --cream: #F5EDD8; --gray-100: #F8F4EE; --gray-200: #EDE5D8;
+            --gray-300: #D4C4A8; --gray-500: #8A7A65; --gray-700: #4A3D2E; --gray-900: #1A120B;
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Inter', system-ui, sans-serif;
+            --radius-sm: 8px; --radius-md: 16px; --radius-lg: 24px; --radius-full: 9999px;
+            --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        body { font-family: var(--font-body); background: var(--white); color: var(--gray-900); line-height: 1.6; }
+        
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        /* NAVBAR */
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(26, 18, 11, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+        }
+        
+        .navbar-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+        }
+        
+        .logo-text {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--cream);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .logo-subtitle {
+            font-family: var(--font-body);
+            font-size: 0.4rem;
+            letter-spacing: 0.08em;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--gray-300);
+            text-decoration: none;
+            position: relative;
+            transition: color var(--transition-base);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-light);
+            transition: width var(--transition-base);
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-light);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .cart-icon {
+            position: relative;
+            color: var(--gray-300);
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: color var(--transition-base);
+            text-decoration: none;
+        }
+        
+        .cart-icon:hover {
+            color: var(--primary-light);
+        }
+        
+        .cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--accent);
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 600;
+            padding: 2px 6px;
+            border-radius: var(--radius-full);
+            min-width: 18px;
+            text-align: center;
+        }
+        
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        /* SUB-NAVBAR */
+        .sub-navbar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            background: rgba(26, 18, 11, 0.85);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 0.5rem 1rem;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        
+        .sub-navbar::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .sub-navbar-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .sub-navbar a {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+            text-decoration: none;
+            color: var(--gray-500);
+            font-size: 0.65rem;
+            padding: 4px 12px;
+            border-radius: var(--radius-sm);
+            transition: all var(--transition-base);
+            min-width: 60px;
+        }
+        
+        .sub-navbar a i {
+            font-size: 1.1rem;
+        }
+        
+        .sub-navbar a:hover {
+            color: var(--primary-light);
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .sub-navbar a.active {
+            color: var(--primary-light);
+        }
+        
+        .shipping-bar {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 64px;
+            z-index: 998;
+            background: rgba(190, 45, 45, 0.75);
+            backdrop-filter: blur(8px);
+            color: white;
+            overflow: hidden;
+            padding: 0.5rem 0;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+        
+        .shipping-bar-content {
+            display: inline-flex;
+            align-items: center;
+            white-space: nowrap;
+            animation: scrollRight 15s linear infinite;
+        }
+        
+        @keyframes scrollRight {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+        
+        .shipping-bar-content i {
+            margin: 0 0.35rem;
+            color: white;
+        }
+        
+        .shipping-bar-content span {
+            margin-right: 3rem;
+        }
+        
+        /* BREADCRUMB */
+        .breadcrumb { max-width: 1400px; margin: 0 auto; padding: 2rem 2rem 1rem; font-size: 0.8125rem; color: var(--gray-500); }
+        .breadcrumb a { color: var(--gray-500); text-decoration: none; }
+        .breadcrumb a:hover { color: var(--primary); }
+        .breadcrumb .separator { margin: 0 0.5rem; color: var(--primary); }
+        
+        /* PRODUCT LAYOUT */
+        .product-container { max-width: 1200px; margin: 0 auto; padding: 2rem 2rem 4rem; display: grid; grid-template-columns: 50% 50%; gap: 4rem; }
+        
+        /* LEFT COLUMN - IMAGES */
+        .product-images { position: sticky; top: 100px; height: fit-content; }
+        .main-image-wrapper { position: relative; aspect-ratio: 1/1; border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 12px 40px rgba(31, 20, 5, 0.15); margin-bottom: 1rem; cursor: zoom-in; }
+        .main-image { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
+        .main-image-wrapper:hover .main-image { transform: scale(1.05); }
+        .thumbnails { display: flex; gap: 1rem; }
+        .thumbnail { width: 80px; height: 80px; border-radius: var(--radius-sm); overflow: hidden; cursor: pointer; border: 2px solid transparent; transition: all var(--transition-base); }
+        .thumbnail:hover { transform: scale(1.05); box-shadow: 0 4px 12px rgba(31, 20, 5, 0.2); }
+        .thumbnail.active { border-color: var(--primary); transform: scale(1.05); }
+        .thumbnail img { width: 100%; height: 100%; object-fit: cover; }
+        
+        /* RIGHT COLUMN - DETAILS */
+        .product-details { }
+        .handmade-badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: var(--secondary); color: white; border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 600; margin-bottom: 1rem; }
+        .product-title { font-family: var(--font-display); font-size: 2.25rem; color: var(--gray-900); margin-bottom: 0.75rem; }
+        .product-rating { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; }
+        .stars { display: flex; gap: 2px; color: #FFB800; }
+        .rating-text { font-size: 0.875rem; color: var(--gray-500); }
+        .product-description { font-size: 1rem; color: var(--gray-700); line-height: 1.8; margin-bottom: 1.5rem; }
+        .divider { height: 1px; background: var(--gray-200); margin: 1.5rem 0; opacity: 0.5; }
+        
+        /* COLOR SELECTOR */
+        .color-selector { margin-bottom: 2rem; }
+        .color-selector-label { font-size: 0.875rem; font-weight: 600; color: var(--gray-900); margin-bottom: 0.75rem; display: block; }
+        .color-options { display: flex; gap: 0.75rem; margin-bottom: 0.5rem; }
+        .color-option { width: 40px; height: 40px; border-radius: 10px; border: 2px solid transparent; cursor: pointer; transition: all var(--transition-base); position: relative; }
+        .color-option:hover { transform: scale(1.1); border-color: rgba(196, 146, 58, 0.5); }
+        .color-option.selected { border: 3px solid var(--primary); transform: scale(1.15); box-shadow: 0 0 0 2px white, 0 0 0 4px var(--primary); }
+        .selected-color-name { font-size: 0.8125rem; font-style: italic; color: var(--primary); font-weight: 500; }
+        
+        /* QUANTITY */
+        .quantity-selector { margin-bottom: 2rem; }
+        .quantity-selector-label { font-size: 0.875rem; font-weight: 600; color: var(--gray-900); margin-bottom: 0.75rem; display: block; }
+        .quantity-controls { display: flex; align-items: center; gap: 0.5rem; }
+        .quantity-btn { width: 36px; height: 36px; border: 1px solid var(--gray-300); background: var(--cream); border-radius: var(--radius-sm); cursor: pointer; font-size: 1.125rem; color: var(--gray-900); transition: all var(--transition-base); }
+        .quantity-btn:hover { background: var(--primary-light); color: white; border-color: var(--primary); }
+        .quantity-input { width: 60px; height: 36px; text-align: center; border: 1px solid var(--gray-300); border-radius: var(--radius-sm); font-size: 1rem; font-weight: 600; }
+        
+        /* PRICE */
+        .price-section { margin-bottom: 2rem; }
+        .price { font-family: var(--font-display); font-size: 2rem; color: var(--primary); font-weight: 700; }
+        .shipping-note { font-size: 0.8125rem; color: var(--secondary); font-weight: 600; margin-top: 0.5rem; }
+        
+        /* CTA BUTTONS */
+        .cta-buttons { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; }
+        .btn-add-to-cart { width: 100%; padding: 1rem 1.5rem; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; border: none; border-radius: var(--radius-full); font-family: var(--font-body); font-size: 0.9375rem; font-weight: 600; cursor: pointer; transition: all var(--transition-base); display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+        .btn-add-to-cart:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(196, 146, 58, 0.4); }
+        .btn-buy-now { width: 100%; padding: 1rem 1.5rem; background: var(--gray-900); color: white; border: none; border-radius: var(--radius-full); font-family: var(--font-body); font-size: 0.9375rem; font-weight: 600; cursor: pointer; transition: all var(--transition-base); display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+        .btn-buy-now:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26, 18, 11, 0.3); }
+        
+        /* TRUST BADGES */
+        .trust-badges { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+        .trust-badge { background: rgba(196, 146, 58, 0.1); padding: 1rem; border-radius: var(--radius-md); border: 1px solid rgba(196, 146, 58, 0.2); text-align: center; }
+        .trust-badge-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .trust-badge-text { font-size: 0.8125rem; color: var(--gray-700); font-weight: 600; }
+        
+        /* ACCORDION */
+        .accordion { border-top: 1px solid var(--gray-200); margin-top: 2rem; }
+        .accordion-item { border-bottom: 1px solid var(--gray-200); }
+        .accordion-header { padding: 1.25rem 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: var(--gray-900); transition: color var(--transition-base); }
+        .accordion-header:hover { color: var(--primary); }
+        .accordion-icon { transition: transform var(--transition-base); }
+        .accordion-icon.open { transform: rotate(180deg); }
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .accordion-content.open { max-height: 500px; padding-bottom: 1.25rem; }
+        .accordion-text { font-size: 0.875rem; color: var(--gray-700); line-height: 1.7; }
+        
+        /* FOOTER */
+        footer { background: var(--gray-900); color: var(--gray-300); padding: 3rem 2rem 1.5rem; margin-top: 4rem; }
+        .footer-container { max-width: 1400px; margin: 0 auto; text-align: center; }
+        .footer-logo { font-family: var(--font-display); font-size: 1.5rem; color: var(--cream); margin-bottom: 0.15rem; }
+        .footer-tagline { font-size: 0.875rem; color: var(--gray-500); margin-bottom: 2rem; }
+        .footer-links { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem; list-style: none; }
+        .footer-links a { color: var(--gray-300); text-decoration: none; font-size: 0.875rem; transition: color var(--transition-base); }
+        .footer-links a:hover { color: var(--primary-light); }
+        .footer-divider { height: 1px; background: rgba(255, 255, 255, 0.1); margin: 2rem 0; }
+        .footer-bottom { font-size: 0.8125rem; color: var(--gray-500); }
+        
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            
+            .product-container { grid-template-columns: 1fr; gap: 2rem; }
+            .product-images { position: static; }
+            .product-title { font-size: 1.75rem; }
+            
+            .logo-text {
+                font-size: 1.125rem;
+            }
+            
+            .logo-subtitle {
+                font-size: 0.58rem;
+            }
+            
+            .sub-navbar a {
+                font-size: 0.6rem;
+                min-width: 50px;
+            }
+            
+            .sub-navbar a i {
+                font-size: 1rem;
+            }
+            
+            .trust-badges { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="/" class="logo">
+                <div class="logo-text">Paola Vacirca</div>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/collezioni">Collezioni</a></li>
+                <li><a href="/bomboniere">Bomboniere</a></li>
+                <li><a href="/#contatti">Contatti</a></li>
+            </ul>
+            
+            <div class="nav-right">
+                <a href="/checkout" class="cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-badge">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+        <!-- SUB-NAVBAR -->
+    <nav class="sub-navbar">
+        <div class="sub-navbar-container">
+            <a href="/" class="active">
+                <i class="fas fa-home"></i>
+                Home
+            </a>
+        </div>
+    </nav>
+    
+    <!-- SHIPPING BAR -->
+    <div class="shipping-bar">
+        <div class="shipping-bar-content">
+            <span><i class="fas fa-truck"></i> Spedizione gratuita per ordini superiori ad €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
+            <span><i class="fas fa-truck"></i> Spedizione gratuita per ordini superiori ad €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
+        </div>
+    </div>
+    
+    <div class="page-wrapper">
+    
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+        <a href="/">Home</a>
+        <span class="separator">/</span>
+        <a href="/bomboniere">Bomboniere</a>
+        <span class="separator">/</span>
+        <span class="current">Cuore Siciliano</span>
+    </div>
+    
+    <!-- PRODUCT CONTAINER -->
+    <div class="product-container">
+        <!-- LEFT COLUMN - IMAGES -->
+        <div class="product-images">
+            <div class="main-image-wrapper">
+                <img id="mainImage" src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=800&h=800&fit=crop" alt="Bomboniera Cuore Siciliano" class="main-image">
+            </div>
+            <div class="thumbnails">
+                <div class="thumbnail active" onclick="changeMainImage(this, 'https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=800&h=800&fit=crop')">
+                    <img src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=200&h=200&fit=crop" alt="Vista 1">
+                </div>
+                <div class="thumbnail" onclick="changeMainImage(this, 'https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=800&h=800&fit=crop')">
+                    <img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=200&h=200&fit=crop" alt="Vista 2">
+                </div>
+                <div class="thumbnail" onclick="changeMainImage(this, 'https://images.unsplash.com/photo-1615529182904-14819c35db37?w=800&h=800&fit=crop')">
+                    <img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?w=200&h=200&fit=crop" alt="Vista 3">
+                </div>
+            </div>
+        </div>
+        
+        <!-- RIGHT COLUMN - DETAILS -->
+        <div class="product-details">
+            <span class="handmade-badge">
+                <i class="fas fa-hand-sparkles"></i>
+                Fatto a mano
+            </span>
+            
+            <h1 class="product-title">Bomboniera Cuore Siciliano</h1>
+            
+            <div class="product-rating">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <span class="rating-text">5.0 (12 recensioni)</span>
+            </div>
+            
+            <p class="product-description">
+                Una bomboniera artigianale unica che cattura l'essenza della Sicilia. 
+                Ogni pezzo è realizzato a mano con la tradizionale ceramica di Caltagirone, 
+                decorato con motivi siciliani e disponibile in 5 colori ispirati ai paesaggi dell'isola.
+            </p>
+            
+            <div class="divider"></div>
+            
+            <!-- COLOR SELECTOR -->
+            <div class="color-selector">
+                <label class="color-selector-label">Scegli il colore:</label>
+                <div class="color-options">
+                    <div class="color-option selected" style="background: #6BA3BE;" data-color="Azzurro Mediterraneo" onclick="selectColor(this)"></div>
+                    <div class="color-option" style="background: #F4C542;" data-color="Giallo Sole Siciliano" onclick="selectColor(this)"></div>
+                    <div class="color-option" style="background: #C0392B;" data-color="Rosso Terracotta" onclick="selectColor(this)"></div>
+                    <div class="color-option" style="background: #4A9B7F;" data-color="Verde Agave" onclick="selectColor(this)"></div>
+                    <div class="color-option" style="background: #F5F0E8; border-color: #ccc;" data-color="Bianco Calce" onclick="selectColor(this)"></div>
+                </div>
+                <div class="selected-color-name" id="selectedColorName">Azzurro Mediterraneo</div>
+            </div>
+            
+            <!-- QUANTITY -->
+            <div class="quantity-selector">
+                <label class="quantity-selector-label">Quantità:</label>
+                <div class="quantity-controls">
+                    <button class="quantity-btn" onclick="decreaseQuantity()">−</button>
+                    <input type="number" class="quantity-input" id="quantityInput" value="1" min="1" max="999">
+                    <button class="quantity-btn" onclick="increaseQuantity()">+</button>
+                </div>
+            </div>
+            
+            <!-- PRICE -->
+            <div class="price-section">
+                <div class="price">€ 15,00</div>
+                <div class="shipping-note">📦 Spedizione gratuita sopra €50</div>
+            </div>
+            
+            <!-- CTA BUTTONS -->
+            <div class="cta-buttons">
+                <button class="btn-add-to-cart" onclick="addToCart()">
+                    <i class="fas fa-shopping-cart"></i>
+                    Aggiungi al Carrello
+                </button>
+                <button class="btn-buy-now" onclick="buyNow()">
+                    <i class="fas fa-bolt"></i>
+                    Acquista Ora
+                </button>
+            </div>
+            
+            <!-- TRUST BADGES -->
+            <div class="trust-badges">
+                <div class="trust-badge">
+                    <div class="trust-badge-icon">🏺</div>
+                    <div class="trust-badge-text">Fatto a mano a Caltagirone</div>
+                </div>
+                <div class="trust-badge">
+                    <div class="trust-badge-icon">📦</div>
+                    <div class="trust-badge-text">Imballaggio sicuro</div>
+                </div>
+                <div class="trust-badge">
+                    <div class="trust-badge-icon">🔄</div>
+                    <div class="trust-badge-text">Reso facile 30 giorni</div>
+                </div>
+                <div class="trust-badge">
+                    <div class="trust-badge-icon">📞</div>
+                    <div class="trust-badge-text">Supporto diretto</div>
+                </div>
+            </div>
+            
+            <!-- ACCORDION -->
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        Descrizione completa
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="accordion-text">
+                            La bomboniera Cuore Siciliano è realizzata interamente a mano nel nostro atelier di Caltagirone. 
+                            Ogni pezzo è unico e riflette la tradizione ceramica siciliana con motivi decorativi tipici. 
+                            Perfetta per matrimoni, battesimi, comunioni e qualsiasi evento speciale che desideri rendere indimenticabile.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        Materiali e dimensioni
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="accordion-text">
+                            <strong>Materiale:</strong> Ceramica di Caltagirone 100% artigianale<br>
+                            <strong>Dimensioni:</strong> 8cm x 8cm x 6cm (circa)<br>
+                            <strong>Peso:</strong> 150g (circa)<br>
+                            <strong>Finitura:</strong> Smaltata a mano con colori atossici
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        Spedizione e resi
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="accordion-text">
+                            <strong>Spedizione:</strong> 5-7 giorni lavorativi (gratuita sopra €50)<br>
+                            <strong>Imballaggio:</strong> Curatissimo con protezioni multiple<br>
+                            <strong>Resi:</strong> Accettati entro 30 giorni dall'acquisto<br>
+                            <strong>Garanzia:</strong> Soddisfatti o rimborsati
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        Personalizzazione
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="accordion-text">
+                            Possiamo personalizzare le bomboniere con nomi, date o messaggi speciali. 
+                            Contattaci via email o telefono per discutere le tue esigenze. 
+                            La personalizzazione richiede tempi di produzione leggermente più lunghi (10-15 giorni).
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">Paola Vacirca</div>
+            <p class="footer-tagline">Arte e Ceramica di Caltagirone</p>
+            
+            <ul class="footer-links">
+                <li><a href="/collezioni">Collezioni</a></li>
+                <li><a href="/bomboniere">Bomboniere</a></li>
+                <li><a href="/#contatti">Contatti</a></li>
+                <li><a href="/privacy">Privacy Policy</a></li>
+                <li><a href="/cookies">Cookie Policy</a></li>
+            </ul>
+            
+            <div class="footer-divider"></div>
+            
+            <div class="footer-bottom">
+                © 2026 Paola Vacirca Arte e Ceramica di Caltagirone. Tutti i diritti riservati.<br>
+                P.IVA: 06249570877
+            </div>
+        </div>
+    </footer>
+    
+    </div>
+    
+    <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let selectedColor = 'Azzurro Mediterraneo';
+        
+        function updateCartBadge() {
+            const badge = document.querySelector('.cart-badge');
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            badge.textContent = totalItems;
+        }
+        
+        function changeMainImage(thumbnail, imageUrl) {
+            document.getElementById('mainImage').src = imageUrl;
+            document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+            thumbnail.classList.add('active');
+        }
+        
+        function selectColor(element) {
+            document.querySelectorAll('.color-option').forEach(c => c.classList.remove('selected'));
+            element.classList.add('selected');
+            selectedColor = element.dataset.color;
+            document.getElementById('selectedColorName').textContent = selectedColor;
+        }
+        
+        function increaseQuantity() {
+            const input = document.getElementById('quantityInput');
+            input.value = parseInt(input.value) + 1;
+        }
+        
+        function decreaseQuantity() {
+            const input = document.getElementById('quantityInput');
+            if (parseInt(input.value) > 1) {
+                input.value = parseInt(input.value) - 1;
+            }
+        }
+        
+        function addToCart() {
+            const quantity = parseInt(document.getElementById('quantityInput').value);
+            const itemId = 'bomboniera-cuore-' + selectedColor.toLowerCase().replace(/\s+/g, '-');
+            const existingItem = cart.find(item => item.id === itemId);
+            
+            if (existingItem) {
+                existingItem.quantity += quantity;
+            } else {
+                cart.push({
+                    id: itemId,
+                    name: 'Bomboniera Cuore Siciliano',
+                    color: selectedColor,
+                    price: 15,
+                    quantity: quantity,
+                    image: document.getElementById('mainImage').src
+                });
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartBadge();
+            
+            const btn = document.querySelector('.btn-add-to-cart');
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check"></i> Aggiunto al Carrello!';
+            btn.style.background = 'var(--secondary)';
+            
+            setTimeout(() => {
+                btn.innerHTML = originalHTML;
+                btn.style.background = '';
+            }, 2500);
+        }
+        
+        function buyNow() {
+            addToCart();
+            setTimeout(() => {
+                window.location.href = '/checkout';
+            }, 1000);
+        }
+        
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            
+            content.classList.toggle('open');
+            icon.classList.toggle('open');
+        }
+        
+        updateCartBadge();
+    </script>
+
+    <script>
+
+
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordine Completato | Le Ceramiche di Caltagirone</title>
+    <meta name="robots" content="noindex">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        html { overflow: visible; padding-bottom: 52px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #C4923A; --primary-light: #E8B86D; --primary-dark: #8B6420;
+            --secondary: #2C4A3E; --accent: #D4522A;
+            --white: #FEFAF5; --cream: #F5EDD8;
+            --gray-100: #F8F4EE; --gray-200: #EDE5D8; --gray-300: #D4C4A8;
+            --gray-500: #8A7A65; --gray-700: #4A3D2E; --gray-900: #1A120B;
+            --success: #38A169;
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Inter', system-ui, sans-serif;
+            --radius-sm: 8px; --radius-md: 16px; --radius-full: 9999px;
+            --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        body { font-family: var(--font-body); background: var(--gray-100); color: var(--gray-900); line-height: 1.6; }
+        .navbar { position: sticky; top: 0; z-index: 1000; background: rgba(26, 18, 11, 0.85); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3); }
+        .navbar-container { max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; flex-direction: column; text-decoration: none; }
+        .logo-text { font-family: var(--font-display); font-size: 1.5rem; color: var(--cream); font-weight: 700; line-height: 1.2; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+        .nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--gray-300); text-decoration: none; position: relative; transition: color var(--transition-base); }
+        .nav-links a:hover { color: var(--primary-light); }
+        .cart-icon { position: relative; color: var(--gray-300); font-size: 1.25rem; text-decoration: none; }
+        .cart-badge { position: absolute; top: -8px; right: -8px; background: var(--accent); color: white; font-size: 0.625rem; font-weight: 700; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .nav-right { display: flex; align-items: center; gap: 1rem; }
+        .sub-navbar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000; background: rgba(26, 18, 11, 0.95); backdrop-filter: blur(10px); border-top: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.3); padding: 0.5rem 1rem; padding-bottom: calc(0.5rem + env(safe-area-inset-bottom, 0)); }
+        .sub-navbar-container { display: flex; justify-content: center; gap: 2rem; max-width: 600px; margin: 0 auto; }
+        .sub-navbar a { display: flex; flex-direction: column; align-items: center; gap: 0.25rem; color: var(--gray-500); text-decoration: none; font-size: 0.65rem; font-weight: 500; transition: color var(--transition-base); min-width: 60px; }
+        .sub-navbar a.active { color: var(--primary-light); }
+        .sub-navbar a i { font-size: 1.25rem; }
+        .success-container { max-width: 500px; margin: 4rem auto; padding: 0 2rem; text-align: center; }
+        .success-icon { width: 80px; height: 80px; background: var(--success); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); }
+        .success-icon i { font-size: 2.5rem; color: white; }
+        @keyframes popIn { 0% { transform: scale(0); } 100% { transform: scale(1); } }
+        .success-title { font-family: var(--font-display); font-size: 2rem; color: var(--gray-900); margin-bottom: 0.75rem; }
+        .success-text { font-size: 1rem; color: var(--gray-500); margin-bottom: 2rem; line-height: 1.7; }
+        .success-btn { display: inline-block; padding: 1rem 2rem; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; text-decoration: none; border-radius: var(--radius-full); font-weight: 600; font-size: 1rem; transition: all var(--transition-base); }
+        .success-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(196, 146, 58, 0.4); }
+        footer { background: var(--gray-900); color: var(--gray-300); padding: 3rem 2rem 1.5rem; margin-top: 4rem; }
+        .footer-container { max-width: 1400px; margin: 0 auto; text-align: center; }
+        .footer-logo { font-family: var(--font-display); font-size: 1.5rem; color: var(--cream); margin-bottom: 0.15rem; }
+        .footer-tagline { font-size: 0.875rem; color: var(--gray-500); margin-bottom: 2rem; }
+        .footer-links { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem; list-style: none; }
+        .footer-links a { color: var(--gray-300); text-decoration: none; font-size: 0.875rem; transition: color var(--transition-base); }
+        .footer-links a:hover { color: var(--primary-light); }
+        .footer-divider { height: 1px; background: rgba(255, 255, 255, 0.1); margin: 2rem 0; }
+        .footer-bottom { font-size: 0.8125rem; color: var(--gray-500); }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .logo-text { font-size: 1.125rem; }
+            .success-title { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="/" class="logo">
+                <div class="logo-text">Paola Vacirca</div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/collezioni">Collezioni</a></li>
+                <li><a href="/bomboniere">Bomboniere</a></li>
+                <li><a href="/#contatti">Contatti</a></li>
+            </ul>
+            <div class="nav-right">
+                <a href="/checkout" class="cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-badge">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <nav class="sub-navbar">
+        <div class="sub-navbar-container">
+            <a href="/" class="active">
+                <i class="fas fa-home"></i>
+                Home
+            </a>
+        </div>
+    </nav>
+
+    <div class="success-container">
+        <div class="success-icon">
+            <i class="fas fa-check"></i>
+        </div>
+        <h1 class="success-title">Ordine Completato!</h1>
+        <p class="success-text">
+            Grazie per il tuo acquisto! Riceverai una email di conferma a breve con i dettagli del tuo ordine.
+        </p>
+        <a href="/" class="success-btn">
+            <i class="fas fa-home"></i> Torna alla Home
+        </a>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">Paola Vacirca</div>
+            <p class="footer-tagline">Arte e Ceramica di Caltagirone</p>
+            <ul class="footer-links">
+                <li><a href="/collezioni">Collezioni</a></li>
+                <li><a href="/bomboniere">Bomboniere</a></li>
+                <li><a href="/#contatti">Contatti</a></li>
+            </ul>
+            <div class="footer-divider"></div>
+            <div class="footer-bottom">
+                © 2026 Paola Vacirca Arte e Ceramica di Caltagirone. Tutti i diritti riservati.<br>
+                P.IVA: 06249570877
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        localStorage.removeItem('cart');
+        localStorage.removeItem('checkoutForm');
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        function updateCartBadge() {
+            const badge = document.querySelector('.cart-badge');
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            badge.textContent = totalItems;
+        }
+        updateCartBadge();
+    </script>
+</body>
+</html>

@@ -1,0 +1,1583 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Ceramiche di Caltagirone | Paola Vacirca</title>
+    <meta name="description" content="Le Ceramiche di Caltagirone di Paola Vacirca. Acquista online ceramiche artigianali e bomboniere fatte a mano a Caltagirone, Sicilia.">
+    <meta property="og:title" content="Le Ceramiche di Caltagirone | Paola Vacirca">
+    <meta property="og:description" content="Le Ceramiche di Caltagirone di Paola Vacirca. Acquista online ceramiche artigianali e bomboniere fatte a mano a Caltagirone, Sicilia.">
+    <meta property="og:image" content="/assets/images/og-image.jpg">
+    <link rel="canonical" href="https://www.leceramichedicaltagi rone.it">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        /* RESET & BASE */
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            overflow: visible;
+            padding-bottom: 52px;
+        }
+        
+        .page-wrapper {
+            overflow-x: hidden;
+        }
+        
+        :root {
+            /* PALETTE PREMIUM */
+            --primary: #C4923A;
+            --primary-light: #E8B86D;
+            --primary-dark: #8B6420;
+            --secondary: #2C4A3E;
+            --secondary-light: #4A7A6A;
+            --accent: #D4522A;
+            --accent-soft: #E8896A;
+            
+            /* NEUTRALI */
+            --white: #FEFAF5;
+            --cream: #F5EDD8;
+            --cream-dark: #E8D5B0;
+            --gray-100: #F8F4EE;
+            --gray-200: #EDE5D8;
+            --gray-300: #D4C4A8;
+            --gray-500: #8A7A65;
+            --gray-700: #4A3D2E;
+            --gray-900: #1A120B;
+            
+            /* GLASSMORPHISM */
+            --glass-bg: rgba(255, 250, 245, 0.15);
+            --glass-bg-strong: rgba(255, 250, 245, 0.25);
+            --glass-border: rgba(196, 146, 58, 0.3);
+            --glass-shadow: 0 8px 32px rgba(31, 20, 5, 0.15);
+            --glass-blur: blur(20px);
+            --glass-blur-light: blur(10px);
+            
+            /* TIPOGRAFIA */
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Inter', system-ui, sans-serif;
+            
+            /* SPAZIATURA */
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+            --space-3xl: 4rem;
+            --space-4xl: 6rem;
+            
+            /* BORDER RADIUS */
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+            --radius-full: 9999px;
+            
+            /* TRANSIZIONI */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-spring: 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        body {
+            font-family: var(--font-body);
+            background: var(--white);
+            color: var(--gray-900);
+            line-height: 1.6;
+
+        }
+        
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        /* NAVBAR */
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(26, 18, 11, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+        }
+        
+        .navbar-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+        }
+        
+        .logo-text {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--cream);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .logo-subtitle {
+            font-family: var(--font-body);
+            font-size: 0.4rem;
+            letter-spacing: 0.08em;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--gray-300);
+            text-decoration: none;
+            position: relative;
+            transition: color var(--transition-base);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-light);
+            transition: width var(--transition-base);
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-light);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .cart-icon {
+            position: relative;
+            color: var(--gray-300);
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: color var(--transition-base);
+            text-decoration: none;
+        }
+        
+        .cart-icon:hover {
+            color: var(--primary-light);
+        }
+        
+        .cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--accent);
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 600;
+            padding: 2px 6px;
+            border-radius: var(--radius-full);
+            min-width: 18px;
+            text-align: center;
+        }
+        
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        /* SUB-NAVBAR */
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        
+        .sub-navbar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            background: rgba(26, 18, 11, 0.85);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 0.5rem 1rem;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        
+        .sub-navbar::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .sub-navbar-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .sub-navbar a {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+            text-decoration: none;
+            color: var(--gray-500);
+            font-size: 0.65rem;
+            padding: 4px 12px;
+            border-radius: var(--radius-sm);
+            transition: all var(--transition-base);
+            min-width: 60px;
+        }
+        
+        .sub-navbar a i {
+            font-size: 1.1rem;
+        }
+        
+        .sub-navbar a:hover {
+            color: var(--primary-light);
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .sub-navbar a.active {
+            color: var(--primary-light);
+        }
+        
+        .shipping-bar {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 64px;
+            z-index: 998;
+            background: rgba(190, 45, 45, 0.75);
+            backdrop-filter: blur(8px);
+            color: white;
+            overflow: hidden;
+            padding: 0.5rem 0;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+        
+        .shipping-bar-content {
+            display: inline-flex;
+            align-items: center;
+            white-space: nowrap;
+            animation: scrollRight 15s linear infinite;
+        }
+        
+        @keyframes scrollRight {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+        
+        .shipping-bar-content i {
+            margin: 0 0.35rem;
+            color: white;
+        }
+        
+        .shipping-bar-content span {
+            margin-right: 3rem;
+        }
+        
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        /* HERO SECTION */
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        
+        .hero {
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: url('/assets/images/hero.JPG') center/cover no-repeat;
+        }
+        
+        @media (min-width: 769px) {
+            .hero {
+                background: url('/assets/images/hero-desktop.PNG') center/cover no-repeat;
+            }
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            z-index: 1;
+        }
+        
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            padding: 4rem 2rem;
+        }
+        
+        .hero-content {
+            animation: fadeInUp 0.8s ease-out;
+            max-width: 720px;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 250, 245, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--primary-light);
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: 3.25rem;
+            line-height: 1.2;
+            color: #fff;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        
+        .hero-description {
+            font-size: 1.0625rem;
+            color: rgba(255,255,255,0.85);
+            line-height: 1.7;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-cta-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            border-radius: var(--radius-full);
+            font-family: var(--font-body);
+            font-size: 0.9375rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(196, 146, 58, 0.4);
+            transition: all var(--transition-base);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(196, 146, 58, 0.5);
+        }
+        
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+        
+        .btn-primary i {
+            transition: transform var(--transition-base);
+        }
+        
+        .btn-primary:hover i {
+            transform: translateX(4px);
+        }
+        
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent-soft);
+            border-radius: var(--radius-full);
+            font-family: var(--font-body);
+            font-size: 0.9375rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all var(--transition-base);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(212, 82, 42, 0.08);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+        
+
+        
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        /* GOOGLE REVIEWS SECTION */
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        
+        .reviews-section {
+            padding: 4rem 2rem;
+            background: var(--white);
+        }
+        
+        .reviews-header {
+            max-width: 1400px;
+            margin: 0 auto 3rem;
+            text-align: center;
+        }
+        
+        .section-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 2.375rem;
+            color: var(--gray-900);
+            margin-bottom: 1.5rem;
+        }
+        
+        .rating-summary {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .google-logo {
+            height: 32px;
+        }
+        
+        .rating-number {
+            font-size: 2.625rem;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+        
+        .stars {
+            display: flex;
+            gap: 0.25rem;
+        }
+        
+        .star {
+            color: #FFB800;
+            font-size: 1.125rem;
+        }
+        
+        .review-count {
+            font-size: 0.875rem;
+            color: var(--gray-500);
+        }
+        
+        .review-google-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: #fff;
+            background: #34A853;
+            padding: 0.2rem 0.6rem;
+            border-radius: var(--radius-full);
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.02em;
+        }
+        
+        .reviews-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .reviews-dots .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--gray-300);
+            transition: background 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .reviews-dots .dot.active {
+            background: var(--primary);
+        }
+        
+        .scroll-indicator {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.75rem;
+            font-style: italic;
+            color: var(--gray-300);
+        }
+        
+        .reviews-container {
+            width: 100%;
+            max-width: 1052px;
+            margin: 0 auto;
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            overflow-y: hidden;
+            overscroll-behavior-x: contain;
+            scroll-snap-type: x proximity;
+            padding: 0.5rem 1rem 1rem 0.5rem;
+        }
+        
+        .reviews-container::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .review-card {
+            min-width: 280px;
+            width: 280px;
+            scroll-snap-align: start;
+            background: rgba(255, 250, 245, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(196, 146, 58, 0.25);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem 1.75rem 1.5rem;
+            box-shadow: 0 8px 32px rgba(31, 20, 5, 0.08);
+            transition: all var(--transition-base);
+        }
+        
+        .review-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(31, 20, 5, 0.12);
+        }
+        
+        .reviewer-photo {
+            width: 100%;
+            height: 180px;
+            border-radius: var(--radius-md);
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+        
+        .reviewer-info {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .reviewer-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        
+        .reviewer-details h4 {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 0.15rem;
+        }
+        
+        .review-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8125rem;
+            color: var(--gray-500);
+        }
+        
+        .review-stars {
+            display: flex;
+            gap: 2px;
+        }
+        
+        .review-stars .star {
+            font-size: 0.8125rem;
+        }
+        
+        .review-text {
+            font-size: 0.875rem;
+            line-height: 1.6;
+            color: var(--gray-700);
+        }
+        
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        /* MAP SECTION */
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        
+        .map-section {
+            padding: 4rem 2rem;
+            background: var(--gray-100);
+        }
+        
+        .map-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .map-header {
+            margin-bottom: 2rem;
+        }
+        
+        .map-header h2 {
+            font-family: var(--font-display);
+            font-size: 2.375rem;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+        
+        .map-location {
+            font-size: 1.125rem;
+            color: var(--gray-500);
+        }
+        
+        .map-wrapper {
+            background: rgba(255, 250, 245, 0.25);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-xl);
+            padding: 8px;
+            box-shadow: var(--glass-shadow);
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+        
+        .map-wrapper iframe {
+            width: 100%;
+            height: 420px;
+            border: 0;
+            border-radius: 20px;
+            filter: sepia(20%) saturate(80%) hue-rotate(5deg);
+        }
+        
+        .map-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            color: var(--primary-dark);
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-full);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all var(--transition-base);
+        }
+        
+        .map-cta:hover {
+            background: rgba(196, 146, 58, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        /* CONTACT SECTION */
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        
+        .contact-section {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #FEFAF5 0%, #F0E6CC 50%, #E8D5B0 100%);
+        }
+        
+        .contact-card {
+            max-width: 500px;
+            margin: 0 auto;
+            background: rgba(255, 250, 245, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(196, 146, 58, 0.25);
+            border-radius: var(--radius-xl);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all var(--transition-base);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(31, 20, 5, 0.15);
+            border-color: var(--primary);
+        }
+        
+        .contact-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.25rem;
+            background: rgba(255, 250, 245, 0.4);
+            border: 1px solid rgba(196, 146, 58, 0.15);
+            border-radius: var(--radius-md);
+            text-align: left;
+            transition: all var(--transition-base);
+        }
+        
+        .contact-item:hover {
+            background: rgba(255, 250, 245, 0.7);
+            border-color: var(--primary);
+        }
+        
+        .contact-item-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            color: white;
+            flex-shrink: 0;
+        }
+        
+        .contact-item-icon.phone {
+            background: #25D366;
+        }
+        
+        .contact-item-icon.email {
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-light));
+        }
+        
+        .contact-item-body {
+            flex: 1;
+        }
+        
+        .contact-item-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gray-500);
+        }
+        
+        .contact-item-value {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            color: var(--gray-900);
+        }
+        
+        .contact-item-value.email {
+            font-family: var(--font-body);
+            font-size: 0.9375rem;
+        }
+        
+
+        
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        /* SOCIAL SECTION */
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        
+        .social-section {
+            padding: 4rem 2rem;
+            background: var(--gray-100);
+        }
+        
+        .social-card {
+            max-width: 800px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, rgba(196, 146, 58, 0.1), rgba(44, 74, 62, 0.1));
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(196, 146, 58, 0.3);
+            border-radius: var(--radius-xl);
+            padding: 3rem;
+            text-align: center;
+            box-shadow: var(--glass-shadow);
+        }
+        
+        .social-title {
+            font-family: var(--font-display);
+            font-size: 2.25rem;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+        }
+        
+        .social-description {
+            font-size: 1rem;
+            color: var(--gray-500);
+            margin-bottom: 2rem;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .social-icon-link {
+            width: 64px;
+            height: 64px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            font-size: 1.5rem;
+            transition: all var(--transition-spring);
+        }
+        
+        .social-icon-link:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .social-icon-link.tiktok {
+            background: #000000;
+        }
+        
+        .social-icon-link.tiktok:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        }
+        
+        .social-icon-link.instagram {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+        }
+        
+        .social-icon-link.instagram:hover {
+            box-shadow: 0 8px 24px rgba(220, 39, 67, 0.4);
+        }
+        
+        .social-icon-link.facebook {
+            background: #1877F2;
+        }
+        
+        .social-icon-link.facebook:hover {
+            box-shadow: 0 8px 24px rgba(24, 119, 242, 0.4);
+        }
+        
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        /* FOOTER */
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        
+        footer {
+            background: var(--gray-900);
+            color: var(--gray-300);
+            padding: 3rem 2rem 1.5rem;
+        }
+        
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--cream);
+            margin-bottom: 0.15rem;
+        }
+        
+        .footer-tagline {
+            font-size: 0.875rem;
+            color: var(--gray-500);
+            margin-bottom: 2rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            list-style: none;
+        }
+        
+        .footer-links a {
+            color: var(--gray-300);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color var(--transition-base);
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-light);
+        }
+        
+        .footer-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 2rem 0;
+        }
+        
+        .footer-bottom {
+            font-size: 0.8125rem;
+            color: var(--gray-500);
+        }
+        
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        /* ANIMATIONS */
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .cart-badge {
+            animation: pulse 2s infinite;
+        }
+        
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        /* RESPONSIVE */
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .hero-content {
+                text-align: center;
+            }
+            
+            
+
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            
+            .logo-text {
+                font-size: 1.125rem;
+            }
+            
+            .logo-subtitle {
+                font-size: 0.58rem;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .sub-navbar a {
+                font-size: 0.6rem;
+                min-width: 50px;
+            }
+            
+            .sub-navbar a i {
+                font-size: 1rem;
+            }
+            
+            .hero {
+                padding: 0 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.875rem;
+            }
+            
+            .reviews-section {
+                padding-left: 0;
+                padding-right: 0;
+            }
+            
+            .reviews-header {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+            
+            .reviews-container {
+                width: 100vw;
+                max-width: 100vw;
+                padding: 0.5rem 0.5rem 1rem;
+                margin: 0;
+                scroll-snap-type: x mandatory;
+            }
+            
+            .review-card {
+                width: 280px;
+                min-width: 280px;
+            }
+            
+            .reviewer-photo {
+                height: 140px;
+            }
+            
+            .scroll-indicator {
+                display: block;
+            }
+            
+            .map-wrapper iframe {
+                height: 280px;
+            }
+            
+            .social-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .social-icons {
+                gap: 1rem;
+            }
+            
+            .social-icon-link {
+                width: 56px;
+                height: 56px;
+            }
+            
+            .contact-item-value.email {
+                font-size: 0.73rem;
+                word-break: break-all;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <!-- NAVBAR -->
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="/" class="logo">
+                <div class="logo-text">Paola Vacirca</div>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/collezioni">Collezioni</a></li>
+                <li><a href="/bomboniere">Bomboniere</a></li>
+                <li><a href="#contatti">Contatti</a></li>
+            </ul>
+            
+            <div class="nav-right">
+                <a href="/checkout" class="cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-badge">0</span>
+                </a>
+                
+            </div>
+        </div>
+    </nav>
+    
+    <!-- SUB-NAVBAR -->
+    <nav class="sub-navbar">
+        <div class="sub-navbar-container">
+            <a href="/" class="active">
+                <i class="fas fa-home"></i>
+                Home
+            </a>
+        </div>
+    </nav>
+    
+    <!-- SHIPPING BAR -->
+    <div class="shipping-bar">
+        <div class="shipping-bar-content">
+            <span><i class="fas fa-truck"></i> Spedizione gratuita per ordini superiori ad €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
+            <span><i class="fas fa-truck"></i> Spedizione gratuita per ordini superiori ad €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
+        </div>
+    </div>
+    
+    <div class="page-wrapper">
+    
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <!-- HERO SECTION -->
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Arte e Ceramica di Caltagirone</h1>
+                <p class="hero-description">Tradizione artigianale siciliana tramandata da generazioni. Ogni pezzo è unico, fatto a mano con passione.</p>
+                <div class="hero-cta-group" style="justify-content: center;">
+                    <a href="/opere-d-arte" class="btn-primary">
+                        Scopri le mie opere d'arte
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <!-- GOOGLE REVIEWS SECTION -->
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    
+    <section class="reviews-section">
+        <div class="reviews-header">
+            <div class="section-label">Cosa dicono di me</div>
+            <h2 class="section-title">Le Voci dei Miei Clienti</h2>
+            
+            <div class="rating-summary">
+                <svg class="google-logo" viewBox="0 0 272 92" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#EA4335" d="M115.75 47.18c0 12.77-9.99 22.18-22.25 22.18s-22.25-9.41-22.25-22.18C71.25 34.32 81.24 25 93.5 25s22.25 9.32 22.25 22.18zm-9.74 0c0-7.98-5.79-13.44-12.51-13.44S80.99 39.2 80.99 47.18c0 7.9 5.79 13.44 12.51 13.44s12.51-5.55 12.51-13.44z"/>
+                    <path fill="#FBBC05" d="M163.75 47.18c0 12.77-9.99 22.18-22.25 22.18s-22.25-9.41-22.25-22.18c0-12.85 9.99-22.18 22.25-22.18s22.25 9.32 22.25 22.18zm-9.74 0c0-7.98-5.79-13.44-12.51-13.44s-12.51 5.46-12.51 13.44c0 7.9 5.79 13.44 12.51 13.44s12.51-5.55 12.51-13.44z"/>
+                    <path fill="#4285F4" d="M209.75 26.34v39.82c0 16.38-9.66 23.07-21.08 23.07-10.75 0-17.22-7.19-19.66-13.07l8.48-3.53c1.51 3.61 5.21 7.87 11.17 7.87 7.31 0 11.84-4.51 11.84-13v-3.19h-.34c-2.18 2.69-6.38 5.04-11.68 5.04-11.09 0-21.25-9.66-21.25-22.09 0-12.52 10.16-22.26 21.25-22.26 5.29 0 9.49 2.35 11.68 4.96h.34v-3.61h9.25zm-8.56 20.92c0-7.81-5.21-13.52-11.84-13.52-6.72 0-12.35 5.71-12.35 13.52 0 7.73 5.63 13.36 12.35 13.36 6.63 0 11.84-5.63 11.84-13.36z"/>
+                    <path fill="#34A853" d="M225 3v65h-9.5V3h9.5z"/>
+                    <path fill="#EA4335" d="M262.02 54.48l7.56 5.04c-2.44 3.61-8.32 9.83-18.48 9.83-12.6 0-22.01-9.74-22.01-22.18 0-13.19 9.49-22.18 20.92-22.18 11.51 0 17.14 9.16 18.98 14.11l1.01 2.52-29.65 12.28c2.27 4.45 5.8 6.72 10.75 6.72 4.96 0 8.4-2.44 10.92-6.14zm-23.27-7.98l19.82-8.23c-1.09-2.77-4.37-4.7-8.23-4.7-4.95 0-11.84 4.37-11.59 12.93z"/>
+                    <path fill="#4285F4" d="M35.29 41.41V32H67c.31 1.64.47 3.58.47 5.68 0 7.06-1.93 15.79-8.15 22.01-6.05 6.3-13.78 9.66-24.02 9.66C16.32 69.35.36 53.89.36 34.91.36 15.93 16.32.47 35.3.47c10.5 0 17.98 4.12 23.6 9.49l-6.64 6.64c-4.03-3.78-9.49-6.72-16.97-6.72-13.86 0-24.7 11.17-24.7 25.03 0 13.86 10.84 25.03 24.7 25.03 8.99 0 14.11-3.61 17.39-6.89 2.66-2.66 4.41-6.46 5.1-11.65l-22.49.01z"/>
+                </svg>
+                
+                <div class="rating-number">5.0</div>
+                
+                <div class="stars">
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                </div>
+                
+                <div class="review-count">(48 recensioni)</div>
+            </div>
+            
+            <div class="scroll-indicator">Scorri per leggere →</div>
+        </div>
+        
+        <div class="reviews-container">
+            <div class="review-card">
+                <div class="review-google-badge">
+                    Verificato da Google ✓
+                </div>
+                <img src="/assets/images/review-1.jpg" 
+                     alt="Maria Grazia T." 
+                     class="reviewer-photo"
+                     loading="lazy">
+                <div class="reviewer-info">
+                    <img src="/assets/images/review-1.jpg" 
+                         alt="" 
+                         class="reviewer-avatar"
+                         loading="lazy">
+                    <div class="reviewer-details">
+                        <h4>Maria Grazia T.</h4>
+                        <div class="review-rating">
+                            <div class="review-stars">
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                            </div>
+                            <span>• 15/11/'24</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="review-text">
+                    Acquisto splendido! Le ceramiche di Paola sono semplicemente meravigliose. Il dettaglio delle decorazioni è incredibile, ogni pezzo è unico. La spedizione è stata velocissima e l'imballo curatissimo. Consigliatissima!
+                </p>
+            </div>
+            
+            <div class="review-card">
+                <div class="review-google-badge">
+                    Verificato da Google ✓
+                </div>
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop&crop=face" 
+                     alt="Salvatore R." 
+                     class="reviewer-photo"
+                     loading="lazy">
+                <div class="reviewer-info">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face" 
+                         alt="" 
+                         class="reviewer-avatar"
+                         loading="lazy">
+                    <div class="reviewer-details">
+                        <h4>Salvatore R.</h4>
+                        <div class="review-rating">
+                            <div class="review-stars">
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                            </div>
+                            <span>• 08/10/'24</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="review-text">
+                    Ho ordinato una serie di bomboniere per il mio matrimonio e sono rimasto a bocca aperta. Paola è stata gentilissima, disponibile e ha personalizzato ogni dettaglio. Un lavoro d'arte vero e proprio.
+                </p>
+            </div>
+            
+            <div class="review-card">
+                <div class="review-google-badge">
+                    Verificato da Google ✓
+                </div>
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=300&fit=crop&crop=face" 
+                     alt="Giulia M." 
+                     class="reviewer-photo"
+                     loading="lazy">
+                <div class="reviewer-info">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face" 
+                         alt="" 
+                         class="reviewer-avatar"
+                         loading="lazy">
+                    <div class="reviewer-details">
+                        <h4>Giulia M.</h4>
+                        <div class="review-rating">
+                            <div class="review-stars">
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                            </div>
+                            <span>• 22/09/'24</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="review-text">
+                    Ceramiche autentiche di Caltagirone, si vede la passione in ogni pezzo. Ho acquistato online e la qualità corrisponde perfettamente alle foto. Tornerò sicuramente!
+                </p>
+            </div>
+            
+            <div class="review-card">
+                <div class="review-google-badge">
+                    Verificato da Google ✓
+                </div>
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=300&fit=crop&crop=face" 
+                     alt="Lorenzo B." 
+                     class="reviewer-photo"
+                     loading="lazy">
+                <div class="reviewer-info">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face" 
+                         alt="" 
+                         class="reviewer-avatar"
+                         loading="lazy">
+                    <div class="reviewer-details">
+                        <h4>Lorenzo B.</h4>
+                        <div class="review-rating">
+                            <div class="review-stars">
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                            </div>
+                            <span>• 05/08/'24</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="review-text">
+                    Regalo perfetto per la mia mamma. Ho scelto un vaso della collezione principale e lei è rimasta emozionata. Davvero un'artigiana straordinaria.
+                </p>
+            </div>
+        </div>
+        
+        <div class="reviews-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </section>
+    
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <!-- MAP SECTION -->
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    
+    <section class="map-section">
+        <div class="map-container">
+            <div class="map-header">
+                <h2>Vieni a Trovarmi</h2>
+                <p class="map-location">📍 Via Gabelle, 15 Caltagirone CT</p>
+            </div>
+            
+            <div class="map-wrapper">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d406586.35920300154!2d13.951950073242195!3d37.2368886685595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13110f494e8a4355%3A0x4e0924f5f73f672f!2sPaola%20Vacirca%20Arte%20e%20Ceramica%20di%20Caltagirone!5e0!3m2!1sit!2sit!4v1783496974551!5m2!1sit!2sit"
+                    width="100%"
+                    height="450"
+                    style="border:0;"
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="strict-origin-when-cross-origin">
+                </iframe>
+            </div>
+            
+            <a href="https://www.google.com/maps?q=Via+Gabelle+15+Caltagirone" target="_blank" rel="noopener noreferrer" class="map-cta">
+                <i class="fas fa-map-marker-alt"></i>
+                Apri in Google Maps
+            </a>
+        </div>
+    </section>
+    
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <!-- CONTACT SECTION -->
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    
+    <section class="contact-section" id="contatti">
+        <div class="contact-card">
+            <h2 class="section-title" style="margin-bottom: 0.25rem;">Contattami</h2>
+            <p style="color: var(--gray-500); font-size: 0.9375rem; margin-bottom: 1.5rem;">Hai qualche richiesta particolare?</p>
+            <div class="contact-items">
+                <a href="https://wa.me/39368663093" target="_blank" rel="noopener noreferrer" class="contact-item" style="text-decoration: none; cursor: pointer;">
+                    <div class="contact-item-icon phone">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div class="contact-item-body">
+                        <div class="contact-item-value" style="font-family: var(--font-body); font-size: 0.9375rem;">+39 368 663 093</div>
+                    </div>
+                </a>
+                
+                <a href="mailto:paolavacirca09@gmail.com" class="contact-item" style="text-decoration: none; cursor: pointer;">
+                    <div class="contact-item-icon email">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-item-body">
+                        <div class="contact-item-value email">paolavacirca09@gmail.com</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <!-- SOCIAL SECTION -->
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    
+    <section class="social-section">
+        <div class="social-card">
+            <h2 class="social-title">Seguimi</h2>
+            <p class="social-description">
+                Vieni a vedere come realizzo le mie opere d'arte
+            </p>
+            
+            <div class="social-icons">
+                <a href="https://www.tiktok.com/@paola9770" target="_blank" rel="noopener noreferrer" class="social-icon-link tiktok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                
+                <a href="https://www.instagram.com/paolavacirca.art" target="_blank" rel="noopener noreferrer" class="social-icon-link instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                
+                <a href="https://www.facebook.com/paolavacirca.quadri/" target="_blank" rel="noopener noreferrer" class="social-icon-link facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <!-- FOOTER -->
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">Paola Vacirca</div>
+            <p class="footer-tagline">Arte e Ceramica di Caltagirone</p>
+            
+            <ul class="footer-links">
+                <li><a href="/collezioni">Collezioni</a></li>
+                <li><a href="/bomboniere">Bomboniere</a></li>
+                <li><a href="#contatti">Contatti</a></li>
+                <li><a href="/privacy">Privacy Policy</a></li>
+                <li><a href="/cookies">Cookie Policy</a></li>
+            </ul>
+            
+            <div class="footer-divider"></div>
+            
+            <div class="footer-bottom">
+                © 2026 Paola Vacirca Arte e Ceramica di Caltagirone. Tutti i diritti riservati.<br>
+                P.IVA: 06249570877
+            </div>
+        </div>
+    </footer>
+    
+    </div>
+    
+    <script>
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        // CART MANAGEMENT
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        function updateCartBadge() {
+            const badge = document.querySelector('.cart-badge');
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            badge.textContent = totalItems;
+        }
+        
+        updateCartBadge();
+        
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        // SCROLL REVEAL ANIMATIONS
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.review-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(32px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+        
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        // REVIEWS SCROLL DOTS
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        
+        const reviewsContainer = document.querySelector('.reviews-container');
+        const dots = document.querySelectorAll('.reviews-dots .dot');
+        
+        reviewsContainer.addEventListener('scroll', () => {
+            const scrollLeft = reviewsContainer.scrollLeft;
+            const cardWidth = reviewsContainer.querySelector('.review-card').offsetWidth + 16;
+            const index = Math.round(scrollLeft / cardWidth);
+            dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+        });
+        
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                const cardWidth = reviewsContainer.querySelector('.review-card').offsetWidth + 16;
+                reviewsContainer.scrollTo({ left: cardWidth * i, behavior: 'smooth' });
+            });
+        });
+        
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        // SMOOTH SCROLL
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+    
+    
+    
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Le Ceramiche di Caltagirone - Paola Vacirca",
+        "image": "https://www.leceramichedicaltagirone.it/assets/images/og-image.jpg",
+        "@id": "https://www.leceramichedicaltagirone.it",
+        "url": "https://www.leceramichedicaltagirone.it",
+        "telephone": "+39XXXXXXXXXX",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "",
+            "addressLocality": "Caltagirone",
+            "addressRegion": "Sicilia",
+            "postalCode": "95041",
+            "addressCountry": "IT"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 37.2365,
+            "longitude": 14.5138
+        },
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday"
+            ],
+            "opens": "09:00",
+            "closes": "18:00"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "reviewCount": "48"
+        }
+    }
+    </script>
+
+
+</body>
+</html>

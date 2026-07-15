@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Mie Collezioni | Le Ceramiche di Caltagirone</title>
+    <meta name="description" content="Scopri le collezioni di ceramiche artigianali di Caltagirone. Ogni collezione racconta una storia di Sicilia.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        html {
+    overflow: visible;
+    padding-bottom: 52px;
+}
+
+        .page-wrapper {
+    overflow-x: hidden;
+}
+
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #C4923A;
+            --primary-light: #E8B86D;
+            --primary-dark: #8B6420;
+            --secondary: #2C4A3E;
+            --accent: #D4522A;
+            --white: #FEFAF5;
+            --cream: #F5EDD8;
+            --gray-100: #F8F4EE;
+            --gray-200: #EDE5D8;
+            --gray-300: #D4C4A8;
+            --gray-500: #8A7A65;
+            --gray-700: #4A3D2E;
+            --gray-900: #1A120B;
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Inter', system-ui, sans-serif;
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+            --radius-full: 9999px;
+            --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-spring: 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        body {
+            font-family: var(--font-body);
+            background: var(--white);
+            color: var(--gray-900);
+            line-height: 1.6;
+        }
+        
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        /* NAVBAR */
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(26, 18, 11, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+        }
+        
+        .navbar-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+        }
+        
+        .logo-text {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--cream);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .logo-subtitle {
+            font-family: var(--font-body);
+            font-size: 0.4rem;
+            letter-spacing: 0.08em;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--gray-300);
+            text-decoration: none;
+            position: relative;
+            transition: color var(--transition-base);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-light);
+            transition: width var(--transition-base);
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-light);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .cart-icon {
+            position: relative;
+            color: var(--gray-300);
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: color var(--transition-base);
+            text-decoration: none;
+        }
+        
+        .cart-icon:hover {
+            color: var(--primary-light);
+        }
+        
+        .cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--accent);
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 600;
+            padding: 2px 6px;
+            border-radius: var(--radius-full);
+            min-width: 18px;
+            text-align: center;
+        }
+        
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        /* SUB-NAVBAR */
+        .sub-navbar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            background: rgba(26, 18, 11, 0.85);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 0.5rem 1rem;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        
+        .sub-navbar::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .sub-navbar-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .sub-navbar a {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+            text-decoration: none;
+            color: var(--gray-500);
+            font-size: 0.65rem;
+            padding: 4px 12px;
+            border-radius: var(--radius-sm);
+            transition: all var(--transition-base);
+            min-width: 60px;
+        }
+        
+        .sub-navbar a i {
+            font-size: 1.1rem;
+        }
+        
+        .sub-navbar a:hover {
+            color: var(--primary-light);
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .sub-navbar a.active {
+            color: var(--primary-light);
+        }
+        
+        .shipping-bar {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 64px;
+            z-index: 998;
+            background: rgba(190, 45, 45, 0.75);
+            backdrop-filter: blur(8px);
+            color: white;
+            overflow: hidden;
+            padding: 0.5rem 0;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+        
+        .shipping-bar-content {
+            display: inline-flex;
+            align-items: center;
+            white-space: nowrap;
+            animation: scrollRight 15s linear infinite;
+        }
+        
+        @keyframes scrollRight {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+        
+        .shipping-bar-content i {
+            margin: 0 0.35rem;
+            color: white;
+        }
+        
+        .shipping-bar-content span {
+            margin-right: 3rem;
+        }
+        
+        /* PAGE HEADER */
+        .breadcrumb {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 2rem 1rem;
+            font-size: 0.8125rem;
+            color: var(--gray-500);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .breadcrumb-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.25rem;
+            background: var(--gray-100);
+            border: 1px solid var(--gray-300);
+            border-radius: var(--radius-md);
+            color: var(--gray-700);
+            font-size: 0.875rem;
+            font-family: var(--font-body);
+            text-decoration: none;
+            transition: all var(--transition-base);
+            white-space: nowrap;
+        }
+        
+        .breadcrumb-back:hover {
+            background: var(--gray-200);
+            border-color: var(--primary);
+            color: var(--primary-dark);
+        }
+        .breadcrumb a {
+            color: var(--gray-500);
+            text-decoration: none;
+            transition: color var(--transition-base);
+        }
+        .breadcrumb a:hover {
+            color: var(--primary);
+        }
+        .breadcrumb .separator {
+            margin: 0 0.5rem;
+            color: var(--primary);
+        }
+        .breadcrumb .current {
+            color: var(--gray-900);
+        }
+        
+        .page-header {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 2rem 4rem;
+            text-align: center;
+        }
+        
+        .page-title {
+            font-family: var(--font-display);
+            font-size: 3.25rem;
+            background: linear-gradient(135deg, var(--gray-900), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+        
+        .page-subtitle {
+            font-size: 1.125rem;
+            color: var(--gray-500);
+            margin-bottom: 2rem;
+        }
+        
+        .decorative-line {
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            margin: 0 auto;
+        }
+        
+        /* COLLECTIONS GRID */
+        .collections-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        
+        .collection-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(31, 20, 5, 0.08);
+            border: 1px solid var(--gray-200);
+            transition: all var(--transition-spring);
+            position: relative;
+        }
+        
+        .collection-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(31, 20, 5, 0.15);
+        }
+        
+        .collection-card.featured {
+            border: 2px solid var(--primary);
+            box-shadow: 0 4px 24px rgba(196, 146, 58, 0.2);
+        }
+        
+        .collection-card.featured:hover {
+            box-shadow: 0 0 40px rgba(196, 146, 58, 0.3);
+        }
+        
+        .collection-image-wrapper {
+            position: relative;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+        }
+        
+        .collection-image-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(26,18,11,0.6), transparent);
+            opacity: 0;
+            transition: opacity var(--transition-base);
+        }
+        
+        .collection-card:hover .collection-image-wrapper::after {
+            opacity: 1;
+        }
+        
+        .collection-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .collection-card:hover .collection-image {
+            transform: scale(1.05);
+        }
+        
+        .discount-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-full);
+            font-size: 0.6875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            animation: pulse-glow 2s infinite;
+            z-index: 10;
+        }
+        
+        .handmade-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            background: var(--secondary);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 8px rgba(212, 82, 42, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(212, 82, 42, 0.8); }
+        }
+        
+        .collection-content {
+            padding: 2rem;
+        }
+        
+        .collection-name {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 0.75rem;
+        }
+        
+        .collection-description {
+            font-size: 0.875rem;
+            color: var(--gray-700);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .collection-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8125rem;
+            color: var(--gray-500);
+            margin-bottom: 1.5rem;
+        }
+        
+        .collection-cta {
+            display: block;
+            width: 100%;
+            padding: 0.875rem 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            border-radius: var(--radius-full);
+            font-family: var(--font-body);
+            font-size: 0.9375rem;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all var(--transition-base);
+        }
+        
+        .collection-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(196, 146, 58, 0.4);
+        }
+        
+        /* FOOTER */
+        footer {
+            background: var(--gray-900);
+            color: var(--gray-300);
+            padding: 3rem 2rem 1.5rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--cream);
+            margin-bottom: 0.15rem;
+        }
+        
+        .footer-tagline {
+            font-size: 0.875rem;
+            color: var(--gray-500);
+            margin-bottom: 2rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            list-style: none;
+        }
+        
+        .footer-links a {
+            color: var(--gray-300);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color var(--transition-base);
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-light);
+        }
+        
+        .footer-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 2rem 0;
+        }
+        
+        .footer-bottom {
+            font-size: 0.8125rem;
+            color: var(--gray-500);
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .collections-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .page-title {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            
+            .collections-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .logo-text {
+                font-size: 1.125rem;
+            }
+            
+            .logo-subtitle {
+                font-size: 0.58rem;
+            }
+            
+            .sub-navbar a {
+                font-size: 0.6rem;
+                min-width: 50px;
+            }
+            
+            .sub-navbar a i {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="/" class="logo">
+                <div class="logo-text">Paola Vacirca</div>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/collezioni">Collezioni</a></li>
+                <li><a href="/bomboniere">Bomboniere</a></li>
+                <li><a href="/#contatti">Contatti</a></li>
+            </ul>
+            
+            <div class="nav-right">
+                <a href="/checkout" class="cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-badge">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+        <!-- SUB-NAVBAR -->
+    <nav class="sub-navbar">
+        <div class="sub-navbar-container">
+            <a href="/" class="active">
+                <i class="fas fa-home"></i>
+                Home
+            </a>
+        </div>
+    </nav>
+    
+    <!-- SHIPPING BAR -->
+    <div class="shipping-bar">
+        <div class="shipping-bar-content">
+            <span><i class="fas fa-truck"></i> Spedizione gratuita per ordini superiori ad €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
+            <span><i class="fas fa-truck"></i> Spedizione gratuita per ordini superiori ad €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
+        </div>
+    </div>
+    
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+        <div>
+            <a href="/opere-d-arte">Le mie opere d'arte</a>
+            <span class="separator">/</span>
+            <span class="current">Le Mie Collezioni</span>
+        </div>
+        <a href="/opere-d-arte" class="breadcrumb-back">
+            <i class="fas fa-arrow-left"></i>
+            Indietro
+        </a>
+    </div>
+    
+    <div class="page-wrapper">
+    
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+        <h1 class="page-title">Le Mie Collezioni</h1>
+        <p class="page-subtitle">Ogni collezione racconta una storia di Sicilia</p>
+        <div class="decorative-line"></div>
+    </div>
+    
+    <!-- COLLECTIONS GRID -->
+    <div class="collections-grid">
+        <!-- COLLECTION 1: Giardino Barocco (SCONTATA) -->
+        <div class="collection-card featured">
+            <div class="collection-image-wrapper">
+                <span class="discount-badge">OFFERTA SPECIALE -30%</span>
+                <img src="/assets/images/collezione-giardino-barocco.png" 
+                     alt="Collezione Giardino Barocco" 
+                     class="collection-image"
+                     loading="lazy">
+            </div>
+            <div class="collection-content">
+                <span class="handmade-badge"><i class="fas fa-hand-sparkles"></i> Fatto a mano</span>
+                <h2 class="collection-name">Giardino Barocco</h2>
+                <p class="collection-description">
+                    Linee verticali verdi e bianche, fiori di papavero rosso. Una collezione che celebra l'eleganza del Giardino Barocco siciliano, con il marchio unico dell'artista Paola Vacirca.
+                </p>
+                <div class="collection-meta">
+                    <i class="fas fa-shapes"></i>
+                    <span>3 pezzi</span>
+                    <span style="color: var(--accent); font-weight: 600;">• Bundle -30%</span>
+                </div>
+                <a href="/collezioni/giardino-barocco" class="collection-cta">
+                    Esplora Collezione
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">Paola Vacirca</div>
+            <p class="footer-tagline">Arte e Ceramica di Caltagirone</p>
+            
+            <ul class="footer-links">
+                <li><a href="/collezioni">Collezioni</a></li>
+                <li><a href="/bomboniere">Bomboniere</a></li>
+                <li><a href="/#contatti">Contatti</a></li>
+                <li><a href="/privacy">Privacy Policy</a></li>
+                <li><a href="/cookies">Cookie Policy</a></li>
+            </ul>
+            
+            <div class="footer-divider"></div>
+            
+            <div class="footer-bottom">
+                © 2026 Paola Vacirca Arte e Ceramica di Caltagirone. Tutti i diritti riservati.<br>
+                P.IVA: 06249570877
+            </div>
+        </div>
+    </footer>
+    
+    </div>
+    
+    <script>
+        // Update cart badge
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        function updateCartBadge() {
+            const badge = document.querySelector('.cart-badge');
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            badge.textContent = totalItems;
+        }
+        updateCartBadge();
+    </script>
+
+
+</body>
+</html>

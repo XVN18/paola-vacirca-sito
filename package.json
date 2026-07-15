@@ -1,0 +1,15 @@
+{
+  "name": "ceramiche-di-caltagirone",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler pages dev . --compatibility-date=2024-01-01",
+    "deploy": "wrangler pages deploy ."
+  },
+  "dependencies": {
+    "stripe": "^14.0.0"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}
