@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Collezione Barocco Siciliano | Le Ceramiche di Caltagirone</title>
-    <meta name="description" content="Scopri la collezione Barocco Siciliano, ispirata all'eleganza del barocco di Val di Noto.">
+    <title>Collezione Etna - OFFERTA SPECIALE | Le Ceramiche di Caltagirone</title>
+    <meta name="description" content="Collezione Etna in offerta speciale! Risparmia fino al 30% acquistando il bundle completo.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,7 +59,9 @@
             line-height: 1.6;
         }
         
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
         /* NAVBAR */
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
         
         .navbar {
             position: sticky;
@@ -263,6 +265,43 @@
             margin-right: 3rem;
         }
         
+        /* DISCOUNT BANNER */
+        .discount-banner {
+            background: linear-gradient(135deg, #D4522A, #E8896A);
+            color: white;
+            text-align: center;
+            padding: 1.5rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .discount-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 200%; }
+        }
+        
+        .discount-banner h2 {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .discount-banner p {
+            font-size: 1rem;
+            opacity: 0.95;
+        }
+        
         /* BREADCRUMB */
         .breadcrumb {
             max-width: 1400px;
@@ -270,6 +309,31 @@
             padding: 2rem 2rem 1rem;
             font-size: 0.8125rem;
             color: var(--gray-500);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .breadcrumb-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.25rem;
+            background: var(--gray-100);
+            border: 1px solid var(--gray-300);
+            border-radius: var(--radius-md);
+            color: var(--gray-700);
+            font-size: 0.875rem;
+            font-family: var(--font-body);
+            text-decoration: none;
+            transition: all var(--transition-base);
+            white-space: nowrap;
+        }
+        
+        .breadcrumb-back:hover {
+            background: var(--gray-200);
+            border-color: var(--primary);
+            color: var(--primary-dark);
         }
         
         .breadcrumb a {
@@ -314,10 +378,10 @@
         .products-grid {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 2rem 4rem;
+            padding: 0 2rem 3rem;
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2.5rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
         }
         
         .product-card {
@@ -327,11 +391,25 @@
             box-shadow: 0 4px 24px rgba(31, 20, 5, 0.08);
             border: 1px solid var(--gray-200);
             transition: all var(--transition-spring);
+            position: relative;
         }
         
         .product-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 12px 40px rgba(31, 20, 5, 0.15);
+        }
+        
+        .discount-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 0.75rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.875rem;
+            font-weight: 700;
+            z-index: 10;
         }
         
         .handmade-badge {
@@ -349,8 +427,15 @@
         
         .product-image-wrapper {
             position: relative;
-            aspect-ratio: 3/4;
+            aspect-ratio: 1/1;
             overflow: hidden;
+        }
+        
+        .main-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
         }
         
         .product-image {
@@ -365,7 +450,7 @@
         }
         
         .product-content {
-            padding: 2rem;
+            padding: 1.5rem;
         }
         
         .product-name {
@@ -380,25 +465,49 @@
             font-size: 0.875rem;
             color: var(--gray-700);
             line-height: 1.6;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
         
-        .product-price {
-            font-size: 1.75rem;
+        .price-wrapper {
+            margin-bottom: 1rem;
+        }
+        
+        .original-price {
+            font-size: 0.875rem;
+            color: var(--gray-500);
+            text-decoration: line-through;
+            margin-bottom: 0.25rem;
+        }
+        
+        .discounted-price {
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--primary);
-            margin-bottom: 1.5rem;
+        }
+        
+        .discount-percent {
+            display: inline-block;
+            margin-left: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        .savings {
+            font-size: 0.8125rem;
+            color: var(--secondary);
+            font-weight: 600;
         }
         
         .add-to-cart-btn {
             width: 100%;
-            padding: 1rem 1.5rem;
+            padding: 0.875rem 1.25rem;
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
             border: none;
             border-radius: var(--radius-full);
             font-family: var(--font-body);
-            font-size: 0.9375rem;
+            font-size: 0.875rem;
             font-weight: 600;
             cursor: pointer;
             transition: all var(--transition-base);
@@ -413,12 +522,147 @@
             box-shadow: 0 8px 24px rgba(196, 146, 58, 0.4);
         }
         
-        .add-to-cart-btn:active {
-            transform: translateY(0);
+        /* BUNDLE SECTION */
+        .bundle-section {
+            max-width: 1000px;
+            margin: 3rem auto 4rem;
+            padding: 0 2rem;
         }
         
-        .add-to-cart-btn.added {
-            background: var(--secondary);
+        .bundle-card {
+            background: linear-gradient(135deg, rgba(196, 146, 58, 0.05), rgba(196, 146, 58, 0.1));
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-xl);
+            padding: 3rem;
+            box-shadow: 0 0 40px rgba(196, 146, 58, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .best-offer-badge {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        
+        .bundle-images {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .bundle-collection-name {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--gray-900);
+            margin: 0;
+        }
+        
+        .bundle-image-mini {
+            width: 120px;
+            height: 150px;
+            border-radius: var(--radius-md);
+            object-fit: cover;
+            box-shadow: 0 4px 12px rgba(31, 20, 5, 0.15);
+        }
+        
+        .bundle-image-cover {
+            width: 360px;
+            height: auto;
+            max-height: 240px;
+            border-radius: var(--radius-md);
+            object-fit: contain;
+            box-shadow: 0 8px 24px rgba(31, 20, 5, 0.2);
+        }
+        
+        
+        .bundle-pricing {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .bundle-original-price {
+            font-size: 1.125rem;
+            color: var(--gray-500);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .bundle-original-price .bundle-strikethrough {
+            text-decoration: line-through;
+        }
+        
+        .bundle-original-price .bundle-discount-label {
+            font-size: 0.75rem;
+            padding: 0.1rem 0.5rem;
+            margin-left: 0;
+        }
+        
+        .bundle-discounted-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            vertical-align: middle;
+        }
+        
+        .bundle-discount-label {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.15rem 0.75rem;
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
+        
+        .bundle-savings {
+            font-size: 1rem;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+        
+        .bundle-cta {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 1.25rem 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            border-radius: var(--radius-full);
+            font-family: var(--font-body);
+            font-size: 1.125rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all var(--transition-spring);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            box-shadow: 0 8px 32px rgba(196, 146, 58, 0.4);
+        }
+        
+        .bundle-cta:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(196, 146, 58, 0.5);
         }
         
         /* FOOTER */
@@ -426,7 +670,6 @@
             background: var(--gray-900);
             color: var(--gray-300);
             padding: 3rem 2rem 1.5rem;
-            margin-top: 4rem;
         }
         
         .footer-container {
@@ -479,7 +722,48 @@
             color: var(--gray-500);
         }
         
+        /* FLY TO CART ANIMATION */
+        .fly-to-cart {
+            position: fixed;
+            z-index: 9999;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            pointer-events: none;
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .cart-icon-bounce {
+            animation: cartBounce 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes cartBounce {
+            0% { transform: scale(1); }
+            30% { transform: scale(1.4); }
+            50% { transform: scale(0.9); }
+            70% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+
+        .badge-pop {
+            animation: badgePop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes badgePop {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.6); }
+            100% { transform: scale(1); }
+        }
+
         /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -488,7 +772,6 @@
             
             .products-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
             }
             
             .collection-hero-title {
@@ -510,6 +793,25 @@
             
             .sub-navbar a i {
                 font-size: 1rem;
+            }
+            
+            .discount-banner h2 {
+                font-size: 1.25rem;
+            }
+            
+            .bundle-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .bundle-image-cover {
+                width: 280px;
+                height: auto;
+                max-height: 187px;
+            }
+            
+            .bundle-cta {
+                font-size: 0.875rem;
+                padding: 0.875rem 1.5rem;
             }
         }
     </style>
@@ -557,22 +859,31 @@
     
     <div class="page-wrapper">
     
+    <!-- DISCOUNT BANNER -->
+    <div class="discount-banner">
+        <h2>COLLEZIONE SCONTATA! Risparmia fino al 30%</h2>
+    </div>
+    
     <!-- BREADCRUMB -->
     <div class="breadcrumb">
-        <a href="/">Home</a>
-        <span class="separator">/</span>
-        <a href="/collezioni">Collezioni</a>
-        <span class="separator">/</span>
-        <span class="current">Barocco Siciliano</span>
+        <div>
+            <a href="/collezioni">Collezioni</a>
+            <span class="separator">/</span>
+            <span class="current">Etna</span>
+        </div>
+        <a href="/collezioni" class="breadcrumb-back">
+            <i class="fas fa-arrow-left"></i>
+            Indietro
+        </a>
     </div>
     
     <!-- COLLECTION HERO -->
     <div class="collection-hero">
-        <h1 class="collection-hero-title">Collezione Barocco Siciliano</h1>
+        <h1 class="collection-hero-title">Collezione Etna</h1>
         <p class="collection-hero-description">
-            L'eleganza del barocco di Val di Noto si fonde con l'arte ceramica di Caltagirone. 
-            Dettagli raffinati che raccontano secoli di tradizione siciliana, 
-            ispirati alle maestose chiese e ai palazzi nobiliari del sud-est siciliano.
+            Le sfumature del vulcano Etna in ogni creazione. Questa collezione celebra la forza 
+            e la bellezza della terra di Sicilia, con tonalità che richiamano la lava, 
+            il cielo e la natura dell'Etna.
         </p>
     </div>
     
@@ -580,21 +891,28 @@
     <div class="products-grid">
         <!-- Product 1 -->
         <div class="product-card">
+            <span class="discount-badge">-20%</span>
             <div class="product-image-wrapper">
-                <img src="https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=600&h=800&fit=crop" 
-                     alt="Vaso Barocco" 
-                     class="product-image"
+                <img src="/assets/images/Collezione-Etna-1.PNG" 
+                     alt="Vaso Etna" 
+                     class="main-image"
                      loading="lazy">
             </div>
             <div class="product-content">
                 <span class="handmade-badge"><i class="fas fa-hand-sparkles"></i> Fatto a mano</span>
-                <h3 class="product-name">Vaso Noto</h3>
+                <h3 class="product-name">Vaso Etna</h3>
                 <p class="product-description">
-                    Un vaso maestoso ispirato alla cattedrale di Noto, con decorazioni elaborate 
-                    che richiamano i motivi barocchi delle facciate siciliane.
+                    Un vaso imponente decorato con le tonalità della terra vulcanica dell'Etna, impreziosito dai dettagli unici che richiamano la forza della natura siciliana.
                 </p>
-                <div class="product-price">€120,00</div>
-                <button class="add-to-cart-btn" onclick="addToCart('vaso-noto', 'Vaso Noto', 120, 'barocco-siciliano')">
+                <div class="price-wrapper">
+                    <div class="original-price">Prezzo originale: €100,00</div>
+                    <div class="discounted-price">
+                        €80,00
+                        <span class="discount-percent">(-20%)</span>
+                    </div>
+                    <div class="savings">Risparmi €20,00</div>
+                </div>
+                <button class="add-to-cart-btn" onclick="addToCart('vaso-etna', 'Vaso Etna', 80, 'etna', 100)">
                     <i class="fas fa-shopping-cart"></i>
                     Aggiungi al Carrello
                 </button>
@@ -603,21 +921,28 @@
         
         <!-- Product 2 -->
         <div class="product-card">
+            <span class="discount-badge">-20%</span>
             <div class="product-image-wrapper">
-                <img src="https://images.unsplash.com/photo-1610701596061-2ecf227e85b2?w=600&h=800&fit=crop" 
-                     alt="Piatto Ornamentale" 
-                     class="product-image"
+                <img src="/assets/images/Collezione-Etna-2.PNG" 
+                     alt="Ciotola Etna" 
+                     class="main-image"
                      loading="lazy">
             </div>
             <div class="product-content">
                 <span class="handmade-badge"><i class="fas fa-hand-sparkles"></i> Fatto a mano</span>
-                <h3 class="product-name">Piatto Ragusa</h3>
+                <h3 class="product-name">Ciotola Etna</h3>
                 <p class="product-description">
-                    Un piatto ornamentale con pattern ispirati ai balconi barocchi di Ragusa Ibla, 
-                    ricco di dettagli dorati e decorazioni floreali.
+                    Una ciotola che celebra la potenza dell'Etna con le sue tonalità vulcaniche e i dettagli che richiamano la lava che scorre verso il mare.
                 </p>
-                <div class="product-price">€75,00</div>
-                <button class="add-to-cart-btn" onclick="addToCart('piatto-ragusa', 'Piatto Ragusa', 75, 'barocco-siciliano')">
+                <div class="price-wrapper">
+                    <div class="original-price">Prezzo originale: €70,00</div>
+                    <div class="discounted-price">
+                        €56,00
+                        <span class="discount-percent">(-20%)</span>
+                    </div>
+                    <div class="savings">Risparmi €14,00</div>
+                </div>
+                <button class="add-to-cart-btn" onclick="addToCart('ciotola-etna', 'Ciotola Etna', 56, 'etna', 70)">
                     <i class="fas fa-shopping-cart"></i>
                     Aggiungi al Carrello
                 </button>
@@ -626,48 +951,60 @@
         
         <!-- Product 3 -->
         <div class="product-card">
+            <span class="discount-badge">-20%</span>
             <div class="product-image-wrapper">
-                <img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?w=600&h=800&fit=crop" 
-                     alt="Coppia Candelieri" 
-                     class="product-image"
+                <img src="/assets/images/Collezione-Etna-3.PNG" 
+                     alt="Piatto Etna" 
+                     class="main-image"
                      loading="lazy">
             </div>
             <div class="product-content">
                 <span class="handmade-badge"><i class="fas fa-hand-sparkles"></i> Fatto a mano</span>
-                <h3 class="product-name">Candeliere Modica</h3>
+                <h3 class="product-name">Piatto Etna</h3>
                 <p class="product-description">
-                    Un elegante candeliere che celebra l'opulenza barocca di Modica, 
-                    perfetto per creare atmosfera nelle occasioni speciali.
+                    Un piatto decorativo che racchiude l'essenza dell'Etna: tonalità vulcaniche e dettagli unici che richiamano la bellezza della terra di Sicilia.
                 </p>
-                <div class="product-price">€95,00</div>
-                <button class="add-to-cart-btn" onclick="addToCart('candeliere-modica', 'Candeliere Modica', 95, 'barocco-siciliano')">
+                <div class="price-wrapper">
+                    <div class="original-price">Prezzo originale: €60,00</div>
+                    <div class="discounted-price">
+                        €48,00
+                        <span class="discount-percent">(-20%)</span>
+                    </div>
+                    <div class="savings">Risparmi €12,00</div>
+                </div>
+                <button class="add-to-cart-btn" onclick="addToCart('piatto-etna', 'Piatto Etna', 48, 'etna', 60)">
                     <i class="fas fa-shopping-cart"></i>
                     Aggiungi al Carrello
                 </button>
             </div>
         </div>
-        
-        <!-- Product 4 -->
-        <div class="product-card">
-            <div class="product-image-wrapper">
-                <img src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=600&h=800&fit=crop" 
-                     alt="Anfora Decorativa" 
-                     class="product-image"
-                     loading="lazy">
+    </div>
+    
+    <!-- BUNDLE SECTION -->
+    <div class="bundle-section">
+        <div class="bundle-card">
+            <span class="best-offer-badge">MIGLIOR OFFERTA</span>
+            
+            <div class="bundle-images">
+                <img src="/assets/images/Collezione-Etna-1.PNG" alt="Collezione Etna" class="bundle-image-cover">
+                <h3 class="bundle-collection-name">Collezione Etna</h3>
             </div>
-            <div class="product-content">
-                <span class="handmade-badge"><i class="fas fa-hand-sparkles"></i> Fatto a mano</span>
-                <h3 class="product-name">Anfora Scicli</h3>
-                <p class="product-description">
-                    Un'anfora decorativa che combina le forme classiche con i motivi barocchi, 
-                    ispirata ai tesori artistici di Scicli.
-                </p>
-                <div class="product-price">€110,00</div>
-                <button class="add-to-cart-btn" onclick="addToCart('anfora-scicli', 'Anfora Scicli', 110, 'barocco-siciliano')">
-                    <i class="fas fa-shopping-cart"></i>
-                    Aggiungi al Carrello
-                </button>
+            
+            <div class="bundle-pricing">
+                <div class="bundle-original-price">
+                    <span class="bundle-strikethrough">€230,00</span>
+                    <span class="bundle-discount-label">-30%</span>
+                </div>
+                <div>
+                    <span class="bundle-discounted-price">€161,00</span>
+                </div>
+                <div class="bundle-savings">Risparmi €69,00</div>
             </div>
+            
+            <button class="bundle-cta" onclick="addBundleToCart()">
+                <i class="fas fa-shopping-cart"></i>
+                Acquista la Collezione
+            </button>
         </div>
     </div>
     
@@ -696,7 +1033,6 @@
     </footer>
     
     </div>
-    
     <script>
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
         
@@ -705,9 +1041,47 @@
             const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
             badge.textContent = totalItems;
         }
-        
-        function addToCart(id, name, price, collection) {
+
+        function flyToCart(imageSrc, btn) {
+            const btnRect = btn.getBoundingClientRect();
+            const cartIcon = document.querySelector('.cart-icon');
+            const cartRect = cartIcon.getBoundingClientRect();
+
+            const flyer = document.createElement('img');
+            flyer.src = imageSrc;
+            flyer.className = 'fly-to-cart';
+            flyer.style.left = btnRect.left + btnRect.width / 2 - 25 + 'px';
+            flyer.style.top = btnRect.top + 'px';
+            document.body.appendChild(flyer);
+
+            requestAnimationFrame(() => {
+                flyer.style.left = cartRect.left + cartRect.width / 2 - 25 + 'px';
+                flyer.style.top = cartRect.top + 'px';
+                flyer.style.opacity = '0.3';
+                flyer.style.transform = 'scale(0.3)';
+            });
+
+            setTimeout(() => {
+                flyer.remove();
+                updateCartBadge();
+                cartIcon.classList.add('cart-icon-bounce');
+                const badge = document.querySelector('.cart-badge');
+                badge.classList.add('badge-pop');
+                setTimeout(() => {
+                    cartIcon.classList.remove('cart-icon-bounce');
+                    badge.classList.remove('badge-pop');
+                }, 500);
+            }, 800);
+        }
+
+        function addToCart(id, name, price, collection, originalPrice = null) {
             const existingItem = cart.find(item => item.id === id);
+            
+            const productImageMap = {
+                'vaso-etna': '/assets/images/Collezione-Etna-1.PNG',
+                'ciotola-etna': '/assets/images/Collezione-Etna-2.PNG',
+                'piatto-etna': '/assets/images/Collezione-Etna-3.PNG'
+            };
             
             if (existingItem) {
                 existingItem.quantity += 1;
@@ -716,29 +1090,72 @@
                     id: id,
                     name: name,
                     price: price,
+                    originalPrice: originalPrice,
                     collection: collection,
-                    quantity: 1
+                    quantity: 1,
+                    image: productImageMap[id] || ''
                 });
             }
             
             localStorage.setItem('cart', JSON.stringify(cart));
-            updateCartBadge();
-            
+
             const btn = event.target.closest('.add-to-cart-btn');
-            const originalHTML = btn.innerHTML;
+            flyToCart(productImageMap[id], btn);
+
             btn.innerHTML = '<i class="fas fa-check"></i> Aggiunto!';
-            btn.classList.add('added');
-            
             setTimeout(() => {
-                btn.innerHTML = originalHTML;
-                btn.classList.remove('added');
+                btn.innerHTML = '<i class="fas fa-shopping-bag"></i> Procedi al Checkout';
+                btn.onclick = () => window.location.href = '/checkout';
+            }, 2000);
+        }
+        
+        function addBundleToCart() {
+            cart = cart.filter(item => !['vaso-etna', 'ciotola-etna', 'piatto-etna'].includes(item.id));
+            
+            const bundleExists = cart.find(item => item.id === 'bundle-etna');
+            if (bundleExists) {
+                bundleExists.quantity += 1;
+            } else {
+                cart.push({
+                    id: 'bundle-etna',
+                    name: 'Collezione Etna Completa',
+                    price: 161,
+                    originalPrice: 230,
+                    collection: 'etna-bundle',
+                    quantity: 1,
+                    isBundle: true,
+                    image: '/assets/images/Collezione-Etna-1.PNG'
+                });
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            const btn = event.target.closest('.bundle-cta');
+            flyToCart('/assets/images/Collezione-Etna-1.PNG', btn);
+
+            btn.innerHTML = '<i class="fas fa-check"></i> Bundle Aggiunto!';
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fas fa-shopping-bag"></i> Procedi al Checkout';
+                btn.onclick = () => window.location.href = '/checkout';
             }, 2000);
         }
         
         updateCartBadge();
-    </script>
 
-    <script>
+        const productIds = ['vaso-etna', 'ciotola-etna', 'piatto-etna'];
+        document.querySelectorAll('.add-to-cart-btn').forEach((btn, i) => {
+            if (cart.find(item => item.id === productIds[i])) {
+                btn.innerHTML = '<i class="fas fa-shopping-bag"></i> Procedi al Checkout';
+                btn.onclick = () => window.location.href = '/checkout';
+            }
+        });
+
+        const bundleBtn = document.querySelector('.bundle-cta');
+        if (cart.find(item => item.id === 'bundle-etna')) {
+            bundleBtn.innerHTML = '<i class="fas fa-shopping-bag"></i> Procedi al Checkout';
+            bundleBtn.onclick = () => window.location.href = '/checkout';
+        }
+    </script>
 
 
 </body>
