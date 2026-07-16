@@ -414,18 +414,7 @@
         <!-- LEFT COLUMN - IMAGES -->
         <div class="product-images">
             <div class="main-image-wrapper">
-                <img id="mainImage" src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=800&h=800&fit=crop" alt="Bomboniera Cuore Siciliano" class="main-image">
-            </div>
-            <div class="thumbnails">
-                <div class="thumbnail active" onclick="changeMainImage(this, 'https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=800&h=800&fit=crop')">
-                    <img src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=200&h=200&fit=crop" alt="Vista 1">
-                </div>
-                <div class="thumbnail" onclick="changeMainImage(this, 'https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=800&h=800&fit=crop')">
-                    <img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=200&h=200&fit=crop" alt="Vista 2">
-                </div>
-                <div class="thumbnail" onclick="changeMainImage(this, 'https://images.unsplash.com/photo-1615529182904-14819c35db37?w=800&h=800&fit=crop')">
-                    <img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?w=200&h=200&fit=crop" alt="Vista 3">
-                </div>
+                <img id="mainImage" src="/assets/images/bomboniera-1.PNG" alt="Bomboniera Cuore Siciliano" class="main-image">
             </div>
         </div>
         
@@ -438,17 +427,6 @@
             
             <h1 class="product-title">Bomboniera Cuore Siciliano</h1>
             
-            <div class="product-rating">
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <span class="rating-text">5.0 (12 recensioni)</span>
-            </div>
-            
             <p class="product-description">
                 Una bomboniera artigianale unica che cattura l'essenza della Sicilia. 
                 Ogni pezzo è realizzato a mano con la tradizionale ceramica di Caltagirone, 
@@ -456,19 +434,6 @@
             </p>
             
             <div class="divider"></div>
-            
-            <!-- COLOR SELECTOR -->
-            <div class="color-selector">
-                <label class="color-selector-label">Scegli il colore:</label>
-                <div class="color-options">
-                    <div class="color-option selected" style="background: #6BA3BE;" data-color="Azzurro Mediterraneo" onclick="selectColor(this)"></div>
-                    <div class="color-option" style="background: #F4C542;" data-color="Giallo Sole Siciliano" onclick="selectColor(this)"></div>
-                    <div class="color-option" style="background: #C0392B;" data-color="Rosso Terracotta" onclick="selectColor(this)"></div>
-                    <div class="color-option" style="background: #4A9B7F;" data-color="Verde Agave" onclick="selectColor(this)"></div>
-                    <div class="color-option" style="background: #F5F0E8; border-color: #ccc;" data-color="Bianco Calce" onclick="selectColor(this)"></div>
-                </div>
-                <div class="selected-color-name" id="selectedColorName">Azzurro Mediterraneo</div>
-            </div>
             
             <!-- QUANTITY -->
             <div class="quantity-selector">
@@ -483,7 +448,6 @@
             <!-- PRICE -->
             <div class="price-section">
                 <div class="price">€ 15,00</div>
-                <div class="shipping-note">📦 Spedizione gratuita sopra €50</div>
             </div>
             
             <!-- CTA BUTTONS -->
@@ -501,20 +465,20 @@
             <!-- TRUST BADGES -->
             <div class="trust-badges">
                 <div class="trust-badge">
-                    <div class="trust-badge-icon">🏺</div>
+                    <div class="trust-badge-icon"><i class="fas fa-palette"></i></div>
+                    <div class="trust-badge-text">Completamente personalizzabile</div>
+                </div>
+                <div class="trust-badge">
+                    <div class="trust-badge-icon"><i class="fas fa-hand-sparkles"></i></div>
                     <div class="trust-badge-text">Fatto a mano a Caltagirone</div>
                 </div>
                 <div class="trust-badge">
-                    <div class="trust-badge-icon">📦</div>
+                    <div class="trust-badge-icon"><i class="fas fa-box"></i></div>
                     <div class="trust-badge-text">Imballaggio sicuro</div>
                 </div>
                 <div class="trust-badge">
-                    <div class="trust-badge-icon">🔄</div>
+                    <div class="trust-badge-icon"><i class="fas fa-rotate-left"></i></div>
                     <div class="trust-badge-text">Reso facile 30 giorni</div>
-                </div>
-                <div class="trust-badge">
-                    <div class="trust-badge-icon">📞</div>
-                    <div class="trust-badge-text">Supporto diretto</div>
                 </div>
             </div>
             
@@ -609,7 +573,6 @@
     
     <script>
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        let selectedColor = 'Azzurro Mediterraneo';
         
         function updateCartBadge() {
             const badge = document.querySelector('.cart-badge');
@@ -621,13 +584,6 @@
             document.getElementById('mainImage').src = imageUrl;
             document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
             thumbnail.classList.add('active');
-        }
-        
-        function selectColor(element) {
-            document.querySelectorAll('.color-option').forEach(c => c.classList.remove('selected'));
-            element.classList.add('selected');
-            selectedColor = element.dataset.color;
-            document.getElementById('selectedColorName').textContent = selectedColor;
         }
         
         function increaseQuantity() {
@@ -644,7 +600,7 @@
         
         function addToCart() {
             const quantity = parseInt(document.getElementById('quantityInput').value);
-            const itemId = 'bomboniera-cuore-' + selectedColor.toLowerCase().replace(/\s+/g, '-');
+            const itemId = 'bomboniera-cuore-siciliano';
             const existingItem = cart.find(item => item.id === itemId);
             
             if (existingItem) {
@@ -653,10 +609,9 @@
                 cart.push({
                     id: itemId,
                     name: 'Bomboniera Cuore Siciliano',
-                    color: selectedColor,
                     price: 15,
                     quantity: quantity,
-                    image: document.getElementById('mainImage').src
+                    image: '/assets/images/bomboniera-1.PNG'
                 });
             }
             
