@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
-        html { overflow: visible; padding-bottom: 52px; }
+        html { overflow: visible; padding-bottom: 0px; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --primary: #C4923A; --primary-light: #E8B86D; --primary-dark: #8B6420;
@@ -37,11 +37,16 @@
         .cart-icon { position: relative; color: var(--gray-300); font-size: 1.25rem; text-decoration: none; }
         .cart-badge { position: absolute; top: -8px; right: -8px; background: var(--accent); color: white; font-size: 0.625rem; font-weight: 700; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
         .nav-right { display: flex; align-items: center; gap: 1rem; }
-        .sub-navbar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000; background: rgba(26, 18, 11, 0.95); backdrop-filter: blur(10px); border-top: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.3); padding: 0.5rem 1rem; padding-bottom: calc(0.5rem + env(safe-area-inset-bottom, 0)); }
-        .sub-navbar-container { display: flex; justify-content: center; gap: 2rem; max-width: 600px; margin: 0 auto; }
-        .sub-navbar a { display: flex; flex-direction: column; align-items: center; gap: 0.25rem; color: var(--gray-500); text-decoration: none; font-size: 0.65rem; font-weight: 500; transition: color var(--transition-base); min-width: 60px; }
-        .sub-navbar a.active { color: var(--primary-light); }
-        .sub-navbar a i { font-size: 1.25rem; }
+        .sub-navbar { position: fixed; bottom: 10px; left: 50%; transform: translateX(-50%); z-index: 999; background: rgba(26, 18, 11, 0.7); backdrop-filter: blur(10px); border-radius: 20px; padding: 0.6rem 1.2rem; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(196, 146, 58, 0.1); border: 1px solid rgba(196, 146, 58, 0.15); display: none; }
+        .sub-navbar::-webkit-scrollbar { display: none; }
+        .sub-navbar-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: center; gap: 0.5rem; align-items: center; }
+        .sub-navbar a { display: inline-flex; flex-direction: column; align-items: center; gap: 3px; text-decoration: none; color: #8a7a6a; font-size: 0.6rem; font-weight: 500; padding: 6px 12px; border-radius: 12px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); white-space: nowrap; position: relative; }
+        .sub-navbar a i { font-size: 1.15rem; background: linear-gradient(135deg, #6a5a4a, #8a7a6a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; transition: all 0.3s ease; }
+        .sub-navbar a:hover { color: var(--primary); background: rgba(196, 146, 58, 0.08); transform: translateY(-2px); }
+        .sub-navbar a:hover i { background: linear-gradient(135deg, var(--primary), var(--primary-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; filter: drop-shadow(0 2px 4px rgba(196, 146, 58, 0.3)); }
+        .sub-navbar a.active { color: var(--primary); background: rgba(196, 146, 58, 0.1); }
+        .sub-navbar a.active i { background: linear-gradient(135deg, var(--primary), var(--primary-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
         .success-container { max-width: 500px; margin: 4rem auto; padding: 0 2rem; text-align: center; }
         .success-icon { width: 80px; height: 80px; background: var(--success); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); }
         .success-icon i { font-size: 2.5rem; color: white; }
@@ -50,17 +55,18 @@
         .success-text { font-size: 1rem; color: var(--gray-500); margin-bottom: 2rem; line-height: 1.7; }
         .success-btn { display: inline-block; padding: 1rem 2rem; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; text-decoration: none; border-radius: var(--radius-full); font-weight: 600; font-size: 1rem; transition: all var(--transition-base); }
         .success-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(196, 146, 58, 0.4); }
-        footer { background: var(--gray-900); color: var(--gray-300); padding: 3rem 2rem 1.5rem; margin-top: 4rem; }
+        footer { background: var(--gray-900); color: var(--gray-300); padding: 1.5rem 2rem calc(1rem + 80px); margin-top: 2rem; }
         .footer-container { max-width: 1400px; margin: 0 auto; text-align: center; }
         .footer-logo { font-family: var(--font-display); font-size: 1.5rem; color: var(--cream); margin-bottom: 0.15rem; }
-        .footer-tagline { font-size: 0.875rem; color: var(--gray-500); margin-bottom: 2rem; }
-        .footer-links { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem; list-style: none; }
+        .footer-tagline { font-size: 0.875rem; color: var(--gray-500); margin-bottom: 1rem; }
+        .footer-links { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 1rem; list-style: none; }
         .footer-links a { color: var(--gray-300); text-decoration: none; font-size: 0.875rem; transition: color var(--transition-base); }
         .footer-links a:hover { color: var(--primary-light); }
         .footer-divider { height: 1px; background: rgba(255, 255, 255, 0.1); margin: 2rem 0; }
-        .footer-bottom { font-size: 0.8125rem; color: var(--gray-500); }
+        .footer-bottom { font-size: 0.8125rem; color: var(--gray-500); background: var(--gray-900); padding: 1rem 0 0; margin-top: 1rem; }
         @media (max-width: 768px) {
             .nav-links { display: none; }
+            .sub-navbar { display: block; }
             .logo-text { font-size: 1.125rem; }
             .success-title { font-size: 1.5rem; }
         }
@@ -74,8 +80,11 @@
             </a>
             <ul class="nav-links">
                 <li><a href="/">Home</a></li>
+                <li><a href="/chi-sono">Chi Sono</a></li>
                 <li><a href="/collezioni">Collezioni</a></li>
+                <li><a href="/catalogo">Catalogo</a></li>
                 <li><a href="/bomboniere">Bomboniere</a></li>
+                <li><a href="/faq">FAQ</a></li>
                 <li><a href="/#contatti">Contatti</a></li>
             </ul>
             <div class="nav-right">
@@ -92,6 +101,18 @@
             <a href="/" class="active">
                 <i class="fas fa-home"></i>
                 Home
+            </a>
+            <a href="/opere-d-arte">
+                <i class="fas fa-flask"></i>
+                Creazioni
+            </a>
+            <a href="/chi-sono">
+                <i class="fas fa-user"></i>
+                Chi Sono
+            </a>
+            <a href="/faq">
+                <i class="fas fa-question-circle"></i>
+                FAQ
             </a>
         </div>
     </nav>

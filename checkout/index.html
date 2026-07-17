@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
-        html { overflow: visible; padding-bottom: 52px; }
+        html { overflow: visible; padding-bottom: 0px; }
         .page-wrapper { overflow-x: hidden; min-height: 100vh; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
@@ -49,18 +49,15 @@
         .cart-icon:hover { color: var(--primary-light); }
         .cart-badge { position: absolute; top: -8px; right: -8px; background: var(--accent); color: white; font-size: 0.65rem; font-weight: 600; padding: 2px 6px; border-radius: var(--radius-full); min-width: 18px; text-align: center; }
         .nav-right { display: flex; align-items: center; gap: 1rem; }
-        .sub-navbar {
-            position: fixed; bottom: 0; left: 0; right: 0; z-index: 999;
-            background: rgba(26, 18, 11, 0.85); backdrop-filter: blur(10px);
-            border-top: 1px solid rgba(255, 255, 255, 0.08); padding: 0.5rem 1rem;
-            overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none;
-        }
+        .sub-navbar { position: fixed; bottom: 10px; left: 50%; transform: translateX(-50%); z-index: 999; background: rgba(26, 18, 11, 0.7); backdrop-filter: blur(10px); border-radius: 20px; padding: 0.6rem 1.2rem; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(196, 146, 58, 0.1); border: 1px solid rgba(196, 146, 58, 0.15); display: none; }
         .sub-navbar::-webkit-scrollbar { display: none; }
-        .sub-navbar-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: center; gap: 1rem; align-items: center; }
-        .sub-navbar a { display: inline-flex; flex-direction: column; align-items: center; gap: 2px; text-decoration: none; color: var(--gray-500); font-size: 0.65rem; padding: 4px 12px; border-radius: var(--radius-sm); transition: all var(--transition-base); min-width: 60px; }
-        .sub-navbar a i { font-size: 1.1rem; }
-        .sub-navbar a:hover { color: var(--primary-light); background: rgba(255, 255, 255, 0.05); }
-        .sub-navbar a.active { color: var(--primary-light); }
+        .sub-navbar-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: center; gap: 0.5rem; align-items: center; }
+        .sub-navbar a { display: inline-flex; flex-direction: column; align-items: center; gap: 3px; text-decoration: none; color: #8a7a6a; font-size: 0.6rem; font-weight: 500; padding: 6px 12px; border-radius: 12px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); white-space: nowrap; position: relative; }
+        .sub-navbar a i { font-size: 1.15rem; background: linear-gradient(135deg, #6a5a4a, #8a7a6a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; transition: all 0.3s ease; }
+        .sub-navbar a:hover { color: var(--primary); background: rgba(196, 146, 58, 0.08); transform: translateY(-2px); }
+        .sub-navbar a:hover i { background: linear-gradient(135deg, var(--primary), var(--primary-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; filter: drop-shadow(0 2px 4px rgba(196, 146, 58, 0.3)); }
+        .sub-navbar a.active { color: var(--primary); background: rgba(196, 146, 58, 0.1); }
+        .sub-navbar a.active i { background: linear-gradient(135deg, var(--primary), var(--primary-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
         .shipping-bar {
             position: -webkit-sticky; position: sticky; top: 64px; z-index: 998;
             background: rgba(190, 45, 45, 0.75); backdrop-filter: blur(8px); color: white;
@@ -114,6 +111,7 @@
         .trust-item { display: flex; flex-direction: column; align-items: center; gap: 0.25rem; }
         @media (max-width: 768px) {
             .nav-links { display: none; }
+            .sub-navbar { display: block; }
             .logo-text { font-size: 1.125rem; }
             .sub-navbar a { font-size: 0.6rem; min-width: 50px; }
             .sub-navbar a i { font-size: 1rem; }
@@ -136,8 +134,11 @@
             </a>
             <ul class="nav-links">
                 <li><a href="/">Home</a></li>
+                <li><a href="/chi-sono">Chi Sono</a></li>
                 <li><a href="/collezioni">Collezioni</a></li>
+                <li><a href="/catalogo">Catalogo</a></li>
                 <li><a href="/bomboniere">Bomboniere</a></li>
+                <li><a href="/faq">FAQ</a></li>
                 <li><a href="/#contatti">Contatti</a></li>
             </ul>
             <div class="nav-right">
@@ -149,12 +150,23 @@
         </div>
     </nav>
     
-    <!-- SUB-NAVBAR -->
     <nav class="sub-navbar">
         <div class="sub-navbar-container">
             <a href="/" class="active">
                 <i class="fas fa-home"></i>
                 Home
+            </a>
+            <a href="/opere-d-arte">
+                <i class="fas fa-flask"></i>
+                Creazioni
+            </a>
+            <a href="/chi-sono">
+                <i class="fas fa-user"></i>
+                Chi Sono
+            </a>
+            <a href="/faq">
+                <i class="fas fa-question-circle"></i>
+                FAQ
             </a>
         </div>
     </nav>
@@ -287,6 +299,7 @@
                         <div class="item-meta">
                             ${item.color ? `Colore: ${item.color}<br>` : ''}
                             Qtà: ${item.quantity}
+                            ${item.notes ? `<br><strong style="color: var(--primary);">Note: ${item.notes}</strong>` : ''}
                         </div>
                     </div>
                     <div class="item-price">€${(item.price * item.quantity).toFixed(2)}</div>

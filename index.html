@@ -31,7 +31,7 @@
         
         html {
             overflow: visible;
-            padding-bottom: 52px;
+            padding-bottom: 0px;
         }
         
         .page-wrapper {
@@ -100,7 +100,6 @@
             background: var(--white);
             color: var(--gray-900);
             line-height: 1.6;
-
         }
         
         /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
@@ -224,17 +223,20 @@
         
         .sub-navbar {
             position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
             z-index: 999;
-            background: rgba(26, 18, 11, 0.85);
+            background: rgba(26, 18, 11, 0.7);
             backdrop-filter: blur(10px);
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            padding: 0.6rem 1.2rem;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
             scrollbar-width: none;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(196, 146, 58, 0.1);
+            border: 1px solid rgba(196, 146, 58, 0.15);
+            display: none;
         }
         
         .sub-navbar::-webkit-scrollbar {
@@ -246,7 +248,7 @@
             margin: 0 auto;
             display: flex;
             justify-content: center;
-            gap: 1rem;
+            gap: 0.5rem;
             align-items: center;
         }
         
@@ -254,27 +256,51 @@
             display: inline-flex;
             flex-direction: column;
             align-items: center;
-            gap: 2px;
+            gap: 3px;
             text-decoration: none;
-            color: var(--gray-500);
-            font-size: 0.65rem;
-            padding: 4px 12px;
-            border-radius: var(--radius-sm);
-            transition: all var(--transition-base);
-            min-width: 60px;
+            color: #8a7a6a;
+            font-size: 0.6rem;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            white-space: nowrap;
+            position: relative;
         }
         
         .sub-navbar a i {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
+            background: linear-gradient(135deg, #6a5a4a, #8a7a6a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: all 0.3s ease;
         }
         
         .sub-navbar a:hover {
-            color: var(--primary-light);
-            background: rgba(255, 255, 255, 0.05);
+            color: var(--primary);
+            background: rgba(196, 146, 58, 0.08);
+            transform: translateY(-2px);
+        }
+        
+        .sub-navbar a:hover i {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 2px 4px rgba(196, 146, 58, 0.3));
         }
         
         .sub-navbar a.active {
-            color: var(--primary-light);
+            color: var(--primary);
+            background: rgba(196, 146, 58, 0.1);
+        }
+        
+        .sub-navbar a.active i {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
         .shipping-bar {
@@ -903,7 +929,7 @@
         footer {
             background: var(--gray-900);
             color: var(--gray-300);
-            padding: 3rem 2rem 1.5rem;
+            padding: 3rem 2rem calc(1.5rem + 80px);
         }
         
         .footer-container {
@@ -951,10 +977,7 @@
             margin: 2rem 0;
         }
         
-        .footer-bottom {
-            font-size: 0.8125rem;
-            color: var(--gray-500);
-        }
+        .footer-bottom { font-size: 0.8125rem; color: var(--gray-500); background: var(--gray-900); padding: 1rem 0 0; margin-top: 1rem; }
         
         /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
         /* ANIMATIONS */
@@ -1011,6 +1034,10 @@
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
+            }
+            
+            .sub-navbar {
+                display: block;
             }
             
             
@@ -1111,8 +1138,11 @@
             
             <ul class="nav-links">
                 <li><a href="/">Home</a></li>
+                <li><a href="/chi-sono">Chi Sono</a></li>
                 <li><a href="/collezioni">Collezioni</a></li>
+                <li><a href="/catalogo">Catalogo</a></li>
                 <li><a href="/bomboniere">Bomboniere</a></li>
+                <li><a href="/faq">FAQ</a></li>
                 <li><a href="#contatti">Contatti</a></li>
             </ul>
             
@@ -1132,6 +1162,18 @@
             <a href="/" class="active">
                 <i class="fas fa-home"></i>
                 Home
+            </a>
+            <a href="/opere-d-arte">
+                <i class="fas fa-flask"></i>
+                Creazioni
+            </a>
+            <a href="/chi-sono">
+                <i class="fas fa-user"></i>
+                Chi Sono
+            </a>
+            <a href="/faq">
+                <i class="fas fa-question-circle"></i>
+                FAQ
             </a>
         </div>
     </nav>
@@ -1154,10 +1196,10 @@
         <div class="hero-container">
             <div class="hero-content">
                 <h1 class="hero-title">Arte e Ceramica di Caltagirone</h1>
-                <p class="hero-description">Tradizione artigianale siciliana tramandata da generazioni. Ogni pezzo è unico, fatto a mano con passione.</p>
+                <p class="hero-description">Dalla Classica Testa di Moro Siciliana a Stravaganti Opere in Ceramica che Ricordano i Colori della Tradizione.</p>
                 <div class="hero-cta-group" style="justify-content: center;">
                     <a href="/opere-d-arte" class="btn-primary">
-                        Scopri le mie opere d'arte
+                        Scopri le mie Creazioni
                         <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
@@ -1406,7 +1448,7 @@
         <div class="social-card">
             <h2 class="social-title">Seguimi</h2>
             <p class="social-description">
-                Vieni a vedere come realizzo le mie opere d'arte
+                Vieni a vedere come realizzo le mie creazioni
             </p>
             
             <div class="social-icons">

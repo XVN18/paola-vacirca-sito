@@ -3,39 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagamento Annullato | Le Ceramiche di Caltagirone</title>
-    <meta name="robots" content="noindex">
-    
+    <title>Chi Sono | Paola Vacirca</title>
+    <meta name="description" content="Scopri chi è Paola Vacirca, artigiana ceramista di Caltagirone.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
     <style>
         html { overflow: visible; padding-bottom: 0px; }
+        .page-wrapper { overflow-x: hidden; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --primary: #C4923A; --primary-light: #E8B86D; --primary-dark: #8B6420;
             --secondary: #2C4A3E; --accent: #D4522A;
-            --white: #FEFAF5; --cream: #F5EDD8;
-            --gray-100: #F8F4EE; --gray-200: #EDE5D8; --gray-300: #D4C4A8;
-            --gray-500: #8A7A65; --gray-700: #4A3D2E; --gray-900: #1A120B;
+            --white: #FEFAF5; --cream: #F5EDD8; --gray-100: #F8F4EE; --gray-200: #EDE5D8;
+            --gray-300: #D4C4A8; --gray-500: #8A7A65; --gray-700: #4A3D2E; --gray-900: #1A120B;
             --font-display: 'Playfair Display', Georgia, serif;
             --font-body: 'Inter', system-ui, sans-serif;
-            --radius-sm: 8px; --radius-md: 16px; --radius-full: 9999px;
+            --radius-md: 16px; --radius-lg: 24px; --radius-full: 9999px;
             --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-spring: 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
         }
-        body { font-family: var(--font-body); background: var(--gray-100); color: var(--gray-900); line-height: 1.6; }
+        body { font-family: var(--font-body); background: var(--white); color: var(--gray-900); line-height: 1.6; }
+
+        /* NAVBAR */
         .navbar { position: sticky; top: 0; z-index: 1000; background: rgba(26, 18, 11, 0.85); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3); }
         .navbar-container { max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
         .logo { display: flex; flex-direction: column; text-decoration: none; }
-        .logo-text { font-family: var(--font-display); font-size: 1.5rem; color: var(--cream); font-weight: 700; line-height: 1.2; }
+        .logo-text { font-family: var(--font-display); font-size: 1.38rem; color: var(--cream); font-weight: 700; line-height: 1.2; }
+        .logo-subtitle { font-family: var(--font-body); font-size: 0.4rem; letter-spacing: 0.08em; color: var(--gray-500); text-transform: uppercase; opacity: 0.7; }
         .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
         .nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--gray-300); text-decoration: none; position: relative; transition: color var(--transition-base); }
+        .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--primary-light); transition: width var(--transition-base); }
         .nav-links a:hover { color: var(--primary-light); }
-        .cart-icon { position: relative; color: var(--gray-300); font-size: 1.25rem; text-decoration: none; }
-        .cart-badge { position: absolute; top: -8px; right: -8px; background: var(--accent); color: white; font-size: 0.625rem; font-weight: 700; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .nav-links a:hover::after { width: 100%; }
+        .cart-icon { position: relative; color: var(--gray-300); font-size: 1.25rem; cursor: pointer; transition: color var(--transition-base); text-decoration: none; }
+        .cart-icon:hover { color: var(--primary-light); }
+        .cart-badge { position: absolute; top: -8px; right: -8px; background: var(--accent); color: white; font-size: 0.65rem; font-weight: 600; padding: 2px 6px; border-radius: var(--radius-full); min-width: 18px; text-align: center; }
         .nav-right { display: flex; align-items: center; gap: 1rem; }
+
+        /* SUB-NAVBAR */
         .sub-navbar { position: fixed; bottom: 10px; left: 50%; transform: translateX(-50%); z-index: 999; background: rgba(26, 18, 11, 0.7); backdrop-filter: blur(10px); border-radius: 20px; padding: 0.6rem 1.2rem; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(196, 146, 58, 0.1); border: 1px solid rgba(196, 146, 58, 0.15); display: none; }
         .sub-navbar::-webkit-scrollbar { display: none; }
         .sub-navbar-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: center; gap: 0.5rem; align-items: center; }
@@ -46,32 +53,32 @@
         .sub-navbar a.active { color: var(--primary); background: rgba(196, 146, 58, 0.1); }
         .sub-navbar a.active i { background: linear-gradient(135deg, var(--primary), var(--primary-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 
-        .cancel-container { max-width: 500px; margin: 4rem auto; padding: 0 2rem; text-align: center; }
-        .cancel-icon { width: 80px; height: 80px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); }
-        .cancel-icon i { font-size: 2.5rem; color: white; }
-        @keyframes popIn { 0% { transform: scale(0); } 100% { transform: scale(1); } }
-        .cancel-title { font-family: var(--font-display); font-size: 2rem; color: var(--gray-900); margin-bottom: 0.75rem; }
-        .cancel-text { font-size: 1rem; color: var(--gray-500); margin-bottom: 2rem; line-height: 1.7; }
-        .cancel-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-        .cancel-btn { padding: 1rem 2rem; border-radius: var(--radius-full); font-weight: 600; font-size: 1rem; text-decoration: none; transition: all var(--transition-base); }
-        .cancel-btn.primary { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; }
-        .cancel-btn.primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(196, 146, 58, 0.4); }
-        .cancel-btn.secondary { background: var(--gray-200); color: var(--gray-700); border: 1px solid var(--gray-300); }
-        .cancel-btn.secondary:hover { background: var(--gray-300); }
-        footer { background: var(--gray-900); color: var(--gray-300); padding: 1.5rem 2rem calc(1rem + 80px); margin-top: 2rem; }
+        /* PAGE HEADER */
+        .page-header { text-align: center; padding: 4rem 2rem 2rem; }
+        .page-title { font-family: var(--font-display); font-size: 1.5rem; background: linear-gradient(135deg, var(--gray-900), var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 0.5rem; }
+        .decorative-line { width: 100px; height: 3px; background: linear-gradient(90deg, transparent, var(--primary), transparent); margin: 0 auto; }
+
+        .content { max-width: 800px; margin: 0 auto; padding: 2rem; }
+        .content p { font-size: 1rem; line-height: 1.8; color: var(--gray-500); margin-bottom: 1.5rem; }
+
+        /* FOOTER */
+        footer { background: var(--gray-900); color: var(--gray-200); padding: 1.5rem 2rem calc(1rem + 80px); margin-top: 2rem; }
         .footer-container { max-width: 1400px; margin: 0 auto; text-align: center; }
-        .footer-logo { font-family: var(--font-display); font-size: 1.5rem; color: var(--cream); margin-bottom: 0.15rem; }
+        .footer-logo { font-family: var(--font-display); font-size: 1.38rem; color: var(--cream); margin-bottom: 0.15rem; }
         .footer-tagline { font-size: 0.875rem; color: var(--gray-500); margin-bottom: 1rem; }
         .footer-links { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 1rem; list-style: none; }
-        .footer-links a { color: var(--gray-300); text-decoration: none; font-size: 0.875rem; transition: color var(--transition-base); }
+        .footer-links a { color: var(--gray-200); text-decoration: none; font-size: 0.875rem; transition: color var(--transition-base); }
         .footer-links a:hover { color: var(--primary-light); }
         .footer-divider { height: 1px; background: rgba(255, 255, 255, 0.1); margin: 2rem 0; }
         .footer-bottom { font-size: 0.8125rem; color: var(--gray-500); background: var(--gray-900); padding: 1rem 0 0; margin-top: 1rem; }
+
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .sub-navbar { display: block; }
             .logo-text { font-size: 1.125rem; }
-            .cancel-title { font-size: 1.5rem; }
+            .logo-subtitle { font-size: 0.58rem; }
+            .sub-navbar a { font-size: 0.55rem; min-width: 50px; }
+            .sub-navbar a i { font-size: 1rem; }
         }
     </style>
 </head>
@@ -101,40 +108,24 @@
 
     <nav class="sub-navbar">
         <div class="sub-navbar-container">
-            <a href="/" class="active">
-                <i class="fas fa-home"></i>
-                Home
-            </a>
-            <a href="/opere-d-arte">
-                <i class="fas fa-flask"></i>
-                Creazioni
-            </a>
-            <a href="/chi-sono">
-                <i class="fas fa-user"></i>
-                Chi Sono
-            </a>
-            <a href="/faq">
-                <i class="fas fa-question-circle"></i>
-                FAQ
-            </a>
+            <a href="/"><i class="fas fa-home"></i> Home</a>
+            <a href="/opere-d-arte"><i class="fas fa-flask"></i> Creazioni</a>
+            <a href="/chi-sono" class="active"><i class="fas fa-user"></i> Chi Sono</a>
+            <a href="/faq"><i class="fas fa-question-circle"></i> FAQ</a>
         </div>
     </nav>
 
-    <div class="cancel-container">
-        <div class="cancel-icon">
-            <i class="fas fa-times"></i>
+    <div class="page-wrapper">
+        <div class="page-header">
+            <h1 class="page-title">Chi Sono</h1>
+            <div class="decorative-line"></div>
         </div>
-        <h1 class="cancel-title">Pagamento Annullato</h1>
-        <p class="cancel-text">
-            Il pagamento non è stato completato. Il tuo carrello è ancora disponibile.
-        </p>
-        <div class="cancel-actions">
-            <a href="/checkout" class="cancel-btn primary">
-                <i class="fas fa-shopping-cart"></i> Riprova
-            </a>
-            <a href="/" class="cancel-btn secondary">
-                <i class="fas fa-home"></i> Home
-            </a>
+
+        <div class="content">
+            <p>Ciao, sono Paola Vacirca, artigiana ceramista di Caltagirone, Sicilia.</p>
+            <p>Da sempre la mia passione è creare ceramiche uniche, fatte a mano, che portano un pezzo di Sicilia nelle case di tutto il mondo.</p>
+            <p>Ogni mio pezzo è realizzato interamente a mano nel mio laboratorio di Caltagirone, seguendo una tradizione che viene da generazioni.</p>
+            <p>Le mie creazioni spaziano dalle classiche teste di moro ai bomboniere per ogni occasione speciale.</p>
         </div>
     </div>
 
@@ -147,6 +138,8 @@
                 <li><a href="/catalogo">Catalogo</a></li>
                 <li><a href="/bomboniere">Bomboniere</a></li>
                 <li><a href="/#contatti">Contatti</a></li>
+                <li><a href="/privacy">Privacy Policy</a></li>
+                <li><a href="/cookies">Cookie Policy</a></li>
             </ul>
             <div class="footer-divider"></div>
             <div class="footer-bottom">
@@ -161,7 +154,7 @@
         function updateCartBadge() {
             const badge = document.querySelector('.cart-badge');
             const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            badge.textContent = totalItems;
+            if (badge) { badge.textContent = totalItems; badge.style.display = totalItems > 0 ? 'block' : 'none'; }
         }
         updateCartBadge();
     </script>

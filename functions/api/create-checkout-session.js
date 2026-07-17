@@ -75,6 +75,7 @@ export async function onRequestPost(context) {
         orderItems: JSON.stringify(items.map(item => ({
           name: item.name,
           quantity: item.quantity || 1,
+          notes: item.notes || '',
         }))),
         customerName: shipping ? `${shipping.firstName} ${shipping.lastName}` : '',
         customerAddress: shipping ? `${shipping.address} ${shipping.civic}, ${shipping.city} (${shipping.province})` : '',
