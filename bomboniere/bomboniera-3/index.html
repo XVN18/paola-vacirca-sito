@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bomboniera Cuore Siciliano | Le Ceramiche di Caltagirone</title>
-    <meta name="description" content="Bomboniera artigianale Cuore Siciliano in ceramica di Caltagirone. Disponibile in 5 colori, personalizzabile per il tuo evento speciale.">
+    <title>Bomboniera Barocco | Le Ceramiche di Caltagirone</title>
+    <meta name="description" content="Bomboniera artigianale Barocco in ceramica di Caltagirone. Disponibile in 5 colori, personalizzabile per il tuo evento speciale.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -414,7 +414,7 @@
         <!-- LEFT COLUMN - IMAGES -->
         <div class="product-images">
             <div class="main-image-wrapper">
-                <img id="mainImage" src="/assets/images/bomboniera-1.PNG" alt="Bomboniera Cuore Siciliano" class="main-image">
+                <img id="mainImage" src="/assets/images/bomboniera-3.PNG" alt="Bomboniera Barocco" class="main-image">
             </div>
         </div>
         
@@ -429,7 +429,7 @@
                 Personalizzabile
             </span>
             
-            <h1 class="product-title">Bomboniera Cuore Siciliano</h1>
+            <h1 class="product-title">Bomboniera Barocco</h1>
             
             <p class="product-description">
                 Una bomboniera artigianale unica che cattura l'essenza della Sicilia. 
@@ -469,7 +469,7 @@
             
             <!-- CTA BUTTONS -->
             <div class="cta-buttons">
-                <a href="https://wa.me/?text=Buongiorno! Sono interessato alla Bomboniera Cuore Siciliano" target="_blank" class="btn-whatsapp" onclick="updateWhatsAppLink(this)">
+                <a href="https://wa.me/?text=Buongiorno! Sono interessato alla Bomboniera Barocco" target="_blank" class="btn-whatsapp" onclick="updateWhatsAppLink(this)">
                     <i class="fab fa-whatsapp"></i>
                     Contatta Paola Vacirca
                 </a>
@@ -608,7 +608,7 @@
         
         function updateWhatsAppLink(el) {
             const notes = document.getElementById('customizationNotes').value.trim();
-            let msg = 'Buongiorno! Sono interessato alla Bomboniera Cuore Siciliano';
+            let msg = 'Buongiorno! Sono interessato alla Bomboniera Barocco';
             if (notes) {
                 msg += '\n\nNote: ' + notes;
             }
@@ -618,7 +618,7 @@
         function addToCart() {
             const quantity = parseInt(document.getElementById('quantityInput').value);
             const notes = document.getElementById('customizationNotes').value.trim();
-            const itemId = 'bomboniera-cuore-siciliano';
+            const itemId = 'bomboniera-barocco';
             const existingItem = cart.find(item => item.id === itemId);
             
             if (existingItem) {
@@ -627,10 +627,10 @@
             } else {
                 cart.push({
                     id: itemId,
-                    name: 'Bomboniera Cuore Siciliano',
+                    name: 'Bomboniera Barocco',
                     price: 15,
                     quantity: quantity,
-                    image: '/assets/images/bomboniera-1.PNG',
+                    image: '/assets/images/bomboniera-3.PNG',
                     notes: notes
                 });
             }
@@ -652,7 +652,7 @@
         function buyNow() {
             const quantity = parseInt(document.getElementById('quantityInput').value);
             const notes = document.getElementById('customizationNotes').value.trim();
-            const itemId = 'bomboniera-cuore-siciliano';
+            const itemId = 'bomboniera-barocco';
             const existingItem = cart.find(item => item.id === itemId);
             
             if (existingItem) {
@@ -661,10 +661,10 @@
             } else {
                 cart.push({
                     id: itemId,
-                    name: 'Bomboniera Cuore Siciliano',
+                    name: 'Bomboniera Barocco',
                     price: 15,
                     quantity: quantity,
-                    image: '/assets/images/bomboniera-1.PNG',
+                    image: '/assets/images/bomboniera-3.PNG',
                     notes: notes
                 });
             }

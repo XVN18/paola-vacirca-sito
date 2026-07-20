@@ -156,14 +156,12 @@
             right: -8px;
             background: var(--accent);
             color: white;
-            font-size: 0.625rem;
-            font-weight: 700;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-size: 0.65rem;
+            font-weight: 600;
+            padding: 2px 6px;
+            border-radius: var(--radius-full);
+            min-width: 18px;
+            text-align: center;
         }
 
         .nav-right {
@@ -173,14 +171,14 @@
         }
 
         /* SUB-NAVBAR */
-        .sub-navbar { position: fixed; bottom: 10px; left: 50%; transform: translateX(-50%); z-index: 999; background: rgba(26, 18, 11, 0.7); backdrop-filter: blur(10px); border-radius: 20px; padding: 0.6rem 1.2rem; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(196, 146, 58, 0.1); border: 1px solid rgba(196, 146, 58, 0.15); display: none; }
+        .sub-navbar { position: fixed; bottom: 10px; left: 50%; transform: translateX(-50%); z-index: 999; background: rgba(26, 18, 11, 0.7); backdrop-filter: blur(10px); border-radius: 30px; padding: 0.4rem 2rem; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(196, 146, 58, 0.1); border: 1px solid rgba(196, 146, 58, 0.15); display: none; }
         .sub-navbar::-webkit-scrollbar { display: none; }
-        .sub-navbar-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: center; gap: 0.5rem; align-items: center; }
-        .sub-navbar a { display: inline-flex; flex-direction: column; align-items: center; gap: 3px; text-decoration: none; color: #8a7a6a; font-size: 0.6rem; font-weight: 500; padding: 6px 12px; border-radius: 12px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); white-space: nowrap; position: relative; }
-        .sub-navbar a i { font-size: 1.15rem; background: linear-gradient(135deg, #6a5a4a, #8a7a6a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; transition: all 0.3s ease; }
-        .sub-navbar a:hover { color: var(--primary); background: rgba(196, 146, 58, 0.08); transform: translateY(-2px); }
+        .sub-navbar-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: center; gap: 0.3rem; align-items: center; }
+        .sub-navbar a { display: inline-flex; flex-direction: column; align-items: center; gap: 3px; text-decoration: none; color: rgba(255, 255, 255, 0.7); font-size: 0.6rem; font-weight: 500; padding: 6px 12px; border-radius: 12px; -webkit-tap-highlight-color: transparent; outline: none; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); white-space: nowrap; position: relative; }
+        .sub-navbar a i { font-size: 1.15rem; background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(255,255,255,0.7)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; transition: all 0.3s ease; }
+        .sub-navbar a:hover { color: var(--primary); background: none; transform: translateY(-2px); }
         .sub-navbar a:hover i { background: linear-gradient(135deg, var(--primary), var(--primary-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; filter: drop-shadow(0 2px 4px rgba(196, 146, 58, 0.3)); }
-        .sub-navbar a.active { color: var(--primary); background: rgba(196, 146, 58, 0.1); }
+        .sub-navbar a.active { color: var(--primary); background: none; }
         .sub-navbar a.active i { background: linear-gradient(135deg, var(--primary), var(--primary-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 
 
@@ -223,55 +221,37 @@
 
         /* BREADCRUMB */
         .breadcrumb {
+            position: sticky;
+            top: 100px;
+            z-index: 997;
             max-width: 1400px;
             margin: 0 auto;
             padding: 1rem 2rem;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: center;
-            font-size: 0.8125rem;
-            color: var(--gray-500);
-        }
-
-        .breadcrumb a {
-            color: var(--gray-500);
-            text-decoration: none;
-            transition: color var(--transition-base);
-        }
-
-        .breadcrumb a:hover {
-            color: var(--primary-light);
-        }
-
-        .breadcrumb .separator {
-            margin: 0 0.5rem;
-        }
-
-        .breadcrumb .current {
-            color: var(--gray-700);
-            font-weight: 500;
         }
 
         .breadcrumb-back {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.3rem;
             padding: 0.5rem 1.25rem;
-            background: var(--gray-100);
-            border: 1px solid var(--gray-300);
-            border-radius: var(--radius-md);
-            color: var(--gray-700);
+            background: rgba(26, 18, 11, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(196, 146, 58, 0.15);
+            border-radius: 20px;
+            color: rgba(255, 255, 255, 0.7);
             font-size: 0.875rem;
             font-family: var(--font-body);
             text-decoration: none;
             transition: all var(--transition-base);
             white-space: nowrap;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(196, 146, 58, 0.1);
         }
 
         .breadcrumb-back:hover {
-            background: var(--gray-200);
-            border-color: var(--primary);
-            color: var(--primary-dark);
+            color: var(--primary);
         }
 
         /* PRODUCT CARD */
@@ -554,11 +534,6 @@
     
     <!-- BREADCRUMB -->
     <div class="breadcrumb">
-        <div>
-            <a href="/catalogo">Catalogo</a>
-            <span class="separator">/</span>
-            <span class="current">Catalogo 2</span>
-        </div>
         <a href="/catalogo" class="breadcrumb-back">
             <i class="fas fa-arrow-left"></i>
             Indietro
@@ -596,6 +571,7 @@
     <!-- FOOTER -->
     <footer>
         <div class="footer-container">
+            <img src="/assets/images/logo.PNG" alt="Paola Vacirca" style="height: 125px; width: auto; filter: brightness(0) invert(1); margin-bottom: 0.75rem;">
             <div class="footer-logo">Paola Vacirca</div>
             <p class="footer-tagline">Arte e Ceramica di Caltagirone</p>
             

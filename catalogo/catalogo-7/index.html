@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catalogo 3 | Le Ceramiche di Caltagirone</title>
-    <meta name="description" content="Scopri il Catalogo 3 di Paola Vacirca. Ceramica artigianale di Caltagirone.">
+    <title>Catalogo 7 | Le Ceramiche di Caltagirone</title>
+    <meta name="description" content="Scopri il Catalogo 7 di Paola Vacirca. Ceramica artigianale di Caltagirone.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -547,20 +547,20 @@
         <div class="product-card">
             <div class="product-image-wrapper">
                 <span class="handmade-badge"><i class="fas fa-hand-sparkles"></i> Fatto a mano</span>
-                <img src="/assets/images/catalogo-3.PNG" 
-                     alt="Catalogo 3" 
+                <img src="/assets/images/catalogo-7.PNG" 
+                     alt="Catalogo 7" 
                      class="main-image"
                      loading="lazy">
             </div>
             <div class="product-content">
-                <h1 class="product-name">Catalogo 3</h1>
+                <h1 class="product-name">Catalogo 7</h1>
                 <p class="product-description">
                     Ceramica artigianale di Caltagirone, creata a mano con passione da Paola Vacirca. Ogni pezzo è unico, custodisce la tradizione e l'arte della Sicilia.
                 </p>
                 <div class="price-wrapper">
                     <div class="product-price">€59,88</div>
                 </div>
-                <button class="add-to-cart-btn" onclick="addToCart('catalogo-3', 'Catalogo 3', 59.88, 'catalogo', 59.88)">
+                <button class="add-to-cart-btn" onclick="addToCart('catalogo-7', 'Catalogo 7', 59.88, 'catalogo', 59.88)">
                     <i class="fas fa-shopping-cart"></i>
                     Aggiungi al Carrello
                 </button>
@@ -605,7 +605,7 @@
         updateCartBadge();
 
         const cartBtn = document.querySelector('.add-to-cart-btn');
-        if (cart.find(item => item.id === 'catalogo-3')) {
+        if (cart.find(item => item.id === 'catalogo-7')) {
             cartBtn.innerHTML = '<i class="fas fa-shopping-bag"></i> Procedi al Checkout';
             cartBtn.onclick = () => window.location.href = '/checkout';
         }
@@ -615,7 +615,7 @@
             if (existing) {
                 existing.quantity++;
             } else {
-                cart.push({ id, name, price, collection, quantity: 1, image: '/assets/images/catalogo-3.PNG', originalPrice });
+                cart.push({ id, name, price, collection, quantity: 1, image: '/assets/images/catalogo-7.PNG', originalPrice });
             }
             localStorage.setItem('cart', JSON.stringify(cart));
 
@@ -625,7 +625,7 @@
             const cartRect = cartIcon.getBoundingClientRect();
 
             const flyer = document.createElement('img');
-            flyer.src = '/assets/images/catalogo-3.PNG';
+            flyer.src = '/assets/images/catalogo-7.PNG';
             flyer.className = 'fly-to-cart';
             flyer.style.left = btnRect.left + btnRect.width / 2 - 25 + 'px';
             flyer.style.top = btnRect.top + 'px';

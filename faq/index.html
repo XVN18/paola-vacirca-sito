@@ -30,7 +30,7 @@
         .navbar { position: sticky; top: 0; z-index: 1000; background: rgba(26, 18, 11, 0.85); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3); }
         .navbar-container { max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
         .logo { display: flex; flex-direction: column; text-decoration: none; }
-        .logo-text { font-family: var(--font-display); font-size: 1.38rem; color: var(--cream); font-weight: 700; line-height: 1.2; }
+        .logo-text { font-family: var(--font-display); font-size: 1.5rem; color: var(--cream); font-weight: 700; line-height: 1.2; }
         .logo-subtitle { font-family: var(--font-body); font-size: 0.4rem; letter-spacing: 0.08em; color: var(--gray-500); text-transform: uppercase; opacity: 0.7; }
         .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
         .nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--gray-300); text-decoration: none; position: relative; transition: color var(--transition-base); }
@@ -43,15 +43,87 @@
         .nav-right { display: flex; align-items: center; gap: 1rem; }
 
         /* SUB-NAVBAR */
-        .sub-navbar { position: fixed; bottom: 10px; left: 50%; transform: translateX(-50%); z-index: 999; background: rgba(26, 18, 11, 0.7); backdrop-filter: blur(10px); border-radius: 20px; padding: 0.6rem 1.2rem; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(196, 146, 58, 0.1); border: 1px solid rgba(196, 146, 58, 0.15); display: none; }
+        .sub-navbar { position: fixed; bottom: 10px; left: 50%; transform: translateX(-50%); z-index: 999; background: rgba(26, 18, 11, 0.7); backdrop-filter: blur(10px); border-radius: 30px; padding: 0.4rem 2rem; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(196, 146, 58, 0.1); border: 1px solid rgba(196, 146, 58, 0.15); display: none; }
         .sub-navbar::-webkit-scrollbar { display: none; }
-        .sub-navbar-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: center; gap: 0.5rem; align-items: center; }
-        .sub-navbar a { display: inline-flex; flex-direction: column; align-items: center; gap: 3px; text-decoration: none; color: #8a7a6a; font-size: 0.6rem; font-weight: 500; padding: 6px 12px; border-radius: 12px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); white-space: nowrap; position: relative; }
-        .sub-navbar a i { font-size: 1.15rem; background: linear-gradient(135deg, #6a5a4a, #8a7a6a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; transition: all 0.3s ease; }
-        .sub-navbar a:hover { color: var(--primary); background: rgba(196, 146, 58, 0.08); transform: translateY(-2px); }
+        .sub-navbar-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: center; gap: 0.3rem; align-items: center; }
+        .sub-navbar a { display: inline-flex; flex-direction: column; align-items: center; gap: 3px; text-decoration: none; color: rgba(255, 255, 255, 0.7); font-size: 0.6rem; font-weight: 500; padding: 6px 12px; border-radius: 12px; -webkit-tap-highlight-color: transparent; outline: none; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); white-space: nowrap; position: relative; }
+        .sub-navbar a i { font-size: 1.15rem; background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(255,255,255,0.7)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; transition: all 0.3s ease; }
+        .sub-navbar a:hover { color: var(--primary); background: none; transform: translateY(-2px); }
         .sub-navbar a:hover i { background: linear-gradient(135deg, var(--primary), var(--primary-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; filter: drop-shadow(0 2px 4px rgba(196, 146, 58, 0.3)); }
-        .sub-navbar a.active { color: var(--primary); background: rgba(196, 146, 58, 0.1); }
+        .sub-navbar a.active { color: var(--primary); background: none; }
         .sub-navbar a.active i { background: linear-gradient(135deg, var(--primary), var(--primary-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+        /* SHIPPING BAR */
+        .shipping-bar {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 64px;
+            z-index: 998;
+            background: rgba(190, 45, 45, 0.75);
+            backdrop-filter: blur(8px);
+            color: white;
+            overflow: hidden;
+            padding: 0.5rem 0;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+
+        .shipping-bar-content {
+            display: inline-flex;
+            align-items: center;
+            white-space: nowrap;
+            animation: scrollRight 15s linear infinite;
+        }
+
+        @keyframes scrollRight {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+
+        .shipping-bar-content i {
+            margin: 0 0.35rem;
+            color: white;
+        }
+
+        .shipping-bar-content span {
+            margin-right: 3rem;
+        }
+
+        /* BREADCRUMB */
+        .breadcrumb {
+            position: sticky;
+            top: 100px;
+            z-index: 997;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .breadcrumb-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.5rem 1.25rem;
+            background: rgba(26, 18, 11, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(196, 146, 58, 0.15);
+            border-radius: 20px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.875rem;
+            font-family: var(--font-body);
+            text-decoration: none;
+            transition: all var(--transition-base);
+            white-space: nowrap;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(196, 146, 58, 0.1);
+        }
+
+        .breadcrumb-back:hover {
+            color: var(--primary);
+        }
 
         /* PAGE HEADER */
         .page-header { text-align: center; padding: 4rem 2rem 2rem; }
@@ -82,7 +154,7 @@
             .sub-navbar { display: block; }
             .logo-text { font-size: 1.125rem; }
             .logo-subtitle { font-size: 0.58rem; }
-            .sub-navbar a { font-size: 0.55rem; min-width: 50px; }
+            .sub-navbar a { font-size: 0.6rem; min-width: 50px; }
             .sub-navbar a i { font-size: 1rem; }
         }
     </style>
@@ -119,6 +191,22 @@
             <a href="/faq" class="active"><i class="fas fa-question-circle"></i> FAQ</a>
         </div>
     </nav>
+
+    <!-- SHIPPING BAR -->
+    <div class="shipping-bar">
+        <div class="shipping-bar-content">
+            <span><i class="fas fa-truck"></i> Spedizione gratuita per ordini superiori ad €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
+            <span><i class="fas fa-truck"></i> Spedizione gratuita per ordini superiori ad €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
+        </div>
+    </div>
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+        <a href="/" class="breadcrumb-back">
+            <i class="fas fa-arrow-left"></i>
+            Indietro
+        </a>
+    </div>
 
     <div class="page-wrapper">
         <div class="page-header">
@@ -177,6 +265,7 @@
 
     <footer>
         <div class="footer-container">
+            <img src="/assets/images/logo.PNG" alt="Paola Vacirca" style="height: 125px; width: auto; filter: brightness(0) invert(1); margin-bottom: 0.75rem;">
             <div class="footer-logo">Paola Vacirca</div>
             <p class="footer-tagline">Arte e Ceramica di Caltagirone</p>
             <ul class="footer-links">
@@ -200,7 +289,7 @@
         function updateCartBadge() {
             const badge = document.querySelector('.cart-badge');
             const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            if (badge) { badge.textContent = totalItems; badge.style.display = totalItems > 0 ? 'block' : 'none'; }
+            if (badge) { badge.textContent = totalItems; }
         }
         updateCartBadge();
 

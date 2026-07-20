@@ -173,14 +173,14 @@
             gap: 1rem;
         }
         
-                .sub-navbar { position: fixed; bottom: 10px; left: 50%; transform: translateX(-50%); z-index: 999; background: rgba(26, 18, 11, 0.7); backdrop-filter: blur(10px); border-radius: 20px; padding: 0.6rem 1.2rem; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(196, 146, 58, 0.1); border: 1px solid rgba(196, 146, 58, 0.15); display: none; }
+                .sub-navbar { position: fixed; bottom: 10px; left: 50%; transform: translateX(-50%); z-index: 999; background: rgba(26, 18, 11, 0.7); backdrop-filter: blur(10px); border-radius: 30px; padding: 0.4rem 2rem; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(196, 146, 58, 0.1); border: 1px solid rgba(196, 146, 58, 0.15); display: none; }
         .sub-navbar::-webkit-scrollbar { display: none; }
-        .sub-navbar-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: center; gap: 0.5rem; align-items: center; }
-        .sub-navbar a { display: inline-flex; flex-direction: column; align-items: center; gap: 3px; text-decoration: none; color: #8a7a6a; font-size: 0.6rem; font-weight: 500; padding: 6px 12px; border-radius: 12px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); white-space: nowrap; position: relative; }
-        .sub-navbar a i { font-size: 1.15rem; background: linear-gradient(135deg, #6a5a4a, #8a7a6a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; transition: all 0.3s ease; }
-        .sub-navbar a:hover { color: var(--primary); background: rgba(196, 146, 58, 0.08); transform: translateY(-2px); }
+        .sub-navbar-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: center; gap: 0.3rem; align-items: center; }
+        .sub-navbar a { display: inline-flex; flex-direction: column; align-items: center; gap: 3px; text-decoration: none; color: rgba(255, 255, 255, 0.7); font-size: 0.6rem; font-weight: 500; padding: 6px 12px; border-radius: 12px; -webkit-tap-highlight-color: transparent; outline: none; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); white-space: nowrap; position: relative; }
+        .sub-navbar a i { font-size: 1.15rem; background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(255,255,255,0.7)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; transition: all 0.3s ease; }
+        .sub-navbar a:hover { color: var(--primary); background: none; transform: translateY(-2px); }
         .sub-navbar a:hover i { background: linear-gradient(135deg, var(--primary), var(--primary-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; filter: drop-shadow(0 2px 4px rgba(196, 146, 58, 0.3)); }
-        .sub-navbar a.active { color: var(--primary); background: rgba(196, 146, 58, 0.1); }
+        .sub-navbar a.active { color: var(--primary); background: none; }
         .sub-navbar a.active i { background: linear-gradient(135deg, var(--primary), var(--primary-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
         
         .shipping-bar {
@@ -219,88 +219,38 @@
             margin-right: 3rem;
         }
         
-        /* DISCOUNT BANNER */
-        .discount-banner {
-            background: linear-gradient(135deg, #D4522A, #E8896A);
-            color: white;
-            text-align: center;
-            padding: 1.5rem 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .discount-banner::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            animation: shimmer 3s infinite;
-        }
-        
-        @keyframes shimmer {
-            0% { left: -100%; }
-            100% { left: 200%; }
-        }
-        
-        .discount-banner h2 {
-            font-family: var(--font-display);
-            font-size: 1.75rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .discount-banner p {
-            font-size: 1rem;
-            opacity: 0.95;
-        }
-        
         /* BREADCRUMB */
         .breadcrumb {
+            position: sticky;
+            top: 100px;
+            z-index: 997;
             max-width: 1400px;
             margin: 0 auto;
-            padding: 2rem 2rem 1rem;
-            font-size: 0.8125rem;
-            color: var(--gray-500);
+            padding: 1rem 2rem;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: center;
         }
         
         .breadcrumb-back {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.3rem;
             padding: 0.5rem 1.25rem;
-            background: var(--gray-100);
-            border: 1px solid var(--gray-300);
-            border-radius: var(--radius-md);
-            color: var(--gray-700);
+            background: rgba(26, 18, 11, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(196, 146, 58, 0.15);
+            border-radius: 20px;
+            color: rgba(255, 255, 255, 0.7);
             font-size: 0.875rem;
             font-family: var(--font-body);
             text-decoration: none;
             transition: all var(--transition-base);
             white-space: nowrap;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(196, 146, 58, 0.1);
         }
         
         .breadcrumb-back:hover {
-            background: var(--gray-200);
-            border-color: var(--primary);
-            color: var(--primary-dark);
-        }
-        
-        .breadcrumb a {
-            color: var(--gray-500);
-            text-decoration: none;
-        }
-        
-        .breadcrumb a:hover {
-            color: var(--primary);
-        }
-        
-        .breadcrumb .separator {
-            margin: 0 0.5rem;
             color: var(--primary);
         }
         
@@ -535,10 +485,9 @@
         
         .bundle-image-cover {
             width: 360px;
-            height: auto;
-            max-height: 240px;
+            height: 240px;
             border-radius: var(--radius-md);
-            object-fit: contain;
+            object-fit: cover;
             box-shadow: 0 8px 24px rgba(31, 20, 5, 0.2);
         }
         
@@ -747,10 +696,6 @@
                 font-size: 1rem;
             }
             
-            .discount-banner h2 {
-                font-size: 1.25rem;
-            }
-            
             .bundle-card {
                 padding: 2rem 1.5rem;
             }
@@ -823,25 +768,15 @@
         </div>
     </div>
     
-    <div class="page-wrapper">
-    
-    <!-- DISCOUNT BANNER -->
-    <div class="discount-banner">
-        <h2>COLLEZIONE SCONTATA! Risparmia fino al 30%</h2>
-    </div>
-    
     <!-- BREADCRUMB -->
     <div class="breadcrumb">
-        <div>
-            <a href="/collezioni">Collezioni</a>
-            <span class="separator">/</span>
-            <span class="current">Giardino Barocco</span>
-        </div>
         <a href="/collezioni" class="breadcrumb-back">
             <i class="fas fa-arrow-left"></i>
             Indietro
         </a>
     </div>
+    
+    <div class="page-wrapper">
     
     <!-- COLLECTION HERO -->
     <div class="collection-hero">
@@ -944,6 +879,36 @@
                 </button>
             </div>
         </div>
+        
+        <!-- Product 4 -->
+        <div class="product-card">
+            <span class="discount-badge">-20%</span>
+            <div class="product-image-wrapper">
+                <img src="/assets/images/giardino-barocco-4.jpg" 
+                     alt="Vaso Giardino Barocco" 
+                     class="main-image"
+                     loading="lazy">
+            </div>
+            <div class="product-content">
+                <span class="handmade-badge"><i class="fas fa-hand-sparkles"></i> Fatto a mano</span>
+                <h3 class="product-name">Vaso Giardino Barocco</h3>
+                <p class="product-description">
+                    Un vaso elegante che celebra il Giardino Barocco di Palermo. Decorato con le icone linee verticali verdi e bianche e il papavero rosso, un pezzo unico dell'artista Paola Vacirca.
+                </p>
+                <div class="price-wrapper">
+                    <div class="original-price">Prezzo originale: €100,00</div>
+                    <div class="discounted-price">
+                        €80,00
+                        <span class="discount-percent">(-20%)</span>
+                    </div>
+                    <div class="savings">Risparmi €20,00</div>
+                </div>
+                <button class="add-to-cart-btn" onclick="addToCart('vaso-giardino-barocco', 'Vaso Giardino Barocco', 80, 'giardino-barocco', 100)">
+                    <i class="fas fa-shopping-cart"></i>
+                    Aggiungi al Carrello
+                </button>
+            </div>
+        </div>
     </div>
     
     <!-- BUNDLE SECTION -->
@@ -977,6 +942,7 @@
     <!-- FOOTER -->
     <footer>
         <div class="footer-container">
+            <img src="/assets/images/logo.PNG" alt="Paola Vacirca" style="height: 125px; width: auto; filter: brightness(0) invert(1); margin-bottom: 0.75rem;">
             <div class="footer-logo">Paola Vacirca</div>
             <p class="footer-tagline">Arte e Ceramica di Caltagirone</p>
             

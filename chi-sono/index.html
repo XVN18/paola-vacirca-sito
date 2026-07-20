@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chi Sono | Paola Vacirca</title>
-    <meta name="description" content="Scopri chi è Paola Vacirca, artigiana ceramista di Caltagirone.">
+    <meta name="description" content="Scopri chi è Paola Vacirca, artigiana ceramista di Caltagirone. Tradizione, passione e arte nella ceramica siciliana.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -20,9 +20,10 @@
             --gray-300: #D4C4A8; --gray-500: #8A7A65; --gray-700: #4A3D2E; --gray-900: #1A120B;
             --font-display: 'Playfair Display', Georgia, serif;
             --font-body: 'Inter', system-ui, sans-serif;
-            --radius-md: 16px; --radius-lg: 24px; --radius-full: 9999px;
+            --radius-md: 16px; --radius-lg: 24px; --radius-xl: 32px; --radius-full: 9999px;
             --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
             --transition-spring: 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+            --glass-shadow: 0 8px 32px rgba(31, 20, 5, 0.1);
         }
         body { font-family: var(--font-body); background: var(--white); color: var(--gray-900); line-height: 1.6; }
 
@@ -30,7 +31,7 @@
         .navbar { position: sticky; top: 0; z-index: 1000; background: rgba(26, 18, 11, 0.85); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3); }
         .navbar-container { max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
         .logo { display: flex; flex-direction: column; text-decoration: none; }
-        .logo-text { font-family: var(--font-display); font-size: 1.38rem; color: var(--cream); font-weight: 700; line-height: 1.2; }
+        .logo-text { font-family: var(--font-display); font-size: 1.5rem; color: var(--cream); font-weight: 700; line-height: 1.2; }
         .logo-subtitle { font-family: var(--font-body); font-size: 0.4rem; letter-spacing: 0.08em; color: var(--gray-500); text-transform: uppercase; opacity: 0.7; }
         .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
         .nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--gray-300); text-decoration: none; position: relative; transition: color var(--transition-base); }
@@ -43,26 +44,490 @@
         .nav-right { display: flex; align-items: center; gap: 1rem; }
 
         /* SUB-NAVBAR */
-        .sub-navbar { position: fixed; bottom: 10px; left: 50%; transform: translateX(-50%); z-index: 999; background: rgba(26, 18, 11, 0.7); backdrop-filter: blur(10px); border-radius: 20px; padding: 0.6rem 1.2rem; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(196, 146, 58, 0.1); border: 1px solid rgba(196, 146, 58, 0.15); display: none; }
+        .sub-navbar { position: fixed; bottom: 10px; left: 50%; transform: translateX(-50%); z-index: 999; background: rgba(26, 18, 11, 0.7); backdrop-filter: blur(10px); border-radius: 30px; padding: 0.4rem 2rem; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(196, 146, 58, 0.1); border: 1px solid rgba(196, 146, 58, 0.15); display: none; }
         .sub-navbar::-webkit-scrollbar { display: none; }
-        .sub-navbar-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: center; gap: 0.5rem; align-items: center; }
-        .sub-navbar a { display: inline-flex; flex-direction: column; align-items: center; gap: 3px; text-decoration: none; color: #8a7a6a; font-size: 0.6rem; font-weight: 500; padding: 6px 12px; border-radius: 12px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); white-space: nowrap; position: relative; }
-        .sub-navbar a i { font-size: 1.15rem; background: linear-gradient(135deg, #6a5a4a, #8a7a6a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; transition: all 0.3s ease; }
-        .sub-navbar a:hover { color: var(--primary); background: rgba(196, 146, 58, 0.08); transform: translateY(-2px); }
+        .sub-navbar-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: center; gap: 0.3rem; align-items: center; }
+        .sub-navbar a { display: inline-flex; flex-direction: column; align-items: center; gap: 3px; text-decoration: none; color: rgba(255, 255, 255, 0.7); font-size: 0.6rem; font-weight: 500; padding: 6px 12px; border-radius: 12px; -webkit-tap-highlight-color: transparent; outline: none; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); white-space: nowrap; position: relative; }
+        .sub-navbar a i { font-size: 1.15rem; background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(255,255,255,0.7)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; transition: all 0.3s ease; }
+        .sub-navbar a:hover { color: var(--primary); background: none; transform: translateY(-2px); }
         .sub-navbar a:hover i { background: linear-gradient(135deg, var(--primary), var(--primary-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; filter: drop-shadow(0 2px 4px rgba(196, 146, 58, 0.3)); }
-        .sub-navbar a.active { color: var(--primary); background: rgba(196, 146, 58, 0.1); }
+        .sub-navbar a.active { color: var(--primary); background: none; }
         .sub-navbar a.active i { background: linear-gradient(135deg, var(--primary), var(--primary-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 
-        /* PAGE HEADER */
-        .page-header { text-align: center; padding: 4rem 2rem 2rem; }
-        .page-title { font-family: var(--font-display); font-size: 1.5rem; background: linear-gradient(135deg, var(--gray-900), var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 0.5rem; }
-        .decorative-line { width: 100px; height: 3px; background: linear-gradient(90deg, transparent, var(--primary), transparent); margin: 0 auto; }
+        /* SHIPPING BAR */
+        .shipping-bar {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 64px;
+            z-index: 998;
+            background: rgba(190, 45, 45, 0.75);
+            backdrop-filter: blur(8px);
+            color: white;
+            overflow: hidden;
+            padding: 0.5rem 0;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
 
-        .content { max-width: 800px; margin: 0 auto; padding: 2rem; }
-        .content p { font-size: 1rem; line-height: 1.8; color: var(--gray-500); margin-bottom: 1.5rem; }
+        .shipping-bar-content {
+            display: inline-flex;
+            align-items: center;
+            white-space: nowrap;
+            animation: scrollRight 15s linear infinite;
+        }
 
+        @keyframes scrollRight {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+
+        .shipping-bar-content i {
+            margin: 0 0.35rem;
+            color: white;
+        }
+
+        .shipping-bar-content span {
+            margin-right: 3rem;
+        }
+
+        /* BREADCRUMB */
+        .breadcrumb {
+            position: sticky;
+            top: 100px;
+            z-index: 997;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .breadcrumb-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.5rem 1.25rem;
+            background: rgba(26, 18, 11, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(196, 146, 58, 0.15);
+            border-radius: 20px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.875rem;
+            font-family: var(--font-body);
+            text-decoration: none;
+            transition: all var(--transition-base);
+            white-space: nowrap;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(196, 146, 58, 0.1);
+        }
+
+        .breadcrumb-back:hover {
+            color: var(--primary);
+        }
+
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        /* HERO SECTION */
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        
+        .hero {
+            position: relative;
+            height: 70vh;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 30%;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(26, 18, 11, 0.3) 0%, rgba(26, 18, 11, 0.7) 100%);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 2rem;
+            max-width: 800px;
+        }
+        
+        .hero-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--primary-light);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        /* INTRO SECTION - Two Column */
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        
+        .intro-section {
+            padding: 6rem 2rem;
+            background: var(--white);
+        }
+        
+        .intro-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .intro-image-wrapper {
+            position: relative;
+        }
+        
+        .intro-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--glass-shadow);
+        }
+        
+        .intro-image-accent {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: var(--radius-lg);
+            z-index: -1;
+            opacity: 0.3;
+        }
+        
+        .intro-text .section-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .intro-text h2 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            color: var(--gray-900);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .intro-text p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--gray-500);
+            margin-bottom: 1rem;
+        }
+        
+        .intro-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        /* TRADITION SECTION */
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        
+        .tradition-section {
+            padding: 6rem 2rem;
+            background: var(--gray-100);
+        }
+        
+        .tradition-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .tradition-text .section-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .tradition-text h2 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            color: var(--gray-900);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .tradition-text p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--gray-500);
+            margin-bottom: 1rem;
+        }
+        
+        .tradition-image-wrapper {
+            position: relative;
+        }
+        
+        .tradition-image {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--glass-shadow);
+        }
+        
+        .tradition-image-accent {
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--secondary), #3d6b5a);
+            border-radius: var(--radius-lg);
+            z-index: -1;
+            opacity: 0.2;
+        }
+
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        /* PROCESS SECTION */
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        
+        .process-section {
+            padding: 6rem 2rem;
+            background: var(--white);
+        }
+        
+        .process-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+        
+        .process-header .section-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .process-header h2 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+        }
+        
+        .process-header p {
+            font-size: 1rem;
+            color: var(--gray-500);
+            line-height: 1.7;
+        }
+        
+        .process-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        
+        .process-card {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            background: var(--gray-100);
+            border-radius: var(--radius-xl);
+            transition: all var(--transition-base);
+        }
+        
+        .process-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--glass-shadow);
+        }
+        
+        .process-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            color: var(--white);
+        }
+        
+        .process-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            color: var(--gray-900);
+            margin-bottom: 0.75rem;
+        }
+        
+        .process-card p {
+            font-size: 0.9375rem;
+            color: var(--gray-500);
+            line-height: 1.7;
+        }
+
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        /* STATS SECTION */
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        
+        .stats-section {
+            padding: 5rem 2rem;
+            background: var(--gray-900);
+        }
+        
+        .stats-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-light);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--gray-300);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        /* CTA SECTION */
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        
+        .cta-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #FEFAF5 0%, #F0E6CC 50%, #E8D5B0 100%);
+            text-align: center;
+        }
+        
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .cta-content h2 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+        }
+        
+        .cta-content p {
+            font-size: 1.0625rem;
+            color: var(--gray-500);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: var(--radius-full);
+            transition: all var(--transition-base);
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: var(--gray-900);
+            color: var(--white);
+        }
+        
+        .btn-primary:hover {
+            background: var(--gray-700);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(26, 18, 11, 0.25);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--gray-900);
+            border: 2px solid var(--gray-900);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--gray-900);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
         /* FOOTER */
-        footer { background: var(--gray-900); color: var(--gray-200); padding: 1.5rem 2rem calc(1rem + 80px); margin-top: 2rem; }
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        
+        footer { background: var(--gray-900); color: var(--gray-200); padding: 1.5rem 2rem calc(1rem + 80px); margin-top: 0; }
         .footer-container { max-width: 1400px; margin: 0 auto; text-align: center; }
         .footer-logo { font-family: var(--font-display); font-size: 1.38rem; color: var(--cream); margin-bottom: 0.15rem; }
         .footer-tagline { font-size: 0.875rem; color: var(--gray-500); margin-bottom: 1rem; }
@@ -72,13 +537,113 @@
         .footer-divider { height: 1px; background: rgba(255, 255, 255, 0.1); margin: 2rem 0; }
         .footer-bottom { font-size: 0.8125rem; color: var(--gray-500); background: var(--gray-900); padding: 1rem 0 0; margin-top: 1rem; }
 
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        /* SCROLL REVEAL */
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        /* RESPONSIVE */
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        
+        @media (max-width: 900px) {
+            .intro-container,
+            .tradition-container {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            
+            .tradition-container {
+                direction: ltr;
+            }
+            
+            .tradition-image-wrapper {
+                order: -1;
+            }
+            
+            .process-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2.5rem;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .intro-text h2,
+            .tradition-text h2,
+            .process-header h2,
+            .cta-content h2 {
+                font-size: 2rem;
+            }
+            
+            .intro-image,
+            .tradition-image {
+                height: 350px;
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .sub-navbar { display: block; }
             .logo-text { font-size: 1.125rem; }
             .logo-subtitle { font-size: 0.58rem; }
-            .sub-navbar a { font-size: 0.55rem; min-width: 50px; }
+            .sub-navbar a { font-size: 0.6rem; min-width: 50px; }
             .sub-navbar a i { font-size: 1rem; }
+            
+            .hero {
+                height: 60vh;
+                min-height: 400px;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .stat-number {
+                font-size: 2.25rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -115,22 +680,169 @@
         </div>
     </nav>
 
-    <div class="page-wrapper">
-        <div class="page-header">
-            <h1 class="page-title">Chi Sono</h1>
-            <div class="decorative-line"></div>
+    <!-- SHIPPING BAR -->
+    <div class="shipping-bar">
+        <div class="shipping-bar-content">
+            <span><i class="fas fa-truck"></i> Spedizione gratuita per ordini superiori ad €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
+            <span><i class="fas fa-truck"></i> Spedizione gratuita per ordini superiori ad €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
         </div>
+    </div>
 
-        <div class="content">
-            <p>Ciao, sono Paola Vacirca, artigiana ceramista di Caltagirone, Sicilia.</p>
-            <p>Da sempre la mia passione è creare ceramiche uniche, fatte a mano, che portano un pezzo di Sicilia nelle case di tutto il mondo.</p>
-            <p>Ogni mio pezzo è realizzato interamente a mano nel mio laboratorio di Caltagirone, seguendo una tradizione che viene da generazioni.</p>
-            <p>Le mie creazioni spaziano dalle classiche teste di moro ai bomboniere per ogni occasione speciale.</p>
-        </div>
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+        <a href="/" class="breadcrumb-back">
+            <i class="fas fa-arrow-left"></i>
+            Indietro
+        </a>
+    </div>
+
+    <div class="page-wrapper">
+        
+        <!-- HERO -->
+        <section class="hero">
+            <img src="/assets/images/chi-sono.PNG" alt="Paola Vacirca al lavoro" class="hero-image">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <img src="/assets/images/logo.PNG" alt="Paola Vacirca" style="height: 80px; width: auto; filter: brightness(0) invert(1); margin-bottom: 1rem;">
+                <div class="hero-label">Arte e Ceramica di Caltagirone</div>
+                <h1 class="hero-title">La mia storia, la mia passione</h1>
+                <p class="hero-subtitle">Da Caltagirone al mondo, porto la tradizione della ceramica siciliana in ogni pezzo che creo.</p>
+            </div>
+        </section>
+
+        <!-- INTRO -->
+        <section class="intro-section">
+            <div class="intro-container">
+                <div class="intro-image-wrapper reveal">
+                    <img src="/assets/images/catalogo-1.jpg" alt="Paola Vacirca" class="intro-image">
+                    <div class="intro-image-accent"></div>
+                </div>
+                <div class="intro-text reveal reveal-delay-1">
+                    <div class="section-label">Ciao, sono Paola</div>
+                    <h2>Un'anima siciliana tra le mie mani</h2>
+                    <p>Da sempre la mia passione è creare ceramiche uniche, fatte a mano, che portano un pezzo di Sicilia nelle case di tutto il mondo.</p>
+                    <p>Ogni mio pezzo è realizzato interamente a mano nel mio laboratorio di Caltagirone, seguendo una tradizione che viene da generazioni.</p>
+                    <p>Le mie creazioni spaziano dalle classiche teste di moro ai bomboniere per ogni occasione speciale.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TRADITION -->
+        <section class="tradition-section">
+            <div class="tradition-container">
+                <div class="tradition-text reveal">
+                    <div class="section-label">La tradizione</div>
+                    <h2>Caltagirone e la sua ceramica</h2>
+                    <p>Caltagirone è famosa in tutto il mondo per la sua millenaria produzione di ceramica artigianale, un'arte introdotta e perfezionata durante la dominazione araba e normanna. Per questa storica tradizione, il suo centro storico è stato inserito dall'UNESCO tra i <a href="https://www.italia.it/it/sicilia/catania/caltagirone/cosa-fare/ceramiche-caltagirone-made-in-italy" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: underline; font-weight: 500;">siti Patrimonio dell'Umanità</a>.</p>
+                    
+                    <h3 style="font-family: var(--font-display); font-size: 1.25rem; color: var(--gray-900); margin: 2rem 0 1rem;">Simboli e monumenti principali</h3>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+                        <div style="padding-left: 1rem; border-left: 3px solid var(--primary);">
+                            <strong style="color: var(--gray-900);"><a href="https://www.visititaly.it/cosa-vedere/sicilia/caltagirone.aspx" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: underline; font-weight: 600;">Scalinata di Santa Maria del Monte</a>:</strong>
+                            <span style="color: var(--gray-500);"> Un monumento composto da 142 gradini storici in pietra lavica. Ogni alzata è interamente decorata con piastrelle di ceramica policroma. I motivi ripercorrono dieci secoli di storia della ceramica calatina.</span>
+                        </div>
+                        
+                        <div style="padding-left: 1rem; border-left: 3px solid var(--primary);">
+                            <strong style="color: var(--gray-900);">Le Teste di Moro e le Pigne:</strong>
+                            <span style="color: var(--gray-500);"> Iconici vasi antropomorfi e sculture portafortuna in maiolica. Questi simboli dell'artigianato siciliano ornano balconi, ingressi e giardini di tutta la città.</span>
+                        </div>
+                        
+                        <div style="padding-left: 1rem; border-left: 3px solid var(--primary);">
+                            <strong style="color: var(--gray-900);"><a href="https://blog.giallozafferano.it/fantasiaincucina/caltagirone-citta-dei-presepi-e-delle-collorelle/" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: underline; font-weight: 600;">I Presepi artigianali</a>:</strong>
+                            <span style="color: var(--gray-500);"> Una grandiosa tradizione di figurine in terracotta e ceramica. La città ospita ogni anno musei e mostre dedicati a presepi storici, d'autore o di ispirazione popolare.</span>
+                        </div>
+                        
+                        <div style="padding-left: 1rem; border-left: 3px solid var(--primary);">
+                            <strong style="color: var(--gray-900);"><a href="https://www.immobiliare.it/news/vivere-a/italia/cosa-vedere-a-caltagirone-e-quanto-costano-le-case-485431/" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: underline; font-weight: 600;">Architettura Tardo Barocca</a>:</strong>
+                            <span style="color: var(--gray-500);"> Splendidi palazzi nobiliari, chiese monumentali e ponti decorati. Tra questi spiccano il Ponte di San Francesco e la facciata della Cattedrale di San Giuliano.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="tradition-image-wrapper reveal reveal-delay-1">
+                    <img src="/assets/images/caltagirone.webp" alt="Ceramiche di Caltagirone" class="tradition-image">
+                    <div class="tradition-image-accent"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROCESS -->
+        <section class="process-section">
+            <div class="process-header reveal">
+                <div class="section-label">Il processo</div>
+                <h2>Dalla terra alla mano</h2>
+                <p>Ogni creazione nasce da un processo artigianale che unisce tradizione e creatività</p>
+            </div>
+            <div class="process-grid">
+                <div class="process-card reveal reveal-delay-1">
+                    <div class="process-icon">
+                        <i class="fas fa-hand-sparkles"></i>
+                    </div>
+                    <h3>Lavorazione a mano</h3>
+                    <p>Ogni pezzo è modellato interamente a mano, senza l'uso di stampi industriali.</p>
+                </div>
+                <div class="process-card reveal reveal-delay-2">
+                    <div class="process-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Decorazione unica</h3>
+                    <p>Ogni decorazione è dipinta a mano con colori che richiamano le tradizioni siciliane.</p>
+                </div>
+                <div class="process-card reveal reveal-delay-3">
+                    <div class="process-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3>Cottura in forno</h3>
+                    <p>La cottura a temperature controllate garantisce resistenza e longevità.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- STATS -->
+        <section class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-item reveal">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Anni di esperienza</div>
+                </div>
+                <div class="stat-item reveal reveal-delay-1">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">Pezzi realizzati</div>
+                </div>
+                <div class="stat-item reveal reveal-delay-2">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Collezioni</div>
+                </div>
+                <div class="stat-item reveal reveal-delay-3">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Fatto a mano</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="cta-content reveal">
+                <h2>Scopri le mie creazioni</h2>
+                <p>Esplora le collezioni e lasciati ispirare dalla bellezza della ceramica siciliana.</p>
+                <div class="cta-buttons">
+                    <a href="/collezioni" class="btn btn-primary">
+                        <i class="fas fa-eye"></i>
+                        Vedi le Collezioni
+                    </a>
+                    <a href="/#contatti" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i>
+                        Contattami
+                    </a>
+                </div>
+            </div>
+        </section>
+
     </div>
 
     <footer>
         <div class="footer-container">
+            <img src="/assets/images/logo.PNG" alt="Paola Vacirca" style="height: 125px; width: auto; filter: brightness(0) invert(1); margin-bottom: 0.75rem;">
             <div class="footer-logo">Paola Vacirca</div>
             <p class="footer-tagline">Arte e Ceramica di Caltagirone</p>
             <ul class="footer-links">
@@ -154,9 +866,20 @@
         function updateCartBadge() {
             const badge = document.querySelector('.cart-badge');
             const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            if (badge) { badge.textContent = totalItems; badge.style.display = totalItems > 0 ? 'block' : 'none'; }
+            if (badge) { badge.textContent = totalItems; }
         }
         updateCartBadge();
+
+        // Scroll Reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
