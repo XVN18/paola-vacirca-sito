@@ -322,6 +322,7 @@
             position: relative;
             aspect-ratio: 4/3;
             overflow: hidden;
+            cursor: zoom-in;
         }
         
         .collection-image-wrapper::after {
@@ -438,6 +439,80 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 24px rgba(196, 146, 58, 0.4);
         }
+
+        /* FAQ SECTION */
+        .faq-section {
+            padding: 4rem 2rem;
+            background: var(--white);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-section .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .faq-item {
+            background: var(--gray-100);
+            border-radius: var(--radius-md);
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        .faq-question {
+            padding: 1.25rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+            font-weight: 600;
+            font-size: 0.9375rem;
+        }
+        .faq-question i {
+            color: var(--primary);
+            transition: transform 0.3s;
+        }
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            font-size: 0.875rem;
+            color: var(--gray-500);
+            line-height: 1.7;
+        }
+        .faq-item.open .faq-answer {
+            padding: 0 1.5rem 1.25rem;
+            max-height: 200px;
+        }
+        .faq-item.open .faq-question i {
+            transform: rotate(180deg);
+        }
+        .faq-cta {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .faq-cta .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            border-radius: var(--radius-full);
+            font-family: var(--font-body);
+            font-size: 0.9375rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(196, 146, 58, 0.4);
+            transition: all var(--transition-base);
+        }
+        .faq-cta .btn-primary:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 12px 32px rgba(196, 146, 58, 0.5);
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
         
         /* FOOTER */
         footer {
@@ -537,6 +612,46 @@
                 font-size: 1rem;
             }
         }
+
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        /* ANIMATIONS */
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+        .btn-primary, .btn-secondary, .bundle-cta, .collection-cta {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary:active, .btn-secondary:active, .bundle-cta:active, .collection-cta:active {
+            transform: scale(0.96);
+            transition: transform 100ms ease;
+        }
+
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-1 { transition-delay: 0.05s; }
+        .stagger-2 { transition-delay: 0.12s; }
+        .stagger-3 { transition-delay: 0.19s; }
+        .stagger-4 { transition-delay: 0.26s; }
+        .stagger-5 { transition-delay: 0.33s; }
+        .stagger-6 { transition-delay: 0.40s; }
+        .stagger-7 { transition-delay: 0.47s; }
     </style>
 </head>
 <body>
@@ -589,8 +704,8 @@
     <!-- SHIPPING BAR -->
     <div class="shipping-bar">
         <div class="shipping-bar-content">
-            <span><i class="fas fa-truck"></i> Spedizione gratuita per ordini superiori ad €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
-            <span><i class="fas fa-truck"></i> Spedizione gratuita per ordini superiori ad €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
+            <span><i class="fas fa-truck"></i> Spedizione Gratuita in Tutta Italia per Ordini Superiori a €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
+            <span><i class="fas fa-truck"></i> Spedizione Gratuita in Tutta Italia per Ordini Superiori a €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
         </div>
     </div>
     
@@ -605,7 +720,7 @@
     <div class="page-wrapper">
     
     <!-- PAGE HEADER -->
-    <div class="page-header">
+    <div class="page-header animate-on-scroll">
         <h1 class="page-title">Le Collezioni di Paola Vacirca</h1>
         <p class="page-subtitle">Un insieme di Opere in Ceramica Pensate Esattamente per quell'Angolo Vuoto nella tua Casa.</p>
         <div class="decorative-line"></div>
@@ -613,36 +728,9 @@
     
     <!-- COLLECTIONS GRID -->
     <div class="collections-grid">
-        <!-- COLLECTION 1: Giardino Barocco (SCONTATA) -->
-        <div class="collection-card featured">
-            <div class="collection-image-wrapper">
-                <span class="discount-badge">OFFERTA SPECIALE -30%</span>
-                <img src="/assets/images/collezione-giardino-barocco.png" 
-                     alt="Collezione Giardino Barocco" 
-                     class="collection-image"
-                     loading="lazy">
-            </div>
-            <div class="collection-content">
-                <span class="handmade-badge"><i class="fas fa-hand-sparkles"></i> Fatto a mano</span>
-                <h2 class="collection-name">Giardino Barocco</h2>
-                <p class="collection-description">
-                    Linee verticali verdi e bianche, fiori di papavero rosso. Una collezione che celebra l'eleganza del Giardino Barocco siciliano, con il marchio unico dell'artista Paola Vacirca.
-                </p>
-                <div class="collection-meta">
-                    <i class="fas fa-shapes"></i>
-                    <span>3 pezzi</span>
-                    <span style="color: var(--accent); font-weight: 600;">• Bundle -30%</span>
-                </div>
-                <a href="/collezioni/giardino-barocco" class="collection-cta">
-                    Esplora Collezione
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-        </div>
-        
-        <!-- COLLECTION 2: Etna (SCONTATA) -->
-        <div class="collection-card featured">
-            <div class="collection-image-wrapper">
+        <!-- COLLECTION 1: Etna (SCONTATA) -->
+        <div class="collection-card featured animate-on-scroll stagger-1">
+            <div class="collection-image-wrapper" data-lightbox="collection">
                 <span class="discount-badge">OFFERTA SPECIALE -30%</span>
                 <img src="/assets/images/Copertina-Collezione-Etna.PNG" 
                      alt="Collezione Etna" 
@@ -666,8 +754,74 @@
                 </a>
             </div>
         </div>
+        
+        <!-- COLLECTION 2: Giardino Barocco (SCONTATA) -->
+        <div class="collection-card featured animate-on-scroll stagger-1">
+            <div class="collection-image-wrapper" data-lightbox="collection">
+                <span class="discount-badge">OFFERTA SPECIALE -30%</span>
+                <img src="/assets/images/collezione-giardino-barocco.png" 
+                     alt="Collezione Giardino Barocco" 
+                     class="collection-image"
+                     loading="lazy">
+            </div>
+            <div class="collection-content">
+                <span class="handmade-badge"><i class="fas fa-hand-sparkles"></i> Fatto a mano</span>
+                <h2 class="collection-name">Giardino Barocco</h2>
+                <p class="collection-description">
+                    Linee verticali verdi e bianche, fiori di papavero rosso. Una collezione che celebra l'eleganza del Giardino Barocco siciliano, con il marchio unico dell'artista Paola Vacirca.
+                </p>
+                <div class="collection-meta">
+                    <i class="fas fa-shapes"></i>
+                    <span>4 pezzi</span>
+                    <span style="color: var(--accent); font-weight: 600;">• Bundle -30%</span>
+                </div>
+                <a href="/collezioni/giardino-barocco" class="collection-cta">
+                    Esplora Collezione
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
     </div>
     
+    <!-- FAQ SECTION -->
+    <section class="faq-section">
+        <h2 class="section-title animate-on-scroll">Domande Frequenti sulle Collezioni</h2>
+        
+        <div class="faq-item animate-on-scroll stagger-1">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Si può acquistare solamente un articolo della collezione?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                Certo, basta aggiungere l'articolo desiderato al carrello e procedere all'acquisto.
+            </div>
+        </div>
+        
+        <div class="faq-item animate-on-scroll stagger-2">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Le collezioni sono edizioni limitate?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                Ogni articolo presente nelle Collezioni e nel <a href="/catalogo" style="color: var(--primary); font-weight: 600; text-decoration: underline;">Catalogo</a> è un pezzo unico ed inimitabile firmato Paola Vacirca.
+            </div>
+        </div>
+        
+        <div class="faq-item animate-on-scroll stagger-3">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>È possibile richiedere delle personalizzazioni su una collezione?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                No, non è possibile ma puoi richiedere uno o più articoli personalizzati ispirati alla collezione contattandomi su <a href="https://wa.me/39368663093" target="_blank" rel="noopener noreferrer" style="color: var(--primary); font-weight: 600; text-decoration: underline;">Whatsapp</a>.
+            </div>
+        </div>
+        
+        <div class="faq-cta">
+            <a href="/faq" class="btn-primary">Scopri tutte le FAQ</a>
+        </div>
+    </section>
+
     <!-- FOOTER -->
     <footer>
         <div class="footer-container">
@@ -680,6 +834,7 @@
                 <li><a href="/catalogo">Catalogo</a></li>
                 <li><a href="/bomboniere">Bomboniere</a></li>
                 <li><a href="/#contatti">Contatti</a></li>
+                <li><a href="/termini">Termini e Condizioni</a></li>
                 <li><a href="/privacy">Privacy Policy</a></li>
                 <li><a href="/cookies">Cookie Policy</a></li>
             </ul>
@@ -704,8 +859,49 @@
             badge.textContent = totalItems;
         }
         updateCartBadge();
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -60px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
     </script>
 
+    <script>
+        document.querySelectorAll('.btn-primary, .btn-secondary, .bundle-cta, .collection-cta').forEach(btn => {
+            btn.addEventListener('mousedown', function(e) {
+                const circle = document.createElement('span');
+                const diameter = Math.max(btn.clientWidth, btn.clientHeight);
+                const radius = diameter / 2;
+                circle.style.width = circle.style.height = diameter + 'px';
+                circle.style.left = (e.clientX - btn.getBoundingClientRect().left - radius) + 'px';
+                circle.style.top = (e.clientY - btn.getBoundingClientRect().top - radius) + 'px';
+                circle.style.position = 'absolute';
+                circle.style.borderRadius = '50%';
+                circle.style.background = 'rgba(255,255,255,0.4)';
+                circle.style.transform = 'scale(0)';
+                circle.style.animation = 'ripple 0.5s ease-out';
+                circle.style.pointerEvents = 'none';
+                btn.appendChild(circle);
+                setTimeout(() => circle.remove(), 500);
+            });
+        });
 
+        function toggleFaq(el) {
+            const item = el.closest('.faq-item');
+            item.classList.toggle('open');
+        }
+    </script>
+
+    <script src="/assets/js/cookie-consent.js"></script>
 </body>
 </html>

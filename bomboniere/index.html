@@ -275,6 +275,10 @@
             border: 1px solid var(--gray-200);
             transition: all var(--transition-spring);
             position: relative;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            cursor: pointer;
         }
         
         .bomboniera-card:hover {
@@ -302,25 +306,7 @@
             position: relative;
             aspect-ratio: 1/1;
             overflow: hidden;
-        }
-        
-        .image-wrapper::after {
-            content: 'Scopri →';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(26, 18, 11, 0.7);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.38rem;
-            font-weight: 600;
-            opacity: 0;
-            transition: opacity var(--transition-base);
-        }
-        
-        .bomboniera-card:hover .image-wrapper::after {
-            opacity: 1;
+            cursor: pointer;
         }
         
         .bomboniera-image {
@@ -443,6 +429,127 @@
                 font-size: 1rem;
             }
         }
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        /* ANIMATIONS */
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+        .btn-add-to-cart, .btn-buy-now, .bomboniera-cta {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-add-to-cart:active, .btn-buy-now:active {
+            transform: scale(0.96);
+            transition: transform 100ms ease;
+        }
+
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-1 { transition-delay: 0.05s; }
+        .stagger-2 { transition-delay: 0.12s; }
+        .stagger-3 { transition-delay: 0.19s; }
+        .stagger-4 { transition-delay: 0.26s; }
+        .stagger-5 { transition-delay: 0.33s; }
+        .stagger-6 { transition-delay: 0.40s; }
+        .stagger-7 { transition-delay: 0.47s; }
+
+        /* FAQ */
+        .faq-section {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 2rem 2rem;
+        }
+
+        .faq-section .section-title {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-section .faq-item {
+            background: var(--gray-100);
+            border-radius: var(--radius-md);
+            margin-bottom: 1rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .faq-section .faq-question {
+            padding: 1.25rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+            font-weight: 600;
+            font-size: 0.9375rem;
+        }
+
+        .faq-section .faq-question i {
+            color: var(--primary);
+            transition: transform 0.3s;
+        }
+
+        .faq-section .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            font-size: 0.875rem;
+            color: var(--gray-500);
+            line-height: 1.7;
+        }
+
+        .faq-section .faq-item.open .faq-answer {
+            padding: 0 1.5rem 1.25rem;
+            max-height: 300px;
+        }
+
+        .faq-section .faq-item.open .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-cta {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: var(--radius-full);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: all var(--transition-base);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(196, 146, 58, 0.3);
+        }
     </style>
 </head>
 <body>
@@ -495,8 +602,8 @@
     <!-- SHIPPING BAR -->
     <div class="shipping-bar">
         <div class="shipping-bar-content">
-            <span><i class="fas fa-truck"></i> Spedizione gratuita per ordini superiori ad €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
-            <span><i class="fas fa-truck"></i> Spedizione gratuita per ordini superiori ad €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
+            <span><i class="fas fa-truck"></i> Spedizione Gratuita in Tutta Italia per Ordini Superiori a €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
+            <span><i class="fas fa-truck"></i> Spedizione Gratuita in Tutta Italia per Ordini Superiori a €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
         </div>
     </div>
     
@@ -522,7 +629,7 @@
     <!-- PRODUCTS GRID -->
     <div class="products-container">
         <!-- Bomboniera 1 -->
-        <div class="bomboniera-card">
+        <a href="/bomboniere/cuore-siciliano" class="bomboniera-card animate-on-scroll">
             <div class="image-wrapper">
                 <img src="/assets/images/bomboniera-1.PNG" 
                      alt="Bomboniera Cuore Siciliano" 
@@ -532,15 +639,15 @@
             <div class="bomboniera-content">
                 <h2 class="bomboniera-name">Bomboniera Cuore Siciliano</h2>
                 <div class="bomboniera-price">€15,00</div>
-                <a href="/bomboniere/cuore-siciliano" class="bomboniera-cta">
+                <span class="bomboniera-cta">
                     Seleziona la Quantità
                     <i class="fas fa-arrow-right"></i>
-                </a>
+                </span>
             </div>
-        </div>
+        </a>
         
         <!-- Bomboniera 2 -->
-        <div class="bomboniera-card">
+        <a href="/bomboniere/bomboniera-2" class="bomboniera-card animate-on-scroll stagger-1">
             <div class="image-wrapper">
                 <img src="/assets/images/bomboniera-2.PNG" 
                      alt="Bomboniera Siciliana" 
@@ -550,15 +657,15 @@
             <div class="bomboniera-content">
                 <h2 class="bomboniera-name">Bomboniera Siciliana</h2>
                 <div class="bomboniera-price">€15,00</div>
-                <a href="/bomboniere/bomboniera-2" class="bomboniera-cta">
+                <span class="bomboniera-cta">
                     Seleziona la Quantità
                     <i class="fas fa-arrow-right"></i>
-                </a>
+                </span>
             </div>
-        </div>
+        </a>
         
         <!-- Bomboniera 3 -->
-        <div class="bomboniera-card">
+        <a href="/bomboniere/bomboniera-3" class="bomboniera-card animate-on-scroll stagger-2">
             <div class="image-wrapper">
                 <img src="/assets/images/bomboniera-3.PNG" 
                      alt="Bomboniera Barocco" 
@@ -568,13 +675,52 @@
             <div class="bomboniera-content">
                 <h2 class="bomboniera-name">Bomboniera Barocco</h2>
                 <div class="bomboniera-price">€15,00</div>
-                <a href="/bomboniere/bomboniera-3" class="bomboniera-cta">
+                <span class="bomboniera-cta">
                     Seleziona la Quantità
                     <i class="fas fa-arrow-right"></i>
-                </a>
+                </span>
+            </div>
+        </a>
+    </div>
+    
+    <!-- FAQ SECTION -->
+    <section class="faq-section">
+        <h2 class="section-title animate-on-scroll">Domande Frequenti sulle Bomboniere</h2>
+        
+        <div class="faq-item animate-on-scroll stagger-1">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>È possibile personalizzare le bomboniere?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                Certo, è possibile aggiungere iniziali, date, cambiare colori ed aggiungere decori. Contattami su <a href="https://wa.me/39368663093" target="_blank" rel="noopener noreferrer" style="color: var(--primary); font-weight: 600; text-decoration: underline;">WhatsApp</a> per discutere meglio le tue esigenze.
             </div>
         </div>
-    </div>
+        
+        <div class="faq-item animate-on-scroll stagger-2">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Quali occasioni sono adatte per le bomboniere?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                Sono ideali per matrimoni, battesimi, comunioni, cresime, lauree, diciottesimi e qualsiasi evento degno di essere ricordato.
+            </div>
+        </div>
+        
+        <div class="faq-item animate-on-scroll stagger-3">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>C'è un limite alla quantità che è possibile ordinare?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                No, non c'è un limite ma possono variare i tempi di consegna.
+            </div>
+        </div>
+        
+        <div class="faq-cta">
+            <a href="/faq" class="btn-primary">Scopri tutte le FAQ</a>
+        </div>
+    </section>
     
     <!-- FOOTER -->
     <footer>
@@ -588,6 +734,7 @@
                 <li><a href="/catalogo">Catalogo</a></li>
                 <li><a href="/bomboniere">Bomboniere</a></li>
                 <li><a href="/#contatti">Contatti</a></li>
+                <li><a href="/termini">Termini e Condizioni</a></li>
                 <li><a href="/privacy">Privacy Policy</a></li>
                 <li><a href="/cookies">Cookie Policy</a></li>
             </ul>
@@ -611,10 +758,48 @@
             badge.textContent = totalItems;
         }
         updateCartBadge();
+
+        function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
     </script>
 
     <script>
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -60px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+    </script>
 
+    <script>
+        document.querySelectorAll('.btn-add-to-cart, .btn-buy-now, .bomboniera-cta').forEach(btn => {
+            btn.addEventListener('mousedown', function(e) {
+                const circle = document.createElement('span');
+                const diameter = Math.max(btn.clientWidth, btn.clientHeight);
+                const radius = diameter / 2;
+                circle.style.width = circle.style.height = diameter + 'px';
+                circle.style.left = (e.clientX - btn.getBoundingClientRect().left - radius) + 'px';
+                circle.style.top = (e.clientY - btn.getBoundingClientRect().top - radius) + 'px';
+                circle.style.position = 'absolute';
+                circle.style.borderRadius = '50%';
+                circle.style.background = 'rgba(255,255,255,0.4)';
+                circle.style.transform = 'scale(0)';
+                circle.style.animation = 'ripple 0.5s ease-out';
+                circle.style.pointerEvents = 'none';
+                btn.appendChild(circle);
+                setTimeout(() => circle.remove(), 500);
+            });
+        });
+    </script>
 
+    <script src="/assets/js/cookie-consent.js"></script>
 </body>
 </html>

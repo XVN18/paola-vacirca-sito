@@ -406,6 +406,128 @@
                 font-size: 1rem;
             }
         }
+
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        /* ANIMATIONS */
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+        .add-to-cart-btn, .buy-now-btn {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .add-to-cart-btn:active, .buy-now-btn:active {
+            transform: scale(0.96);
+            transition: transform 100ms ease;
+        }
+
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-1 { transition-delay: 0.05s; }
+        .stagger-2 { transition-delay: 0.12s; }
+        .stagger-3 { transition-delay: 0.19s; }
+        .stagger-4 { transition-delay: 0.26s; }
+        .stagger-5 { transition-delay: 0.33s; }
+        .stagger-6 { transition-delay: 0.40s; }
+        .stagger-7 { transition-delay: 0.47s; }
+
+        /* FAQ */
+        .faq-section {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 2rem 2rem;
+        }
+
+        .faq-section .section-title {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-section .faq-item {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            margin-bottom: 1rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .faq-section .faq-question {
+            padding: 1.25rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+            font-weight: 600;
+            font-size: 0.9375rem;
+        }
+
+        .faq-section .faq-question i {
+            color: var(--primary);
+            transition: transform 0.3s;
+        }
+
+        .faq-section .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            font-size: 0.875rem;
+            color: var(--gray-500);
+            line-height: 1.7;
+        }
+
+        .faq-section .faq-item.open .faq-answer {
+            padding: 0 1.5rem 1.25rem;
+            max-height: 300px;
+        }
+
+        .faq-section .faq-item.open .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-cta {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: var(--radius-full);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: all var(--transition-base);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(196, 146, 58, 0.3);
+        }
     </style>
 </head>
 <body>
@@ -459,8 +581,8 @@
     <!-- SHIPPING BAR -->
     <div class="shipping-bar">
         <div class="shipping-bar-content">
-            <span><i class="fas fa-truck"></i> Spedizione gratuita per ordini superiori ad €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
-            <span><i class="fas fa-truck"></i> Spedizione gratuita per ordini superiori ad €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
+            <span><i class="fas fa-truck"></i> Spedizione Gratuita in Tutta Italia per Ordini Superiori a €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
+            <span><i class="fas fa-truck"></i> Spedizione Gratuita in Tutta Italia per Ordini Superiori a €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
         </div>
     </div>
     
@@ -484,29 +606,68 @@
     <!-- CATALOG GRID -->
     <div class="catalog-scroll">
         <div class="catalog-grid">
-            <a href="/catalogo/catalogo-1" class="catalog-item">
+            <a href="/catalogo/catalogo-1" class="catalog-item animate-on-scroll">
                 <img src="/assets/images/catalogo-1.jpg" alt="Catalogo 1" loading="lazy">
             </a>
-            <a href="/catalogo/catalogo-2" class="catalog-item">
+            <a href="/catalogo/catalogo-2" class="catalog-item animate-on-scroll stagger-1">
                 <img src="/assets/images/catalogo-2.jpg" alt="Catalogo 2" loading="lazy">
             </a>
-            <a href="/catalogo/catalogo-3" class="catalog-item">
+            <a href="/catalogo/catalogo-3" class="catalog-item animate-on-scroll stagger-2">
                 <img src="/assets/images/catalogo-3.PNG" alt="Catalogo 3" loading="lazy">
             </a>
-            <a href="/catalogo/catalogo-4" class="catalog-item">
+            <a href="/catalogo/catalogo-4" class="catalog-item animate-on-scroll stagger-3">
                 <img src="/assets/images/catalogo-4.PNG" alt="Catalogo 4" loading="lazy">
             </a>
-            <a href="/catalogo/catalogo-5" class="catalog-item">
-                <img src="/assets/images/catalogo-5.PNG" alt="Catalogo 5" loading="lazy">
+            <a href="/catalogo/catalogo-5" class="catalog-item animate-on-scroll stagger-4">
+                <img src="/assets/images/catalogo-5.jpg" alt="Catalogo 5" loading="lazy">
             </a>
-            <a href="/catalogo/catalogo-6" class="catalog-item">
+            <a href="/catalogo/catalogo-6" class="catalog-item animate-on-scroll stagger-5">
                 <img src="/assets/images/catalogo-6.PNG" alt="Catalogo 6" loading="lazy">
             </a>
-            <a href="/catalogo/catalogo-7" class="catalog-item">
+            <a href="/catalogo/catalogo-7" class="catalog-item animate-on-scroll stagger-6">
                 <img src="/assets/images/catalogo-7.PNG" alt="Catalogo 7" loading="lazy">
             </a>
         </div>
     </div>
+    
+    <!-- FAQ SECTION -->
+    <section class="faq-section">
+        <h2 class="section-title animate-on-scroll">Domande Frequenti sul Catalogo</h2>
+        
+        <div class="faq-item animate-on-scroll stagger-1">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Posso richiedere un articolo del catalogo in altre dimensioni?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+                <div class="faq-answer">
+                    Sì, è possibile personalizzare la dimensione ed altre caratteristiche, contattami su <a href="https://wa.me/39368663093" target="_blank" rel="noopener noreferrer" style="color: var(--primary); font-weight: 600; text-decoration: underline;">WhatsApp</a> per realizzare un articolo fatto su misura per le tue esigenze.
+                </div>
+        </div>
+        
+        <div class="faq-item animate-on-scroll stagger-2">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Gli articoli del catalogo sono disponibili subito?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+                <div class="faq-answer">
+                    Sì, gli articoli presenti nel Catalogo sono pronti per essere spediti in giornata.
+                </div>
+        </div>
+        
+        <div class="faq-item animate-on-scroll stagger-3">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Posso personalizzare un articolo del catalogo?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                Sì! Contattami su <a href="https://wa.me/39368663093" target="_blank" rel="noopener noreferrer" style="color: var(--primary); font-weight: 600; text-decoration: underline;">WhatsApp</a> per discutere le tue idee e creare qualcosa di unico e personalizzato.
+            </div>
+        </div>
+        
+        <div class="faq-cta">
+            <a href="/faq" class="btn-primary">Scopri tutte le FAQ</a>
+        </div>
+    </section>
     
     <!-- FOOTER -->
     <footer>
@@ -520,6 +681,7 @@
                 <li><a href="/catalogo">Catalogo</a></li>
                 <li><a href="/bomboniere">Bomboniere</a></li>
                 <li><a href="/#contatti">Contatti</a></li>
+                <li><a href="/termini">Termini e Condizioni</a></li>
                 <li><a href="/privacy">Privacy Policy</a></li>
                 <li><a href="/cookies">Cookie Policy</a></li>
             </ul>
@@ -543,6 +705,26 @@
             badge.textContent = totalItems;
         }
         updateCartBadge();
+
+        function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
     </script>
+    <script>
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -60px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+    </script>
+    <script src="/assets/js/lightbox.js"></script>
+    <script src="/assets/js/cookie-consent.js"></script>
 </body>
 </html>

@@ -645,6 +645,41 @@
                 justify-content: center;
             }
         }
+
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        /* ANIMATIONS */
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-1 { transition-delay: 0.05s; }
+        .stagger-2 { transition-delay: 0.12s; }
+        .stagger-3 { transition-delay: 0.19s; }
+        .stagger-4 { transition-delay: 0.26s; }
+        .stagger-5 { transition-delay: 0.33s; }
+        .stagger-6 { transition-delay: 0.40s; }
+        .stagger-7 { transition-delay: 0.47s; }
+
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        .btn, .btn-primary, .btn-secondary {
+            position: relative;
+            overflow: hidden;
+        }
     </style>
 </head>
 <body>
@@ -683,8 +718,8 @@
     <!-- SHIPPING BAR -->
     <div class="shipping-bar">
         <div class="shipping-bar-content">
-            <span><i class="fas fa-truck"></i> Spedizione gratuita per ordini superiori ad €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
-            <span><i class="fas fa-truck"></i> Spedizione gratuita per ordini superiori ad €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
+            <span><i class="fas fa-truck"></i> Spedizione Gratuita in Tutta Italia per Ordini Superiori a €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
+            <span><i class="fas fa-truck"></i> Spedizione Gratuita in Tutta Italia per Ordini Superiori a €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
         </div>
     </div>
 
@@ -713,11 +748,11 @@
         <!-- INTRO -->
         <section class="intro-section">
             <div class="intro-container">
-                <div class="intro-image-wrapper reveal">
+                <div class="intro-image-wrapper reveal animate-on-scroll">
                     <img src="/assets/images/catalogo-1.jpg" alt="Paola Vacirca" class="intro-image">
                     <div class="intro-image-accent"></div>
                 </div>
-                <div class="intro-text reveal reveal-delay-1">
+                <div class="intro-text reveal reveal-delay-1 animate-on-scroll stagger-1">
                     <div class="section-label">Ciao, sono Paola</div>
                     <h2>Un'anima siciliana tra le mie mani</h2>
                     <p>Da sempre la mia passione è creare ceramiche uniche, fatte a mano, che portano un pezzo di Sicilia nelle case di tutto il mondo.</p>
@@ -730,7 +765,7 @@
         <!-- TRADITION -->
         <section class="tradition-section">
             <div class="tradition-container">
-                <div class="tradition-text reveal">
+                <div class="tradition-text reveal animate-on-scroll stagger-2">
                     <div class="section-label">La tradizione</div>
                     <h2>Caltagirone e la sua ceramica</h2>
                     <p>Caltagirone è famosa in tutto il mondo per la sua millenaria produzione di ceramica artigianale, un'arte introdotta e perfezionata durante la dominazione araba e normanna. Per questa storica tradizione, il suo centro storico è stato inserito dall'UNESCO tra i <a href="https://www.italia.it/it/sicilia/catania/caltagirone/cosa-fare/ceramiche-caltagirone-made-in-italy" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: underline; font-weight: 500;">siti Patrimonio dell'Umanità</a>.</p>
@@ -759,7 +794,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="tradition-image-wrapper reveal reveal-delay-1">
+                <div class="tradition-image-wrapper reveal reveal-delay-1 animate-on-scroll stagger-3">
                     <img src="/assets/images/caltagirone.webp" alt="Ceramiche di Caltagirone" class="tradition-image">
                     <div class="tradition-image-accent"></div>
                 </div>
@@ -768,27 +803,27 @@
 
         <!-- PROCESS -->
         <section class="process-section">
-            <div class="process-header reveal">
+            <div class="process-header reveal animate-on-scroll stagger-1">
                 <div class="section-label">Il processo</div>
                 <h2>Dalla terra alla mano</h2>
                 <p>Ogni creazione nasce da un processo artigianale che unisce tradizione e creatività</p>
             </div>
             <div class="process-grid">
-                <div class="process-card reveal reveal-delay-1">
+                <div class="process-card reveal reveal-delay-1 animate-on-scroll stagger-2">
                     <div class="process-icon">
                         <i class="fas fa-hand-sparkles"></i>
                     </div>
                     <h3>Lavorazione a mano</h3>
                     <p>Ogni pezzo è modellato interamente a mano, senza l'uso di stampi industriali.</p>
                 </div>
-                <div class="process-card reveal reveal-delay-2">
+                <div class="process-card reveal reveal-delay-2 animate-on-scroll stagger-3">
                     <div class="process-icon">
                         <i class="fas fa-palette"></i>
                     </div>
                     <h3>Decorazione unica</h3>
                     <p>Ogni decorazione è dipinta a mano con colori che richiamano le tradizioni siciliane.</p>
                 </div>
-                <div class="process-card reveal reveal-delay-3">
+                <div class="process-card reveal reveal-delay-3 animate-on-scroll stagger-4">
                     <div class="process-icon">
                         <i class="fas fa-fire"></i>
                     </div>
@@ -801,19 +836,19 @@
         <!-- STATS -->
         <section class="stats-section">
             <div class="stats-grid">
-                <div class="stat-item reveal">
+                <div class="stat-item reveal animate-on-scroll stagger-1">
                     <div class="stat-number">15+</div>
                     <div class="stat-label">Anni di esperienza</div>
                 </div>
-                <div class="stat-item reveal reveal-delay-1">
+                <div class="stat-item reveal reveal-delay-1 animate-on-scroll stagger-2">
                     <div class="stat-number">1000+</div>
                     <div class="stat-label">Pezzi realizzati</div>
                 </div>
-                <div class="stat-item reveal reveal-delay-2">
+                <div class="stat-item reveal reveal-delay-2 animate-on-scroll stagger-3">
                     <div class="stat-number">4</div>
                     <div class="stat-label">Collezioni</div>
                 </div>
-                <div class="stat-item reveal reveal-delay-3">
+                <div class="stat-item reveal reveal-delay-3 animate-on-scroll stagger-4">
                     <div class="stat-number">100%</div>
                     <div class="stat-label">Fatto a mano</div>
                 </div>
@@ -822,7 +857,7 @@
 
         <!-- CTA -->
         <section class="cta-section">
-            <div class="cta-content reveal">
+            <div class="cta-content reveal animate-on-scroll stagger-1">
                 <h2>Scopri le mie creazioni</h2>
                 <p>Esplora le collezioni e lasciati ispirare dalla bellezza della ceramica siciliana.</p>
                 <div class="cta-buttons">
@@ -850,6 +885,7 @@
                 <li><a href="/catalogo">Catalogo</a></li>
                 <li><a href="/bomboniere">Bomboniere</a></li>
                 <li><a href="/#contatti">Contatti</a></li>
+                <li><a href="/termini">Termini e Condizioni</a></li>
                 <li><a href="/privacy">Privacy Policy</a></li>
                 <li><a href="/cookies">Cookie Policy</a></li>
             </ul>
@@ -871,15 +907,21 @@
         updateCartBadge();
 
         // Scroll Reveal
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -60px 0px'
+        };
+        
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                 }
             });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        }, observerOptions);
+        
+        document.querySelectorAll('.animate-on-scroll, .reveal').forEach(el => observer.observe(el));
     </script>
+    <script src="/assets/js/cookie-consent.js"></script>
 </body>
 </html>

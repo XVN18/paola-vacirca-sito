@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ | Paola Vacirca</title>
-    <meta name="description" content="Domande frequenti sulle ceramiche di Caltagirone di Paola Vacirca.">
+    <title>Termini e Condizioni | Paola Vacirca</title>
+    <meta name="description" content="Termini e Condizioni di Vendita di Le Ceramiche di Caltagirone di Paola Vacirca. Condizioni generali di contratto per gli acquisti online.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -130,13 +130,12 @@
         .page-title { font-family: var(--font-display); font-size: 1.5rem; background: linear-gradient(135deg, var(--gray-900), var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 0.5rem; }
         .decorative-line { width: 100px; height: 3px; background: linear-gradient(90deg, transparent, var(--primary), transparent); margin: 0 auto; }
 
-        .faq-container { max-width: 800px; margin: 0 auto; padding: 2rem; }
-        .faq-item { background: var(--gray-100); border-radius: var(--radius-md); margin-bottom: 1rem; overflow: hidden; }
-        .faq-question { padding: 1.25rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; font-weight: 600; font-size: 0.9375rem; }
-        .faq-question i { color: var(--primary); transition: transform 0.3s; }
-        .faq-answer { padding: 0 1.5rem; max-height: 0; overflow: hidden; transition: all 0.3s ease; font-size: 0.875rem; color: var(--gray-500); line-height: 1.7; }
-        .faq-item.open .faq-answer { padding: 0 1.5rem 1.25rem; max-height: 300px; }
-        .faq-item.open .faq-question i { transform: rotate(180deg); }
+        .legal-content { max-width: 800px; margin: 0 auto; padding: 0 2rem 3rem; font-size: 0.9375rem; color: var(--gray-700); line-height: 1.8; }
+        .legal-content h2 { font-family: var(--font-display); font-size: 1.125rem; color: var(--gray-900); margin: 2rem 0 0.75rem; }
+        .legal-content h3 { font-size: 0.9375rem; font-weight: 600; color: var(--gray-900); margin: 1.5rem 0 0.5rem; }
+        .legal-content p { margin-bottom: 1rem; }
+        .legal-content ul { margin: 0.5rem 0 1rem 1.5rem; }
+        .legal-content li { margin-bottom: 0.5rem; }
 
         /* FOOTER */
         footer { background: var(--gray-900); color: var(--gray-200); padding: 1.5rem 2rem calc(1rem + 80px); margin-top: 2rem; }
@@ -156,51 +155,6 @@
             .logo-subtitle { font-size: 0.58rem; }
             .sub-navbar a { font-size: 0.6rem; min-width: 50px; }
             .sub-navbar a i { font-size: 1rem; }
-        }
-
-        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-        /* ANIMATIONS */
-        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .animate-on-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .stagger-1 { transition-delay: 0.05s; }
-        .stagger-2 { transition-delay: 0.12s; }
-        .stagger-3 { transition-delay: 0.19s; }
-        .stagger-4 { transition-delay: 0.26s; }
-        .stagger-5 { transition-delay: 0.33s; }
-        .stagger-6 { transition-delay: 0.40s; }
-        .stagger-7 { transition-delay: 0.47s; }
-
-        @keyframes ripple {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
-
-        .faq-item {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .faq-category-title {
-            font-family: var(--font-display);
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--gray-900);
-            margin: 2.5rem 0 1rem;
-            padding-left: 0.5rem;
-            border-left: 3px solid var(--primary);
         }
     </style>
 </head>
@@ -233,7 +187,7 @@
             <a href="/"><i class="fas fa-home"></i> Home</a>
             <a href="/opere-d-arte"><i class="fas fa-flask"></i> Creazioni</a>
             <a href="/chi-sono"><i class="fas fa-user"></i> Chi Sono</a>
-            <a href="/faq" class="active"><i class="fas fa-question-circle"></i> FAQ</a>
+            <a href="/faq"><i class="fas fa-question-circle"></i> FAQ</a>
         </div>
     </nav>
 
@@ -254,147 +208,101 @@
     </div>
 
     <div class="page-wrapper">
-        <div class="page-header animate-on-scroll">
-            <h1 class="page-title">Domande Frequenti</h1>
+        <div class="page-header">
+            <h1 class="page-title">Termini e Condizioni</h1>
             <div class="decorative-line"></div>
         </div>
 
-        <div class="faq-container">
-            <div class="faq-item animate-on-scroll stagger-1">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    Come vengono realizzate le ceramiche?
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    Tutte le mie ceramiche sono realizzate interamente a mano nel mio laboratorio di Caltagirone, seguendo una tradizione artigianale tramandata da generazioni.
-                </div>
-            </div>
-            <div class="faq-item animate-on-scroll stagger-2">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    Quanto tempo richiede la spedizione?
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    La spedizione è variabile in base alla quantità. Generalmente riceverai il tuo ordine entro 3-7 giorni lavorativi.
-                </div>
-            </div>
-            <div class="faq-item animate-on-scroll stagger-3">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    Posso personalizzare i prodotti?
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    Si! Molti dei miei prodotti sono personalizzabili. Contattami per discutere le tue idee e creare qualcosa di unico.
-                </div>
-            </div>
-            <div class="faq-item animate-on-scroll stagger-4">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    Come posso contattarvi?
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    Puoi contattarmi tramite WhatsApp, email o compilando il modulo di contatto nella pagina dedicata.
-                </div>
-            </div>
-            <div class="faq-item animate-on-scroll stagger-5">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    Accettate resi?
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    Si, accettiamo resi entro 30 giorni dall'acquisto. Il prodotto deve essere nella condizione originale.
-                </div>
-            </div>
+        <div class="legal-content">
+            <p><strong>Aggiornato: Luglio 2026</strong></p>
 
-            <h2 class="faq-category-title animate-on-scroll">Collezioni</h2>
+            <h2>1. Oggetto e campo di applicazione</h2>
+            <p>I presenti Termini e Condizioni Generali di Vendita disciplinano i rapporti contrattuali tra <strong>Le Ceramiche di Caltagirone di Paola Vacirca</strong> (di seguito "il Venditore"), con sede in Caltagirone (CT), P.IVA 06249570877, e i clienti (di seguito "il Cliente") che effettuano acquisti tramite il sito web <strong>www.paulavacirca.it</strong> (di seguito "il Sito").</p>
+            <p>Effettuando un ordine sul Sito, il Cliente dichiara di aver letto, compreso e accettato integralmente i presenti Termini e Condizioni. Il Venditore si riserva il diritto di modificare i presenti termini in qualsiasi momento, senza preavviso. Le modifiche saranno efficaci dalla data di pubblicazione sul Sito.</p>
 
-            <div class="faq-item animate-on-scroll stagger-1">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    Si può acquistare solamente un articolo della collezione?
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    Certo, basta aggiungere l'articolo desiderato al carrello e procedere all'acquisto.
-                </div>
-            </div>
-            <div class="faq-item animate-on-scroll stagger-2">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    Le collezioni sono edizioni limitate?
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    Ogni articolo presente nelle Collezioni e nel <a href="/catalogo" style="color: var(--primary); font-weight: 600; text-decoration: underline;">Catalogo</a> è un pezzo unico ed inimitabile firmato Paola Vacirca.
-                </div>
-            </div>
-            <div class="faq-item animate-on-scroll stagger-3">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    È possibile richiedere delle personalizzazioni su una collezione?
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    No, non è possibile ma puoi richiedere uno o più articoli personalizzati ispirati alla collezione contattandomi su <a href="https://wa.me/39368663093" target="_blank" rel="noopener noreferrer" style="color: var(--primary); font-weight: 600; text-decoration: underline;">Whatsapp</a>.
-                </div>
-            </div>
+            <h2>2. Prodotti e prezzi</h2>
+            <p>Tutti i prodotti offerti sul Sito sono ceramiche artigianali realizzate artigianalmente a mano a Caltagirone. Data la natura artigianale dei prodotti, ogni pezzo è unico e possono esservi leggere variazioni di colore, forma e dimensione rispetto alle fotografie pubblicate. Tali differenze non costituiscono vizi, ma testimoniano l'autenticità e l'unicità del manufatto.</p>
+            <p>I prezzi indicati sul Sito sono espressi in Euro (€) e includono l'IVA (Imposta sul Valore Aggiunto) ai sensi della normativa vigente. Il Venditore si riserva il diritto di modificare i prezzi in qualsiasi momento, senza preavviso. Sarà considerato valido il prezzo indicate al momento della conferma dell'ordine.</p>
 
-            <h2 class="faq-category-title animate-on-scroll">Catalogo</h2>
+            <h2>3. Ordini e pagamento</h2>
+            <p>L'ordine può essere effettuato direttamente sul Sito, seguendo la procedura di acquisto indicata. Dopo aver inserito i dati di spedizione e scelto i prodotti, il Cliente potrà selezionare il metodo di pagamento preferito e confermare l'ordine.</p>
+            <p>I seguenti metodi di pagamento sono accettati:</p>
+            <ul>
+                <li><strong>Bonifico bancario:</strong> i dati bancari verranno forniti al momento della conferma dell'ordine. La merce verrà spedita solo dopo la ricezione e la conferma dell'avvenuto accredito.</li>
+                <li><strong>PayPal:</strong> pagamento immediato tramite account PayPal o carta di credito/debito collegata.</li>
+                <li><strong>Carta di credito/debito tramite Stripe:</strong> accettiamo Visa, Mastercard, American Express e altre carte supportate dalla piattaforma Stripe, con transazione sicura e crittografata.</li>
+            </ul>
+            <p>Al termine dell'ordine, il Cliente riceverà una email di conferma con i dettagli dell'acquisto effettuato. L'ordine sarà considerato confermato solo dopo la ricezione della email di conferma da parte del Venditore.</p>
 
-            <div class="faq-item animate-on-scroll stagger-1">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    Posso richiedere un articolo del catalogo in altre dimensioni?
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    Sì, è possibile personalizzare la dimensione ed altre caratteristiche, contattami su <a href="https://wa.me/39368663093" target="_blank" rel="noopener noreferrer" style="color: var(--primary); font-weight: 600; text-decoration: underline;">WhatsApp</a> per realizzare un articolo fatto su misura per le tue esigenze.
-                </div>
-            </div>
-            <div class="faq-item animate-on-scroll stagger-2">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    Gli articoli del catalogo sono disponibili subito?
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    Sì, gli articoli presenti nel <a href="/catalogo" style="color: var(--primary); font-weight: 600; text-decoration: underline;">Catalogo</a> sono pronti per essere spediti in giornata.
-                </div>
-            </div>
-            <div class="faq-item animate-on-scroll stagger-3">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    Posso personalizzare un articolo del catalogo?
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    Sì! Contattami su <a href="https://wa.me/39368663093" target="_blank" rel="noopener noreferrer" style="color: var(--primary); font-weight: 600; text-decoration: underline;">WhatsApp</a> per discutere le tue idee e creare qualcosa di unico e personalizzato.
-                </div>
-            </div>
+            <h2>4. Spedizione e consegna</h2>
+            <p>Le spedizioni vengono effettuate tramite corriere espresso a livello nazionale (es. Poste Italiane, BRT, GLS). I tempi di consegna sono di <strong>3-7 giorni lavorativi</strong> dalla data dell'ordine, fatta salva l'eventuale disponibilità del prodotto. Per i prodotti realizzati su misura o personalizzati, i tempi di consegna possono essere più lunghi e saranno concordati al momento dell'ordine.</p>
+            <p>Le spese di spedizione sono calcolate in base al peso e alla destinazione e vengono indicate al Cliente prima della conferma dell'ordine. <strong>La spedizione è gratuita per ordini superiori a €80.</strong></p>
+            <p>Il rischio di perdita o deterioramento dei prodotti si trasferisce al Cliente al momento della consegna fisica o dell'immissione in possesso, a seconda di quale evento si verifichi per primo.</p>
 
-            <h2 class="faq-category-title animate-on-scroll">Bomboniere</h2>
+            <h2>5. Diritto di recesso (14 giorni)</h2>
+            <p>Ai sensi del D.Lgs. 21/2014, il Cliente consumatore (persona fisica che acquista per scopi estranei all'attività professionale, commerciale, artigianale o imprenditoriale) ha diritto di recedere dal contratto senza alcuna motivazione entro <strong>14 (quattordici) giorni calendarari</strong> dalla data di ricevimento del prodotto.</p>
 
-            <div class="faq-item animate-on-scroll stagger-1">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    È possibile personalizzare le bomboniere?
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    Certo, è possibile aggiungere iniziali, date, cambiare colori ed aggiungere decori. Contattami su <a href="https://wa.me/39368663093" target="_blank" rel="noopener noreferrer" style="color: var(--primary); font-weight: 600; text-decoration: underline;">WhatsApp</a> per discutere meglio le tue esigenze.
-                </div>
-            </div>
-            <div class="faq-item animate-on-scroll stagger-2">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    Quali occasioni sono adatte per le bomboniere?
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    Sono ideali per matrimoni, battesimi, comunioni, cresime, lauree, diciottesimi e qualsiasi evento degno di essere ricordato.
-                </div>
-            </div>
-            <div class="faq-item animate-on-scroll stagger-3">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    C'è un limite alla quantità che è possibile ordinare?
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    No, non c'è un limite ma possono variare i tempi di consegna.
-                </div>
-            </div>
+            <h3>Come esercitare il diritto di recesso</h3>
+            <p>Per esercitare il diritto di recesso, il Cliente deve inviare al Venditore una comunicazione inequivocabile entro i 14 giorni dalla ricezione del prodotto, utilizzando uno dei seguenti canali:</p>
+            <ul>
+                <li><strong>Email:</strong> paolavacirca09@gmail.com</li>
+                <li><strong>WhatsApp:</strong> +39 368 663 093</li>
+            </ul>
+            <p>Nella comunicazione dovranno essere indicati: nome e cognome del Cliente, numero ordine, prodotto/i per cui si intende esercitare il recesso, e la data di ricevimento. Il Cliente riceverà conferma della richiesta e le istruzioni per la restituzione dei prodotti.</p>
+
+            <h3>Condizioni per l'esercizio del recesso</h3>
+            <p>Per essere valido, il recesso deve rispettare le seguenti condizioni:</p>
+            <ul>
+                <li>Il prodotto deve essere <strong>integro, non utilizzato e non danneggiato</strong>.</li>
+                <li>Il prodotto deve essere restituito nella <strong>confezione originale</strong>, completa di tutti gli accessori e gli eventuali manuali.</li>
+                <li>Il prodotto deve essere rispedito nella <strong>confezione di spedizione adeguata</strong> per evitare danni durante il trasporto (visti i prodotti fragili).</li>
+                <li>Il prodotto deve essere <strong>accompagnato dalla documentazione di accompagnamento</strong> (fattura, ricevuta o conferma d'ordine).</li>
+            </ul>
+
+            <h3>Costi di restituzione</h3>
+            <p>Le spese di spedizione per la restituzione del prodotto sono a <strong>carico del Cliente</strong>. Il Venditore non è responsabile di eventuali perdite o danni causati durante il trasporto di restituzione. Si raccomanda di utilizzare un servizio di spedizione con assicurazione e tracciamento.</p>
+
+            <h3>Rimborso</h3>
+            <p>In caso di recesso correttamente esercitato, il Venditore provvederà al rimborso dell'importo totale pagato dal Cliente (incluse le spese di spedizione iniziali) <strong>entro 14 (quattordici) giorni</strong> dalla data in cui il Venditore riceve il prodotto restituito, utilizzando lo stesso metodo di pagamento utilizzato dal Cliente per l'acquisto originale.</p>
+            <p>Il rimborso potrà essere sospeso fino a quando il Venditore non abbia ricevuto il prodotto o fino a quando il Cliente non abbia dimostrato di aver rispedito il prodotto, a seconda di quale condizione si verifichi per prima.</p>
+
+            <h3>Eccezioni al diritto di recesso</h3>
+            <p>In conformità con quanto previsto dall'art. 59 del D.Lgs. 206/2005 (Codice del Consumo), il diritto di recesso <strong>non si applica</strong> alla fornitura di prodotti personalizzati o realizzati su misura, che sono stati confezionati o preparati secondo le specifiche e le preferenze del Cliente.</p>
+            <p>Inoltre, data la <strong>natura fragile dei prodotti ceramici</strong>, il Cliente è pienamente responsabile dell'adeguatezza dell'imballaggio utilizzato per la restituzione. Il Venditore non accetta responsabilità per eventuali danni subiti dai prodotti durante il trasporto di restituzione dovuti a imballaggio inadeguato. In caso di prodotto restituito danneggiato a causa di un imballaggio non adeguato, il rimborso potrebbe essere ridotto o negato.</p>
+
+            <h2>6. Garanzia legale</h2>
+            <p>I prodotti venduti sul Sito sono coperti dalla <strong>garanzia legale di conformità di 2 anni</strong> ai sensi del D.Lgs. 202/2005 e degli artt. 128-135 del Codice del Consumo (D.Lgs. 206/2005). Il Cliente ha diritto alla riparazione o alla sostituzione gratuita del prodotto in caso di difetti di conformità entro 2 anni dalla consegna.</p>
+            <p>Per segnalare un difetto di conformità, il Cliente deve contattare il Venditore entro <strong>2 mesi</strong> dalla scoperta del difetto, inviando una comunicazione con:</p>
+            <ul>
+                <li>Numero ordine e data dell'acquisto</li>
+                <li>Descrizione del difetto riscontrato</li>
+                <li>Fotografie del prodotto difettoso</li>
+                <li>Dati del Cliente (nome, cognome, indirizzo email)</li>
+            </ul>
+            <p>Il Venditore valuterà la segnalazione e, in caso di difetto confermato, provvederà alla riparazione o sostituzione del prodotto senza spese per il Cliente, o alla riduzione del prezzo, o allo scioglimento del contratto se le soluzioni precedenti non sono possibili o sproporzionate.</p>
+
+            <h2>7. Responsabilità</h2>
+            <p>Il Venditore si impegna a descrivere e illustrare i prodotti nel modo più fedele possibile sul Sito. Tuttavia, data la <strong>natura artigianale e unica delle ceramiche</strong>, sono da considerarsi normali e non costituiscono vizi le leggere variazioni di colore, forma, dimensione o finitura rispetto alle immagini pubblicate. Ogni pezzo è infatti unico e rappresenta il carattere autentico del lavoro artigianale.</p>
+            <p>La responsabilità del Venditore è limitata al valore del prodotto acquistato. Il Venditore non sarà responsabile per danni indiretti, perdite di profitti o danni consequenziali derivanti dall'uso o dall'impossibilità di uso dei prodotti.</p>
+
+            <h2>8. Privacy</h2>
+            <p>Per informazioni dettagliate sul trattamento dei dati personali, consulta la nostra <a href="/privacy" style="color: var(--primary);">Privacy Policy</a>.</p>
+
+            <h2>9. Cookie</h2>
+            <p>Per informazioni dettagliate sull'uso dei cookie, consulta la nostra <a href="/cookies" style="color: var(--primary);">Cookie Policy</a>.</p>
+
+            <h2>10. Legge applicabile e foro competente</h2>
+            <p>I presenti Termini e Condizioni sono regolati dalla <strong>legge italiana</strong>. Per qualsiasi controversia derivante dall'interpretazione o dall'esecuzione dei presenti termini sarà competente in via esclusiva il <strong>Foro di Catania</strong>, fatta salva l'applicazione delle norme imperative a tutela del consumatore.</p>
+
+            <h2>11. Contatti</h2>
+            <p>Per qualsiasi domanda o richiesta relativa ai presenti Termini e Condizioni, il Cliente può contattare il Venditore utilizzando i seguenti recapiti:</p>
+            <ul>
+                <li><strong>Ragione Sociale:</strong> Le Ceramiche di Caltagirone di Paola Vacirca</li>
+                <li><strong>Sede:</strong> Caltagirone (CT), Italia</li>
+                <li><strong>P.IVA:</strong> 06249570877</li>
+                <li><strong>Telefono:</strong> +39 368 663 093</li>
+                <li><strong>Email:</strong> paolavacirca09@gmail.com</li>
+            </ul>
         </div>
     </div>
 
@@ -414,7 +322,7 @@
             </ul>
             <div class="footer-divider"></div>
             <div class="footer-bottom">
-                © 2026 Paola Vacirca Arte e Ceramica di Caltagirone. Tutti i diritti riservati.<br>
+                &copy; 2026 Paola Vacirca Arte e Ceramica di Caltagirone. Tutti i diritti riservati.<br>
                 P.IVA: 06249570877
             </div>
         </div>
@@ -428,23 +336,6 @@
             if (badge) { badge.textContent = totalItems; }
         }
         updateCartBadge();
-
-        function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
-
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -60px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-        
-        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
     </script>
     <script src="/assets/js/cookie-consent.js"></script>
 </body>

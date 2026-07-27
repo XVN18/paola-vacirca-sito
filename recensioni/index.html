@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recensioni | Paola Vacirca</title>
+    <meta name="description" content="Leggi le recensioni dei clienti di Paola Vacirca, artigiana ceramista di Caltagirone.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        html { overflow: visible; padding-bottom: 0px; }
+        .page-wrapper { overflow-x: hidden; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #C4923A; --primary-light: #E8B86D; --primary-dark: #8B6420;
+            --secondary: #2C4A3E; --accent: #D4522A;
+            --white: #FEFAF5; --cream: #F5EDD8; --gray-100: #F8F4EE; --gray-200: #EDE5D8;
+            --gray-300: #D4C4A8; --gray-500: #8A7A65; --gray-700: #4A3D2E; --gray-900: #1A120B;
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Inter', system-ui, sans-serif;
+            --radius-md: 16px; --radius-lg: 24px; --radius-xl: 32px; --radius-full: 9999px;
+            --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-spring: 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+            --glass-shadow: 0 8px 32px rgba(31, 20, 5, 0.1);
+        }
+        body { font-family: var(--font-body); background: var(--white); color: var(--gray-900); line-height: 1.6; }
+
+        /* NAVBAR */
+        .navbar { position: sticky; top: 0; z-index: 1000; background: rgba(26, 18, 11, 0.85); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3); }
+        .navbar-container { max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; flex-direction: column; text-decoration: none; }
+        .logo-text { font-family: var(--font-display); font-size: 1.5rem; color: var(--cream); font-weight: 700; line-height: 1.2; }
+        .logo-subtitle { font-family: var(--font-body); font-size: 0.4rem; letter-spacing: 0.08em; color: var(--gray-500); text-transform: uppercase; opacity: 0.7; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+        .nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--gray-300); text-decoration: none; position: relative; transition: color var(--transition-base); }
+        .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--primary-light); transition: width var(--transition-base); }
+        .nav-links a:hover { color: var(--primary-light); }
+        .nav-links a:hover::after { width: 100%; }
+        .cart-icon { position: relative; color: var(--gray-300); font-size: 1.25rem; cursor: pointer; transition: color var(--transition-base); text-decoration: none; }
+        .cart-icon:hover { color: var(--primary-light); }
+        .cart-badge { position: absolute; top: -8px; right: -8px; background: var(--accent); color: white; font-size: 0.65rem; font-weight: 600; padding: 2px 6px; border-radius: var(--radius-full); min-width: 18px; text-align: center; }
+        .nav-right { display: flex; align-items: center; gap: 1rem; }
+
+        /* SUB-NAVBAR */
+        .sub-navbar { position: fixed; bottom: 10px; left: 50%; transform: translateX(-50%); z-index: 999; background: rgba(26, 18, 11, 0.7); backdrop-filter: blur(10px); border-radius: 30px; padding: 0.4rem 2rem; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(196, 146, 58, 0.1); border: 1px solid rgba(196, 146, 58, 0.15); display: none; }
+        .sub-navbar::-webkit-scrollbar { display: none; }
+        .sub-navbar-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: center; gap: 0.3rem; align-items: center; }
+        .sub-navbar a { display: inline-flex; flex-direction: column; align-items: center; gap: 3px; text-decoration: none; color: rgba(255, 255, 255, 0.7); font-size: 0.6rem; font-weight: 500; padding: 6px 12px; border-radius: 12px; -webkit-tap-highlight-color: transparent; outline: none; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); white-space: nowrap; position: relative; }
+        .sub-navbar a i { font-size: 1.15rem; background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(255,255,255,0.7)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; transition: all 0.3s ease; }
+        .sub-navbar a:hover { color: var(--primary); background: none; transform: translateY(-2px); }
+        .sub-navbar a:hover i { background: linear-gradient(135deg, var(--primary), var(--primary-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; filter: drop-shadow(0 2px 4px rgba(196, 146, 58, 0.3)); }
+        .sub-navbar a.active { color: var(--primary); background: none; }
+        .sub-navbar a.active i { background: linear-gradient(135deg, var(--primary), var(--primary-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+        /* BREADCRUMB */
+        .breadcrumb {
+            position: sticky;
+            top: 100px;
+            z-index: 997;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        .breadcrumb-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.5rem 1.25rem;
+            background: rgba(26, 18, 11, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(196, 146, 58, 0.15);
+            border-radius: 20px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.875rem;
+            font-family: var(--font-body);
+            text-decoration: none;
+            transition: all var(--transition-base);
+            white-space: nowrap;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(196, 146, 58, 0.1);
+        }
+        .breadcrumb-back:hover {
+            color: var(--primary);
+        }
+
+        /* SHIPPING BAR */
+        .shipping-bar { position: -webkit-sticky; position: sticky; top: 64px; z-index: 998; background: rgba(190, 45, 45, 0.75); backdrop-filter: blur(8px); color: white; overflow: hidden; padding: 0.5rem 0; font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.02em; }
+        .shipping-bar-content { display: inline-flex; align-items: center; white-space: nowrap; animation: scrollRight 15s linear infinite; }
+        @keyframes scrollRight { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+        .shipping-bar-content i { margin: 0 0.35rem; color: white; }
+        .shipping-bar-content span { margin-right: 3rem; }
+
+        /* HEADER */
+        .reviews-header {
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+        }
+        .reviews-header h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+        }
+        .reviews-summary {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+        .reviews-summary-score {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+        .reviews-summary-score .score {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            line-height: 1;
+        }
+        .reviews-summary-score .out-of {
+            font-size: 1.25rem;
+            color: var(--gray-500);
+        }
+        .reviews-summary-stars {
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+        .reviews-summary-count {
+            font-size: 1rem;
+            color: var(--gray-500);
+        }
+        .reviews-summary-count svg {
+            vertical-align: middle;
+            margin-right: 4px;
+        }
+
+        /* MASONRY GRID */
+        .masonry-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+            columns: 3;
+            column-gap: 1.5rem;
+        }
+        @media (max-width: 900px) {
+            .masonry-grid { columns: 2; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .sub-navbar { display: block; }
+            .logo-text { font-size: 1.125rem; }
+            .logo-subtitle { font-size: 0.58rem; }
+            .sub-navbar a { font-size: 0.6rem; min-width: 50px; }
+            .sub-navbar a i { font-size: 1rem; }
+        }
+
+        @media (max-width: 600px) {
+            .masonry-grid { columns: 1; padding: 0 1rem 3rem; }
+            .review-card { padding: 1rem; margin-bottom: 1rem; }
+            .review-author-photo { width: 32px; height: 32px; font-size: 0.85rem; }
+            .review-author-name { font-size: 0.8125rem; }
+            .review-date { font-size: 0.75rem; }
+            .review-google-icon svg { width: 18px; height: 18px; }
+            .review-stars { font-size: 0.75rem; margin-bottom: 0.5rem; }
+            .review-text { font-size: 0.8125rem; -webkit-line-clamp: 3; }
+            .review-photo img { height: 180px; }
+            .review-photo-slider-track img { height: 180px; }
+            .reviews-header h1 { font-size: 1.5rem; }
+            .reviews-summary-score .score { font-size: 2rem; }
+        }
+
+        /* REVIEW CARD */
+        .review-card {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+            background: var(--gray-100);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            transition: transform var(--transition-base), box-shadow var(--transition-base);
+        }
+        .review-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+        }
+        .review-card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+        .review-author-photo {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            background-color: var(--gray-300);
+            flex-shrink: 0;
+        }
+        .review-author-photo.initials {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: white;
+            background-color: var(--primary);
+        }
+        .review-author-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .review-author-name {
+            font-weight: 600;
+            font-size: 0.9375rem;
+            color: var(--gray-900);
+        }
+        .review-date {
+            font-size: 0.8125rem;
+            color: var(--gray-500);
+        }
+        .review-google-icon {
+            flex-shrink: 0;
+        }
+        .review-google-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+        .review-stars {
+            color: var(--primary);
+            font-size: 0.875rem;
+            margin-bottom: 0.75rem;
+            letter-spacing: 2px;
+        }
+        .review-text {
+            font-size: 0.9375rem;
+            line-height: 1.6;
+            color: var(--gray-700);
+            margin: 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .review-text.expanded {
+            -webkit-line-clamp: unset;
+        }
+        .review-read-more {
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 0;
+            margin-top: 0.5rem;
+            display: inline-block;
+        }
+        .review-read-more:hover {
+            text-decoration: underline;
+        }
+        .review-photo {
+            margin-top: 1rem;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+        }
+        .review-photo img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: var(--radius-md);
+        }
+        .review-photo-slider {
+            margin-top: 1rem;
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius-md);
+        }
+        .review-photo-slider-track {
+            display: flex;
+            transition: transform 0.3s ease;
+        }
+        .review-photo-slider-track img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        .review-photo-slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255,255,255,0.9);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--gray-700);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            transition: background var(--transition-base);
+            z-index: 2;
+        }
+        .review-photo-slider-btn:hover {
+            background: white;
+        }
+        .review-photo-slider-btn.prev { left: 8px; }
+        .review-photo-slider-btn.next { right: 8px; }
+
+        /* FOOTER */
+        footer { background: var(--gray-900); color: var(--gray-300); padding: 3rem 2rem; text-align: center; }
+        .footer-container { max-width: 1400px; margin: 0 auto; }
+        .footer-logo { font-family: var(--font-display); font-size: 1.5rem; color: var(--cream); margin-bottom: 0.5rem; }
+        .footer-tagline { font-size: 0.875rem; color: var(--gray-500); margin-bottom: 1.5rem; }
+        .footer-links { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+        .footer-links a { color: var(--gray-300); text-decoration: none; font-size: 0.875rem; transition: color var(--transition-base); }
+        .footer-links a:hover { color: var(--primary-light); }
+        .footer-divider { width: 60px; height: 1px; background: var(--gray-700); margin: 1.5rem auto; }
+        .footer-bottom { font-size: 0.8125rem; color: var(--gray-500); }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="/" class="logo">
+                <div class="logo-text">Paola Vacirca</div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/opere-d-arte">Creazioni</a></li>
+                <li><a href="/collezioni">Collezioni</a></li>
+                <li><a href="/catalogo">Catalogo</a></li>
+                <li><a href="/bomboniere">Bomboniere</a></li>
+                <li><a href="/chi-sono">Chi Sono</a></li>
+                <li><a href="/faq">FAQ</a></li>
+                <li><a href="/#contatti">Contatti</a></li>
+            </ul>
+            <div class="nav-right">
+                <a href="/checkout/" class="cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-badge">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SUB-NAVBAR -->
+    <nav class="sub-navbar">
+        <div class="sub-navbar-container">
+            <a href="/"><i class="fas fa-home"></i> Home</a>
+            <a href="/opere-d-arte"><i class="fas fa-flask"></i> Creazioni</a>
+            <a href="/chi-sono"><i class="fas fa-user"></i> Chi Sono</a>
+            <a href="/faq"><i class="fas fa-question-circle"></i> FAQ</a>
+        </div>
+    </nav>
+
+    <!-- SHIPPING BAR -->
+    <div class="shipping-bar">
+        <div class="shipping-bar-content">
+            <span><i class="fas fa-truck"></i> Spedizione Gratuita in Tutta Italia per Ordini Superiori a €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
+            <span><i class="fas fa-truck"></i> Spedizione Gratuita in Tutta Italia per Ordini Superiori a €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
+        </div>
+    </div>
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+        <a href="/" class="breadcrumb-back">
+            <i class="fas fa-arrow-left"></i>
+            Indietro
+        </a>
+    </div>
+
+    <div class="page-wrapper">
+
+        <!-- HEADER -->
+        <div class="reviews-header">
+            <h1>Le Recensioni dei miei Clienti</h1>
+            <div class="reviews-summary">
+                <div class="reviews-summary-score">
+                    <span class="score">5.0</span>
+                    <span class="out-of">/ 5</span>
+                </div>
+                <div class="reviews-summary-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <div class="reviews-summary-count">
+                    <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                    12 recensioni su Google
+                </div>
+            </div>
+        </div>
+
+        <!-- MASONRY GRID -->
+        <div class="masonry-grid">
+
+            <!-- RECENSIONE 1 -->
+            <div class="review-card">
+                <div class="review-card-header">
+                    <div class="review-author-photo initials">V</div>
+                    <div class="review-author-info">
+                        <span class="review-author-name">Valentina Morandelli</span>
+                        <span class="review-date" data-date="2026-07-17"></span>
+                    </div>
+                    <div class="review-google-icon"><svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></div>
+                </div>
+                <div class="review-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">Le creazioni di Paola sono un'esplosione di colore ed energia. Le sue ceramiche sono uniche, colorate e piene di personalità, proprio come lei. Ogni pezzo è realizzato con passione, cura e una grande creatività, trasformando semplici oggetti in piccoli capolavori che donano gioia. Consigliatissime!</p>
+                <div class="review-photo" style="display:block;">
+                    <img src="/assets/images/recensione 1.webp" alt="Foto recensione">
+                </div>
+            </div>
+
+            <!-- RECENSIONE 2 -->
+            <div class="review-card">
+                <div class="review-card-header">
+                    <div class="review-author-photo initials">G</div>
+                    <div class="review-author-info">
+                        <span class="review-author-name">Gabriella Abbagnara</span>
+                        <span class="review-date" data-date="2026-07-20"></span>
+                    </div>
+                    <div class="review-google-icon"><svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></div>
+                </div>
+                <div class="review-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">5/5</p>
+            </div>
+
+            <!-- RECENSIONE 3 -->
+            <div class="review-card">
+                <div class="review-card-header">
+                    <div class="review-author-photo initials">S</div>
+                    <div class="review-author-info">
+                        <span class="review-author-name">Sofia Cusumano</span>
+                        <span class="review-date" data-date="2026-07-15"></span>
+                    </div>
+                    <div class="review-google-icon"><svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></div>
+                </div>
+                <div class="review-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">Ancora complimenti per tutte le tue ceramiche! È un negozietto delizioso, lo consiglio vivamente a chi cerca prodotti unici e realizzati a mano.</p>
+                <div class="review-photo" style="display:block;">
+                    <img src="/assets/images/recensione 2.webp" alt="Foto recensione">
+                </div>
+            </div>
+
+            <!-- RECENSIONE 3 -->
+            <div class="review-card">
+                <div class="review-card-header">
+                    <div class="review-author-photo" style="background-image: url('/assets/images/federica di gregorio.png')"></div>
+                    <div class="review-author-info">
+                        <span class="review-author-name">Federica Di Gregorio</span>
+                        <span class="review-date" data-date="2026-07-14"></span>
+                    </div>
+                    <div class="review-google-icon"><svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></div>
+                </div>
+                <div class="review-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">Un artista incredibile, le sue creazioni sono il frutto del suo cuore.</p>
+                <div class="review-photo-slider">
+                    <div class="review-photo-slider-track">
+                        <img src="/assets/images/recensione 3.webp" alt="Foto recensione 1">
+                        <img src="/assets/images/recensione 3.1.webp" alt="Foto recensione 2">
+                    </div>
+                    <button class="review-photo-slider-btn prev" onclick="reviewSlider(this, -1)">&#10094;</button>
+                    <button class="review-photo-slider-btn next" onclick="reviewSlider(this, 1)">&#10095;</button>
+                </div>
+            </div>
+
+            <!-- RECENSIONE 4 -->
+            <div class="review-card">
+                <div class="review-card-header">
+                    <div class="review-author-photo initials">L</div>
+                    <div class="review-author-info">
+                        <span class="review-author-name">Lara Orofino</span>
+                        <span class="review-date" data-date="2026-07-19"></span>
+                    </div>
+                    <div class="review-google-icon"><svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></div>
+                </div>
+                <div class="review-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">Ho scoperto il laboratorio di Paola e me ne sono innamorata! Ciò che mi ha colpito di più è stata la sua capacità di dare nuova vita a pezzi di ceramica che altrimenti sarebbero stati buttati via, trasformandoli in creazioni uniche e bellissime.<br><br>Ci sono tantissime cose speciali nel suo negozio: ho scelto una borsa decorata con ceramiche e la trovo davvero originale e piena di carattere. Si vede tutta la passione che mette nel suo lavoro!</p>
+                <div class="review-photo" style="display:block;">
+                    <img src="/assets/images/recensione 4.webp" alt="Foto recensione">
+                </div>
+            </div>
+
+            <!-- RECENSIONE 5 -->
+            <div class="review-card">
+                <div class="review-card-header">
+                    <div class="review-author-photo initials">C</div>
+                    <div class="review-author-info">
+                        <span class="review-author-name">Cinzia Melfa</span>
+                        <span class="review-date" data-date="2026-07-15"></span>
+                    </div>
+                    <div class="review-google-icon"><svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></div>
+                </div>
+                <div class="review-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">Le ceramiche di Paola hanno uno stile originale, raffinato e di buon gusto.</p>
+                <div class="review-photo" style="display:block;">
+                    <img src="/assets/images/recensione 5.webp" alt="Foto recensione">
+                </div>
+            </div>
+
+            <!-- RECENSIONE 6 -->
+            <div class="review-card">
+                <div class="review-card-header">
+                    <div class="review-author-photo initials">G</div>
+                    <div class="review-author-info">
+                        <span class="review-author-name">Gabriella Abbagnara</span>
+                        <span class="review-date" data-date="2026-07-20"></span>
+                    </div>
+                    <div class="review-google-icon"><svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></div>
+                </div>
+                <div class="review-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">5/5</p>
+            </div>
+
+            <!-- RECENSIONE 7 -->
+            <div class="review-card">
+                <div class="review-card-header">
+                    <div class="review-author-photo initials">A</div>
+                    <div class="review-author-info">
+                        <span class="review-author-name">Alessandra Cusumano</span>
+                        <span class="review-date" data-date="2026-07-19"></span>
+                    </div>
+                    <div class="review-google-icon"><svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></div>
+                </div>
+                <div class="review-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">5/5</p>
+            </div>
+
+            <!-- RECENSIONE 8 -->
+            <div class="review-card">
+                <div class="review-card-header">
+                    <div class="review-author-photo initials">E</div>
+                    <div class="review-author-info">
+                        <span class="review-author-name">Elena Orofino</span>
+                        <span class="review-date" data-date="2026-07-18"></span>
+                    </div>
+                    <div class="review-google-icon"><svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></div>
+                </div>
+                <div class="review-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">La Signora Paola è super disponibile e soprattutto creativa! Bellissimi pezzi unici, consiglio un salto per apprezzare ancora di più le tradizioni siciliane</p>
+            </div>
+
+            <!-- RECENSIONE 9 -->
+            <div class="review-card">
+                <div class="review-card-header">
+                    <div class="review-author-photo" style="background-image: url('/assets/images/riccardo storti.png')"></div>
+                    <div class="review-author-info">
+                        <span class="review-author-name">Riccardo Storti</span>
+                        <span class="review-date" data-date="2026-07-18"></span>
+                    </div>
+                    <div class="review-google-icon"><svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></div>
+                </div>
+                <div class="review-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">Tutto bellissimo! Ho comprato un regalo per la mia ragazza ed è rimasta veramente contenta! Lo consiglio</p>
+            </div>
+
+            <!-- RECENSIONE 10 -->
+            <div class="review-card">
+                <div class="review-card-header">
+                    <div class="review-author-photo initials">S</div>
+                    <div class="review-author-info">
+                        <span class="review-author-name">Salvatore Pace</span>
+                        <span class="review-date" data-date="2026-07-07"></span>
+                    </div>
+                    <div class="review-google-icon"><svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></div>
+                </div>
+                <div class="review-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">Negozio di ceramica assolutamente da visitare a Caltagirone! Situato in Via Gabelle 15, questo laboratorio offre ceramiche artigianali di qualità eccezionale.<br><br>La proprietaria Paola Vacirca è una persona squisita che ti accoglie con il sorriso e ti fa scoprire la tradizione della ceramica siciliana. Vasta scelta di prodotti: dalle mattonelle decorative ai vasi dipinti a mano, dalle bomboniere alle tipiche teste di moro.<br><br>I prezzi sono onesti e la qualità del lavoro artigianale è davvero alta. Paola è disponibile a dare consigli ed a personalizzare le creazioni secondo le tue esigenze.<br><br>Consigliatissimo per chi cerca un regalo autentico o vuole portare a casa un pezzo unico della tradizione in ceramica di Caltagirone. Tornerò sicuramente!</p>
+                <div class="review-photo" style="display:block;">
+                    <img src="/assets/images/salvatore pace recensione.webp" alt="Foto recensione">
+                </div>
+            </div>
+
+            <!-- RECENSIONE 11 -->
+            <div class="review-card">
+                <div class="review-card-header">
+                    <div class="review-author-photo initials">G</div>
+                    <div class="review-author-info">
+                        <span class="review-author-name">Giacomo Mancuso</span>
+                        <span class="review-date" data-date="2026-07-15"></span>
+                    </div>
+                    <div class="review-google-icon"><svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></div>
+                </div>
+                <div class="review-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">5/5</p>
+            </div>
+
+            <!-- RECENSIONE 12 -->
+            <div class="review-card">
+                <div class="review-card-header">
+                    <div class="review-author-photo initials">S</div>
+                    <div class="review-author-info">
+                        <span class="review-author-name">Salvatore Orofino</span>
+                        <span class="review-date" data-date="2026-07-14"></span>
+                    </div>
+                    <div class="review-google-icon"><svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></div>
+                </div>
+                <div class="review-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">Ceramica raffinata, una presenza estetica capace di arricchire gli spazi con una bellezza autentica. Tappa consigliatissima per chi si trova a passeggiare per il centro storico di Caltagirone.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <img src="/assets/images/logo.PNG" alt="Paola Vacirca" style="height: 125px; width: auto; filter: brightness(0) invert(1); margin-bottom: 0.75rem;">
+            <div class="footer-logo">Paola Vacirca</div>
+            <p class="footer-tagline">Arte e Ceramica di Caltagirone</p>
+            <ul class="footer-links">
+                <li><a href="/collezioni">Collezioni</a></li>
+                <li><a href="/catalogo">Catalogo</a></li>
+                <li><a href="/bomboniere">Bomboniere</a></li>
+                <li><a href="/#contatti">Contatti</a></li>
+                <li><a href="/termini">Termini e Condizioni</a></li>
+                <li><a href="/privacy">Privacy Policy</a></li>
+                <li><a href="/cookies">Cookie Policy</a></li>
+            </ul>
+            <div class="footer-divider"></div>
+            <div class="footer-bottom">
+                © 2026 Paola Vacirca Arte e Ceramica di Caltagirone. Tutti i diritti riservati.<br>
+                P.IVA: 06249570877
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        function updateCartBadge() {
+            const badge = document.querySelector('.cart-badge');
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            if (badge) { badge.textContent = totalItems; }
+        }
+        updateCartBadge();
+
+        // Review dates
+        (function() {
+            const now = new Date();
+            document.querySelectorAll('.review-date[data-date]').forEach(el => {
+                const reviewDate = new Date(el.dataset.date);
+                const diffMs = now - reviewDate;
+                const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+                
+                if (diffDays === 0) {
+                    el.textContent = 'Oggi';
+                } else if (diffDays === 1) {
+                    el.textContent = 'Ieri';
+                } else if (diffDays < 7) {
+                    el.textContent = diffDays + ' giorni fa';
+                } else if (diffDays < 30) {
+                    const weeks = Math.floor(diffDays / 7);
+                    el.textContent = weeks + (weeks === 1 ? ' settimana fa' : ' settimane fa');
+                } else if (diffDays < 365) {
+                    const months = Math.floor(diffDays / 30);
+                    el.textContent = months + (months === 1 ? ' mese fa' : ' mesi fa');
+                } else {
+                    const years = Math.floor(diffDays / 365);
+                    el.textContent = years + (years === 1 ? ' anno fa' : ' anni fa');
+                }
+            });
+        })();
+
+        // Read more
+        (function() {
+            document.querySelectorAll('.review-text').forEach(text => {
+                const card = text.closest('.review-card');
+                if (!card) return;
+                const lineHeight = parseFloat(getComputedStyle(text).lineHeight);
+                const maxHeight = lineHeight * 4;
+                if (text.scrollHeight > maxHeight + 5) {
+                    const btn = document.createElement('button');
+                    btn.className = 'review-read-more';
+                    btn.textContent = 'Read more';
+                    btn.addEventListener('click', () => {
+                        text.classList.toggle('expanded');
+                        btn.textContent = text.classList.contains('expanded') ? 'Show less' : 'Read more';
+                    });
+                    text.parentNode.insertBefore(btn, text.nextSibling);
+                }
+            });
+        })();
+
+        // Photo slider
+        function reviewSlider(btn, dir) {
+            const slider = btn.closest('.review-photo-slider');
+            const track = slider.querySelector('.review-photo-slider-track');
+            const imgs = track.querySelectorAll('img');
+            const prevBtn = slider.querySelector('.prev');
+            const nextBtn = slider.querySelector('.next');
+            const total = imgs.length;
+            
+            if (!track.dataset.index) track.dataset.index = '0';
+            let idx = parseInt(track.dataset.index) + dir;
+            
+            if (idx < 0) idx = total - 1;
+            if (idx >= total) idx = 0;
+            
+            track.dataset.index = idx;
+            track.style.transform = 'translateX(-' + (idx * 100) + '%)';
+            
+            prevBtn.style.display = idx === 0 ? 'none' : 'flex';
+            nextBtn.style.display = idx === total - 1 ? 'none' : 'flex';
+        }
+
+        document.querySelectorAll('.review-photo-slider').forEach(slider => {
+            slider.querySelector('.prev').style.display = 'none';
+        });
+    </script>
+    <script src="/assets/js/cookie-consent.js"></script>
+</body>
+</html>

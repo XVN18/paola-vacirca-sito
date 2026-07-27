@@ -342,6 +342,45 @@
             
             .trust-badges { grid-template-columns: 1fr; }
         }
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        /* ANIMATIONS */
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+        .btn-add-to-cart, .btn-buy-now, .bomboniera-cta {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-add-to-cart:active, .btn-buy-now:active {
+            transform: scale(0.96);
+            transition: transform 100ms ease;
+        }
+
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-1 { transition-delay: 0.05s; }
+        .stagger-2 { transition-delay: 0.12s; }
+        .stagger-3 { transition-delay: 0.19s; }
+        .stagger-4 { transition-delay: 0.26s; }
+        .stagger-5 { transition-delay: 0.33s; }
+        .stagger-6 { transition-delay: 0.40s; }
+        .stagger-7 { transition-delay: 0.47s; }
     </style>
 </head>
 <body>
@@ -394,8 +433,8 @@
     <!-- SHIPPING BAR -->
     <div class="shipping-bar">
         <div class="shipping-bar-content">
-            <span><i class="fas fa-truck"></i> Spedizione gratuita per ordini superiori ad €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
-            <span><i class="fas fa-truck"></i> Spedizione gratuita per ordini superiori ad €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
+            <span><i class="fas fa-truck"></i> Spedizione Gratuita in Tutta Italia per Ordini Superiori a €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
+            <span><i class="fas fa-truck"></i> Spedizione Gratuita in Tutta Italia per Ordini Superiori a €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
         </div>
     </div>
     
@@ -413,7 +452,7 @@
     <div class="product-container">
         <!-- LEFT COLUMN - IMAGES -->
         <div class="product-images">
-            <div class="main-image-wrapper">
+            <div class="main-image-wrapper" data-lightbox="product">
                 <img id="mainImage" src="/assets/images/bomboniera-3.PNG" alt="Bomboniera Barocco" class="main-image">
             </div>
         </div>
@@ -429,9 +468,9 @@
                 Personalizzabile
             </span>
             
-            <h1 class="product-title">Bomboniera Barocco</h1>
+            <h1 class="product-title animate-on-scroll">Bomboniera Barocco</h1>
             
-            <p class="product-description">
+            <p class="product-description animate-on-scroll stagger-1">
                 Una bomboniera artigianale unica che cattura l'essenza della Sicilia. 
                 Ogni pezzo è realizzato a mano con la tradizionale ceramica di Caltagirone, 
                 decorato con motivi siciliani e disponibile in 5 colori ispirati ai paesaggi dell'isola.
@@ -440,7 +479,7 @@
             <div class="divider"></div>
             
             <!-- QUANTITY -->
-            <div class="quantity-selector">
+            <div class="quantity-selector animate-on-scroll stagger-2">
                 <div style="background: #333; color: white; padding: 0.5rem 1rem; border-radius: var(--radius-sm); font-size: 0.75rem; font-weight: 600; margin-bottom: 0.75rem; display: inline-block;">
                     <i class="fas fa-info-circle"></i> I confetti non sono inclusi
                 </div>
@@ -468,7 +507,7 @@
             </div>
             
             <!-- CTA BUTTONS -->
-            <div class="cta-buttons">
+            <div class="cta-buttons animate-on-scroll stagger-3">
                 <a href="https://wa.me/?text=Buongiorno! Sono interessato alla Bomboniera Barocco" target="_blank" class="btn-whatsapp" onclick="updateWhatsAppLink(this)">
                     <i class="fab fa-whatsapp"></i>
                     Contatta Paola Vacirca
@@ -552,6 +591,7 @@
                 <li><a href="/catalogo">Catalogo</a></li>
                 <li><a href="/bomboniere">Bomboniere</a></li>
                 <li><a href="/#contatti">Contatti</a></li>
+                <li><a href="/termini">Termini e Condizioni</a></li>
                 <li><a href="/privacy">Privacy Policy</a></li>
                 <li><a href="/cookies">Cookie Policy</a></li>
             </ul>
@@ -686,7 +726,45 @@
     </script>
 
     <script>
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -60px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+    </script>
 
+    <script>
+        document.querySelectorAll('.btn-add-to-cart, .btn-buy-now, .bomboniera-cta').forEach(btn => {
+            btn.addEventListener('mousedown', function(e) {
+                const circle = document.createElement('span');
+                const diameter = Math.max(btn.clientWidth, btn.clientHeight);
+                const radius = diameter / 2;
+                circle.style.width = circle.style.height = diameter + 'px';
+                circle.style.left = (e.clientX - btn.getBoundingClientRect().left - radius) + 'px';
+                circle.style.top = (e.clientY - btn.getBoundingClientRect().top - radius) + 'px';
+                circle.style.position = 'absolute';
+                circle.style.borderRadius = '50%';
+                circle.style.background = 'rgba(255,255,255,0.4)';
+                circle.style.transform = 'scale(0)';
+                circle.style.animation = 'ripple 0.5s ease-out';
+                circle.style.pointerEvents = 'none';
+                btn.appendChild(circle);
+                setTimeout(() => circle.remove(), 500);
+            });
+        });
+    </script>
 
+    <script src="/assets/js/lightbox.js"></script>
+
+    <script src="/assets/js/cookie-consent.js"></script>
 </body>
 </html>

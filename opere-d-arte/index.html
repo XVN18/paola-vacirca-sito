@@ -320,6 +320,7 @@ gap: 0.3rem;
             width: 33.333%;
             flex-shrink: 0;
             overflow: hidden;
+            cursor: pointer;
         }
 
         .opera-card-image img {
@@ -467,6 +468,41 @@ gap: 0.3rem;
                 font-size: 1rem;
             }
         }
+
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        /* ANIMATIONS */
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-1 { transition-delay: 0.05s; }
+        .stagger-2 { transition-delay: 0.12s; }
+        .stagger-3 { transition-delay: 0.19s; }
+        .stagger-4 { transition-delay: 0.26s; }
+        .stagger-5 { transition-delay: 0.33s; }
+        .stagger-6 { transition-delay: 0.40s; }
+        .stagger-7 { transition-delay: 0.47s; }
+
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        .opera-card {
+            position: relative;
+            overflow: hidden;
+        }
     </style>
 </head>
 <body>
@@ -520,8 +556,8 @@ gap: 0.3rem;
     <!-- SHIPPING BAR -->
     <div class="shipping-bar">
         <div class="shipping-bar-content">
-            <span><i class="fas fa-truck"></i> Spedizione gratuita per ordini superiori ad €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
-            <span><i class="fas fa-truck"></i> Spedizione gratuita per ordini superiori ad €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
+            <span><i class="fas fa-truck"></i> Spedizione Gratuita in Tutta Italia per Ordini Superiori a €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
+            <span><i class="fas fa-truck"></i> Spedizione Gratuita in Tutta Italia per Ordini Superiori a €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
         </div>
     </div>
     
@@ -536,7 +572,7 @@ gap: 0.3rem;
     <div class="page-wrapper">
     
     <!-- PAGE HEADER -->
-    <div class="page-header">
+    <div class="page-header animate-on-scroll">
         <h1 class="page-title">Le Mie Creazioni</h1>
         <p class="page-subtitle">Lasciati inspirare dall'autenticità e dall'imperfezione.</p>
         <div class="decorative-line"></div>
@@ -546,7 +582,7 @@ gap: 0.3rem;
     <div class="opere-decorative">
     <div class="opere-container">
         <!-- CARD 1: Collezioni -->
-        <a href="/collezioni" class="opera-card">
+        <a href="/collezioni" class="opera-card animate-on-scroll stagger-1">
             <div class="opera-card-image">
                 <img src="/assets/images/Copertina-Collezione-Etna.PNG" 
                      alt="Collezione Etna" 
@@ -562,9 +598,9 @@ gap: 0.3rem;
         </a>
 
         <!-- CARD 2: Catalogo -->
-        <a href="/catalogo" class="opera-card">
+        <a href="/catalogo" class="opera-card animate-on-scroll stagger-2">
             <div class="opera-card-image">
-                <img src="/assets/images/catalogo-5.PNG" 
+                <img src="/assets/images/catalogo-1.jpg" 
                      alt="Catalogo" 
                      loading="lazy">
             </div>
@@ -578,7 +614,7 @@ gap: 0.3rem;
         </a>
 
         <!-- CARD 3: Bomboniere -->
-        <a href="/bomboniere" class="opera-card">
+        <a href="/bomboniere" class="opera-card animate-on-scroll stagger-3">
             <div class="opera-card-image">
                 <img src="/assets/images/bomboniera-2.PNG" 
                      alt="Bomboniere" 
@@ -607,6 +643,7 @@ gap: 0.3rem;
                 <li><a href="/catalogo">Catalogo</a></li>
                 <li><a href="/bomboniere">Bomboniere</a></li>
                 <li><a href="/#contatti">Contatti</a></li>
+                <li><a href="/termini">Termini e Condizioni</a></li>
                 <li><a href="/privacy">Privacy Policy</a></li>
                 <li><a href="/cookies">Cookie Policy</a></li>
             </ul>
@@ -631,6 +668,22 @@ gap: 0.3rem;
             badge.textContent = totalItems;
         }
         updateCartBadge();
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -60px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
     </script>
+    <script src="/assets/js/cookie-consent.js"></script>
 </body>
 </html>

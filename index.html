@@ -354,138 +354,71 @@
             align-items: center;
             justify-content: center;
         }
-        
-        .hero-slideshow {
-            position: absolute;
-            inset: 0;
-            z-index: 0;
-        }
-        
+
         .hero-slide {
             position: absolute;
             inset: 0;
-            background-size: cover;
-            background-position: center 70%;
+            z-index: 0;
             opacity: 0;
+            transition: opacity 1.2s ease-in-out;
         }
-        
-        .hero-slide:nth-child(1),
-        .hero-slide:nth-child(2) { animation: hero1Anim 30s infinite; }
-        
-        .hero-slide:nth-child(3),
-        .hero-slide:nth-child(4) { animation: hero2Anim 30s infinite; background-position: 55% 90%; }
-        
-        .hero-slide:nth-child(5),
-        .hero-slide:nth-child(6) { animation: hero3Anim 30s infinite; background-position: center 50%; }
-        
-        .hero-slide:nth-child(7),
-        .hero-slide:nth-child(8) { animation: hero4Anim 30s infinite; }
-        
-        .hero-slide:nth-child(9),
-        .hero-slide:nth-child(10) { animation: hero5Anim 30s infinite; background-position: 47% center; }
-        
-        .hero-slide:nth-child(11),
-        .hero-slide:nth-child(12) { animation: hero6Anim 30s infinite; }
-        
-        /* Transizione 1: Zoom crossfade (0% - 16.7%) */
-        @keyframes hero1Anim {
-            0%      { opacity: 1; transform: scale(1); filter: blur(0); }
-            13%     { opacity: 1; transform: scale(1.6); filter: blur(0); }
-            16.7%   { opacity: 0; transform: scale(1.6); filter: blur(4px); }
-            96%     { opacity: 0; transform: scale(1); filter: blur(4px); }
-            100%    { opacity: 1; transform: scale(1); filter: blur(0); }
+
+        .hero-slide.active {
+            opacity: 1;
         }
-        
-        /* Transizione 2: Zoom crossfade (16.7% - 33.3%) */
-        @keyframes hero2Anim {
-            0%      { opacity: 0; transform: scale(1); filter: blur(4px); }
-            13%     { opacity: 0; transform: scale(1); filter: blur(4px); }
-            16.7%   { opacity: 1; transform: scale(1); filter: blur(0); }
-            30%     { opacity: 1; transform: scale(1.7); filter: blur(0); }
-            33.3%   { opacity: 0; transform: scale(1.7); filter: blur(4px); }
-            100%    { opacity: 0; transform: scale(1); filter: blur(4px); }
+
+        .hero-slide-cream {
+            background: #d8b48c;
         }
-        
-        /* Transizione 3: Zoom crossfade (33.3% - 50%) */
-        @keyframes hero3Anim {
-            0%      { opacity: 0; transform: scale(1); filter: blur(4px); }
-            30%     { opacity: 0; transform: scale(1); filter: blur(4px); }
-            33.3%   { opacity: 1; transform: scale(1); filter: blur(0); }
-            46.7%   { opacity: 1; transform: scale(1.6); filter: blur(0); }
-            50%     { opacity: 0; transform: scale(1.6); filter: blur(4px); }
-            100%    { opacity: 0; transform: scale(1); filter: blur(4px); }
+
+        .hero-slide-green {
+            background: #5a5b3a;
         }
-        
-        /* Transizione 4: Zoom crossfade (50% - 66.7%) */
-        @keyframes hero4Anim {
-            0%      { opacity: 0; transform: scale(1.2); filter: blur(4px); }
-            46.7%   { opacity: 0; transform: scale(1.2); filter: blur(4px); }
-            50%     { opacity: 1; transform: scale(1.2); filter: blur(0); }
-            63.3%   { opacity: 1; transform: scale(1.8); filter: blur(0); }
-            66.7%   { opacity: 0; transform: scale(1.8); filter: blur(4px); }
-            100%    { opacity: 0; transform: scale(1.2); filter: blur(4px); }
+
+        .hero-slide-purple {
+            background: #b6522b;
         }
-        
-        /* Transizione 5: Zoom crossfade (66.7% - 83.3%) */
-        @keyframes hero5Anim {
-            0%      { opacity: 0; transform: scale(1.3); filter: blur(4px); }
-            63.3%   { opacity: 0; transform: scale(1.3); filter: blur(4px); }
-            66.7%   { opacity: 1; transform: scale(1.3); filter: blur(0); }
-            80%     { opacity: 1; transform: scale(1.9); filter: blur(0); }
-            83.3%   { opacity: 0; transform: scale(1.9); filter: blur(4px); }
-            100%    { opacity: 0; transform: scale(1.3); filter: blur(4px); }
+
+        .hero-slide-yellow {
+            background: #e1b14e;
         }
-        
-        /* Transizione 6: Zoom crossfade (83.3% - 100%) */
-        @keyframes hero6Anim {
-            0%      { opacity: 0; transform: scale(1.3); filter: blur(4px); }
-            80%     { opacity: 0; transform: scale(1.3); filter: blur(4px); }
-            83.3%   { opacity: 1; transform: scale(1.3); filter: blur(0); }
-            96%     { opacity: 1; transform: scale(1.9); filter: blur(0); }
-            100%    { opacity: 0; transform: scale(1.9); filter: blur(4px); }
+
+        .hero-slide-blue {
+            background: #6d7f86;
         }
-        
-        .hero-slide-desktop {
-            display: none;
+
+        .hero-slide-image {
+            background: url('/assets/images/hero.JPG') center/cover no-repeat;
+            transform: scale(1);
+            transition: opacity 1.2s ease-in-out, transform 8s ease-out;
         }
-        
-        .hero-slide-mobile {
-            display: block;
-        }
-        
-        @media (min-width: 769px) {
-            .hero-slide-desktop {
-                display: block;
-            }
-            .hero-slide-mobile {
-                display: none;
-            }
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: transparent;
-            z-index: 1;
+
+        .hero-slide-image.active {
+            transform: scale(1.2);
         }
         
         .hero-container {
             max-width: 1400px;
             margin: 0 auto;
+            margin-top: -13rem;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
             position: relative;
             z-index: 2;
-            padding: 4rem 2rem;
+            padding: 1rem 2rem;
         }
         
         .hero-content {
-            animation: fadeInUp 0.8s ease-out;
             max-width: 720px;
-            margin-top: -7rem;
+            margin-top: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .hero-content.hidden {
+            opacity: 0;
+            pointer-events: none;
         }
         
         .hero-badge {
@@ -510,12 +443,12 @@
             line-height: 1.2;
             color: #fff;
             margin-bottom: 1.5rem;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
         
         .hero-description {
             font-size: 1.0625rem;
-            color: rgba(255,255,255,0.85);
+            color: rgba(255,255,255,0.9);
             line-height: 1.7;
             max-width: 600px;
             margin-bottom: 2rem;
@@ -525,6 +458,7 @@
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
+            margin-top: 0;
         }
         
         .btn-primary {
@@ -546,8 +480,9 @@
         }
         
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 28px rgba(196, 146, 58, 0.5);
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 12px 32px rgba(196, 146, 58, 0.5);
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
         
         .btn-primary:active {
@@ -582,51 +517,277 @@
         .btn-secondary:hover {
             background: rgba(212, 82, 42, 0.08);
             border-color: var(--accent);
-            transform: translateY(-2px);
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 8px 24px rgba(212, 82, 42, 0.2);
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
         
 
         
         /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-        /* GOOGLE REVIEWS SECTION (Elfsight Widget) */
+        /* REVIEWS SECTION */
         /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
         
         .reviews-section {
-            padding: 4rem 2rem;
+            padding: 4rem 0;
             background: var(--white);
-        }
-        
-        .elfsight-wrapper {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .reviews-section .elfsight-wrapper::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 45px;
-            background: var(--white);
-            z-index: 10;
-        }
-        
-        .social-section .elfsight-wrapper::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 45px;
-            background: #E8D5B0;
-            z-index: 10;
         }
         
         .reviews-header {
             max-width: 1400px;
             margin: 0 auto 2rem;
             text-align: center;
+            padding: 0 2rem;
+        }
+        
+        .reviews-rating-summary {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 0.75rem;
+        }
+        
+        .reviews-avg {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+        
+        .reviews-stars {
+            color: #FBBC04;
+            font-size: 1.125rem;
+            display: flex;
+            gap: 2px;
+        }
+        
+        .reviews-count {
+            font-size: 0.875rem;
+            color: var(--gray-500);
+        }
+        
+        .reviews-carousel-wrapper {
+            margin: 0;
+            width: 100%;
+        }
+        
+        .reviews-carousel-track {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            padding: 0.5rem 0 1rem;
+            align-items: flex-start;
+        }
+        
+        .reviews-carousel-track::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .review-card {
+            flex: 0 0 min(340px, calc(100vw - 2rem));
+            scroll-snap-align: start;
+            background: var(--gray-100);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow var(--transition-base), opacity 0.3s ease;
+            will-change: transform, opacity;
+        }
+        
+        .review-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+        }
+        
+        .review-card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .review-author-photo {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            background-color: var(--gray-300);
+            flex-shrink: 0;
+        }
+        
+        .review-author-photo.initials {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: white;
+            background-color: var(--primary);
+        }
+        
+        .review-author-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .review-author-name {
+            font-weight: 600;
+            font-size: 0.9375rem;
+            color: var(--gray-900);
+        }
+        
+        .review-date {
+            font-size: 0.75rem;
+            color: var(--gray-500);
+        }
+        
+        .review-google-icon {
+            width: 22px;
+            height: 22px;
+            flex-shrink: 0;
+        }
+        
+        .review-google-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .review-stars {
+            color: #FBBC04;
+            font-size: 0.875rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            gap: 2px;
+        }
+        
+        .review-text {
+            font-size: 0.9375rem;
+            line-height: 1.6;
+            color: var(--gray-700);
+            margin: 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .review-text.expanded {
+            -webkit-line-clamp: unset;
+        }
+        
+        .review-read-more {
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 0;
+            margin-top: 0.5rem;
+            display: inline-block;
+        }
+        
+        .review-read-more:hover {
+            text-decoration: underline;
+        }
+        
+        .review-photo {
+            margin-top: 1rem;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+        }
+        
+        .review-photos {
+            margin-top: 1rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+        }
+        
+        .review-photos img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            border-radius: var(--radius-md);
+        }
+        
+        .review-photo-slider {
+            margin-top: 1rem;
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius-md);
+        }
+        
+        .review-photo-slider-track {
+            display: flex;
+            transition: transform 0.3s ease;
+        }
+        
+        .review-photo-slider-track img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        
+        .review-photo-slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255,255,255,0.9);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--gray-700);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            transition: background var(--transition-base);
+            z-index: 2;
+        }
+        
+        .review-photo-slider-btn:hover {
+            background: white;
+        }
+        
+        .review-photo-slider-btn.prev {
+            left: 8px;
+        }
+        
+        .review-photo-slider-btn.next {
+            right: 8px;
+        }
+        
+        .review-photo img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: var(--radius-md);
+        }
+        
+        .review-photo img.review-img-tall {
+            height: 400px;
+            object-position: center 70%;
+        }
+        
+        @media (max-width: 768px) {
+            .review-card {
+                flex: 0 0 calc(100vw - 5rem);
+            }
+            .reviews-avg {
+                font-size: 1.5rem;
+            }
         }
         
         .section-title {
@@ -636,6 +797,106 @@
             margin-bottom: 0;
         }
         
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        /* CATALOG CAROUSEL */
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+        .catalog-carousel-section {
+            padding: 4rem 2rem;
+            background: var(--gray-100);
+            text-align: center;
+        }
+
+        .catalog-carousel-section .section-title {
+            margin-bottom: 2rem;
+        }
+
+        .catalog-carousel-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: var(--radius-xl);
+            position: relative;
+        }
+
+        .catalog-carousel-track {
+            display: flex;
+        }
+
+        .catalog-carousel-item {
+            flex: 0 0 30%;
+            padding: 0 0.4rem;
+        }
+
+        .catalog-carousel-item img {
+            width: 100%;
+            height: 340px;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            display: block;
+            cursor: pointer;
+        }
+
+        .catalog-carousel-item a {
+            display: block;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .catalog-carousel-item img:hover {
+            transform: scale(1.04);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+        }
+
+        .catalog-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            border-radius: var(--radius-full);
+            font-family: var(--font-body);
+            font-size: 0.9375rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(196, 146, 58, 0.4);
+            transition: all var(--transition-base);
+        }
+
+        .catalog-cta:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 12px 32px rgba(196, 146, 58, 0.5);
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .catalog-cta i {
+            transition: transform var(--transition-base);
+        }
+
+        .catalog-cta:hover i {
+            transform: translateX(4px);
+        }
+
+        @media (max-width: 1024px) {
+            .catalog-carousel-item {
+                flex: 0 0 38%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .catalog-carousel-item {
+                flex: 0 0 55%;
+            }
+            .catalog-carousel-item img {
+                height: 260px;
+            }
+        }
+
         /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
         /* MAP SECTION */
         /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
@@ -702,7 +963,9 @@
         
         .map-cta:hover {
             background: rgba(196, 146, 58, 0.1);
-            transform: translateY(-2px);
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 8px 24px rgba(196, 146, 58, 0.2);
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
         
         /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
@@ -711,7 +974,7 @@
         
         .contact-section {
             padding: 4rem 2rem;
-            background: linear-gradient(135deg, #FEFAF5 0%, #F0E6CC 50%, #E8D5B0 100%);
+            background: var(--gray-100);
         }
         
         .contact-card {
@@ -805,7 +1068,7 @@
         
         .social-section {
             padding: 4rem 2rem;
-            background: #E8D5B0;
+            background: var(--gray-100);
         }
         
         .social-icons {
@@ -1032,6 +1295,51 @@
                 word-break: break-all;
             }
         }
+
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        /* ANIMATED BUTTONS */
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+        .btn-primary, .btn-secondary, .map-cta {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary:active, .btn-secondary:active, .map-cta:active {
+            transform: scale(0.96);
+            transition: transform 100ms ease;
+        }
+
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        /* SCROLL ANIMATIONS */
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Stagger delays */
+        .stagger-1 { transition-delay: 0.05s; }
+        .stagger-2 { transition-delay: 0.12s; }
+        .stagger-3 { transition-delay: 0.19s; }
+        .stagger-4 { transition-delay: 0.26s; }
+        .stagger-5 { transition-delay: 0.33s; }
+        .stagger-6 { transition-delay: 0.40s; }
+        .stagger-7 { transition-delay: 0.47s; }
     </style>
 </head>
 <body>
@@ -1090,8 +1398,8 @@
     <!-- SHIPPING BAR -->
     <div class="shipping-bar">
         <div class="shipping-bar-content">
-            <span><i class="fas fa-truck"></i> Spedizione gratuita per ordini superiori ad €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
-            <span><i class="fas fa-truck"></i> Spedizione gratuita per ordini superiori ad €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
+            <span><i class="fas fa-truck"></i> Spedizione Gratuita in Tutta Italia per Ordini Superiori a €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
+            <span><i class="fas fa-truck"></i> Spedizione Gratuita in Tutta Italia per Ordini Superiori a €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
         </div>
     </div>
     
@@ -1102,33 +1410,46 @@
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
     
     <section class="hero">
-        <div class="hero-slideshow">
-            <div class="hero-slide hero-slide-desktop" style="background-image: url('/assets/images/hero-desktop-1.PNG');"></div>
-            <div class="hero-slide hero-slide-mobile" style="background-image: url('/assets/images/hero-1.PNG');"></div>
-            <div class="hero-slide hero-slide-desktop" style="background-image: url('/assets/images/hero-2.PNG');"></div>
-            <div class="hero-slide hero-slide-mobile" style="background-image: url('/assets/images/hero-2.PNG');"></div>
-            <div class="hero-slide hero-slide-desktop" style="background-image: url('/assets/images/hero-3.PNG');"></div>
-            <div class="hero-slide hero-slide-mobile" style="background-image: url('/assets/images/hero-3.PNG');"></div>
-            <div class="hero-slide hero-slide-desktop" style="background-image: url('/assets/images/hero-4.PNG');"></div>
-            <div class="hero-slide hero-slide-mobile" style="background-image: url('/assets/images/hero-4.PNG');"></div>
-            <div class="hero-slide hero-slide-desktop" style="background-image: url('/assets/images/hero-5.PNG');"></div>
-            <div class="hero-slide hero-slide-mobile" style="background-image: url('/assets/images/hero-5.PNG');"></div>
-            <div class="hero-slide hero-slide-desktop" style="background-image: url('/assets/images/hero-6.PNG');"></div>
-            <div class="hero-slide hero-slide-mobile" style="background-image: url('/assets/images/hero-6.PNG');"></div>
-        </div>
+        <div class="hero-slide hero-slide-image active"></div>
+        <div class="hero-slide hero-slide-cream"></div>
+        <div class="hero-slide hero-slide-image"></div>
+        <div class="hero-slide hero-slide-green"></div>
+        <div class="hero-slide hero-slide-image"></div>
+        <div class="hero-slide hero-slide-purple"></div>
+        <div class="hero-slide hero-slide-image"></div>
+        <div class="hero-slide hero-slide-yellow"></div>
+        <div class="hero-slide hero-slide-image"></div>
+        <div class="hero-slide hero-slide-blue"></div>
         <div class="hero-container">
-            <div class="hero-content">
-                <img src="/assets/images/logo.PNG" alt="Paola Vacirca" style="height: 80px; width: auto; filter: brightness(0) invert(1); margin-bottom: 1rem;">
+            <div class="hero-content hidden">
+                <img src="/assets/images/logo.PNG" alt="Paola Vacirca" style="height: 125px; width: auto; margin-bottom: 1rem; filter: brightness(0) invert(1);">
                 <h1 class="hero-title">Arte e Ceramica di Caltagirone</h1>
                 <p class="hero-description">Dalla Classica Testa di Moro Siciliana a Stravaganti Opere in Ceramica che Ricordano i Colori della Tradizione.</p>
-                <div class="hero-cta-group" style="justify-content: center;">
-                    <a href="/opere-d-arte" class="btn-primary">
-                        Scopri le mie Creazioni
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
+            </div>
+            <div class="hero-cta-group" style="justify-content: center; transition: opacity 1s ease-in-out;">
+                <a href="/opere-d-arte" class="btn-primary">
+                    Scopri le mie Creazioni
+                    <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
         </div>
+        <script>
+            (function() {
+                const slides = document.querySelectorAll('.hero-slide');
+                const content = document.querySelector('.hero-content');
+                let current = 0;
+                setInterval(() => {
+                    slides[current].classList.remove('active');
+                    current = (current + 1) % slides.length;
+                    slides[current].classList.add('active');
+                    if (slides[current].classList.contains('hero-slide-image')) {
+                        content.classList.add('hidden');
+                    } else {
+                        content.classList.remove('hidden');
+                    }
+                }, 8000);
+            })();
+        </script>
     </section>
     
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
@@ -1136,17 +1457,146 @@
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
     
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-    <!-- GOOGLE REVIEWS SECTION (Elfsight Widget) -->
+    <!-- GOOGLE REVIEWS SECTION -->
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
     
     <section class="reviews-section">
-        <div class="reviews-header">
+        <div class="reviews-header animate-on-scroll">
             <h2 class="section-title">Ecco le Voci dei Miei Clienti</h2>
+            <div class="reviews-rating-summary">
+                <span class="reviews-avg">5.0</span>
+                <div class="reviews-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <span class="reviews-count">12 recensioni su Google</span>
+            </div>
         </div>
-        <div class="elfsight-wrapper">
-            <script src="https://elfsightcdn.com/platform.js" async></script>
-            <div class="elfsight-app-86ebd253-fec7-4575-80a9-4a7a042d463b" data-elfsight-app-lazy></div>
+        <div class="reviews-carousel-wrapper animate-on-scroll stagger-1">
+            <div class="reviews-carousel-track" id="reviewsTrack">
+                <!-- RECENSIONE 1 -->
+                <div class="review-card">
+                    <div class="review-card-header">
+                        <div class="review-author-photo initials">V</div>
+                        <div class="review-author-info">
+                            <span class="review-author-name">Valentina Morandelli</span>
+                            <span class="review-date" data-date="2026-07-17"></span>
+                        </div>
+                        <div class="review-google-icon"><svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></div>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">Le creazioni di Paola sono un'esplosione di colore ed energia. Le sue ceramiche sono uniche, colorate e piene di personalità, proprio come lei. Ogni pezzo è realizzato con passione, cura e una grande creatività, trasformando semplici oggetti in piccoli capolavori che donano gioia. Consigliatissime!</p>
+                    <div class="review-photo">
+                        <img src="/assets/images/recensione 1.webp" alt="Foto recensione">
+                    </div>
+                </div>
+                <!-- RECENSIONE 2 -->
+                <div class="review-card">
+                    <div class="review-card-header">
+                        <div class="review-author-photo initials">S</div>
+                        <div class="review-author-info">
+                            <span class="review-author-name">Sofia Cusumano</span>
+                            <span class="review-date" data-date="2026-07-15"></span>
+                        </div>
+                        <div class="review-google-icon"><svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></div>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">Ancora complimenti per tutte le tue ceramiche! È un negozietto delizioso, lo consiglio vivamente a chi cerca prodotti unici e realizzati a mano.</p>
+                    <div class="review-photo" style="display:block;">
+                        <img src="assets/images/recensione 2.webp" alt="Foto recensione">
+                    </div>
+                </div>
+                <!-- RECENSIONE 3 -->
+                <div class="review-card">
+                    <div class="review-card-header">
+                        <div class="review-author-photo" style="background-image: url('assets/images/federica di gregorio.png')"></div>
+                        <div class="review-author-info">
+                            <span class="review-author-name">Federica Di Gregorio</span>
+                            <span class="review-date" data-date="2026-07-14"></span>
+                        </div>
+                        <div class="review-google-icon"><svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></div>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">Un artista incredibile, le sue creazioni sono il frutto del suo cuore.</p>
+                    <div class="review-photo-slider">
+                        <div class="review-photo-slider-track">
+                            <img src="assets/images/recensione 3.webp" alt="Foto recensione 1">
+                            <img src="assets/images/recensione 3.1.webp" alt="Foto recensione 2">
+                        </div>
+                        <button class="review-photo-slider-btn prev" onclick="reviewSlider(this, -1)">&#10094;</button>
+                        <button class="review-photo-slider-btn next" onclick="reviewSlider(this, 1)">&#10095;</button>
+                    </div>
+                </div>
+                <!-- RECENSIONE 4 -->
+                <div class="review-card">
+                    <div class="review-card-header">
+                        <div class="review-author-photo initials">L</div>
+                        <div class="review-author-info">
+                            <span class="review-author-name">Lara Orofino</span>
+                            <span class="review-date" data-date="2026-07-19"></span>
+                        </div>
+                        <div class="review-google-icon"><svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></div>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">Ho scoperto il laboratorio di Paola e me ne sono innamorata! Ciò che mi ha colpito di più è stata la sua capacità di dare nuova vita a pezzi di ceramica che altrimenti sarebbero stati buttati via, trasformandoli in creazioni uniche e bellissime.<br><br>Ci sono tantissime cose speciali nel suo negozio: ho scelto una borsa decorata con ceramiche e la trovo davvero originale e piena di carattere. Si vede tutta la passione che mette nel suo lavoro!</p>
+                    <div class="review-photo" style="display:block;">
+                        <img src="assets/images/recensione 4.webp" alt="Foto recensione">
+                    </div>
+                </div>
+                <!-- RECENSIONE 5 -->
+                <div class="review-card">
+                    <div class="review-card-header">
+                        <div class="review-author-photo initials">C</div>
+                        <div class="review-author-info">
+                            <span class="review-author-name">Cinzia Melfa</span>
+                            <span class="review-date" data-date="2026-07-15"></span>
+                        </div>
+                        <div class="review-google-icon"><svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></div>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">Le ceramiche di Paola hanno uno stile originale, raffinato e di buon gusto.</p>
+                    <div class="review-photo" style="display:block;">
+                        <img src="assets/images/recensione 5.webp" alt="Foto recensione">
+                    </div>
+                </div>
+                <a href="/recensioni/" class="review-card review-card-cta" style="position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; text-decoration:none; cursor:pointer; padding:0; background:var(--gray-900); min-height:530px;">
+                    <img src="/assets/images/tutte-le-recensioni.png" alt="Tutte le recensioni" style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0; opacity:0.5;">
+                    <span style="position:relative; z-index:1; font-family:var(--font-display); font-size:1.125rem; font-weight:600; color:#fff; text-align:center; padding:1.5rem;">Visualizza Tutte le Recensioni <i class="fas fa-arrow-right" style="margin-left:0.375rem;"></i></span>
+                </a>
+            </div>
         </div>
+    </section>
+    
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <!-- CATALOG CAROUSEL -->
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    
+    <section class="catalog-carousel-section">
+        <h2 class="section-title animate-on-scroll">Una Vetrina delle Mie Creazioni</h2>
+        <div class="catalog-carousel-wrapper animate-on-scroll stagger-1">
+            <div class="catalog-carousel-track">
+                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-1"><img src="/assets/images/catalogo-1.jpg" alt="Ceramica 1" loading="lazy"></a></div>
+                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-2"><img src="/assets/images/catalogo-2.jpg" alt="Ceramica 2" loading="lazy"></a></div>
+                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-3"><img src="/assets/images/catalogo-3.PNG" alt="Ceramica 3" loading="lazy"></a></div>
+                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-4"><img src="/assets/images/catalogo-4.PNG" alt="Ceramica 4" loading="lazy"></a></div>
+                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-5"><img src="/assets/images/catalogo-5.jpg" alt="Ceramica 5" loading="lazy"></a></div>
+                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-6"><img src="/assets/images/catalogo-6.PNG" alt="Ceramica 6" loading="lazy"></a></div>
+                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-7"><img src="/assets/images/catalogo-7.PNG" alt="Ceramica 7" loading="lazy"></a></div>
+            </div>
+        </div>
+        <a href="/catalogo" class="catalog-cta animate-on-scroll stagger-2">
+            Scopri il Catalogo
+            <i class="fas fa-arrow-right"></i>
+        </a>
     </section>
     
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
@@ -1155,12 +1605,12 @@
     
     <section class="map-section">
         <div class="map-container">
-            <div class="map-header">
+            <div class="map-header animate-on-scroll">
                 <h2>Vieni a Trovarmi</h2>
                 <p class="map-location">📍 Via Gabelle, 15 Caltagirone CT</p>
             </div>
             
-            <div class="map-wrapper">
+            <div class="map-wrapper animate-on-scroll stagger-1">
                 <iframe 
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d406586.35920300154!2d13.951950073242195!3d37.2368886685595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13110f494e8a4355%3A0x4e0924f5f73f672f!2sPaola%20Vacirca%20Arte%20e%20Ceramica%20di%20Caltagirone!5e0!3m2!1sit!2sit!4v1783496974551!5m2!1sit!2sit"
                     width="100%"
@@ -1184,11 +1634,11 @@
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
     
     <section class="contact-section" id="contatti">
-        <div class="contact-card">
+        <div class="contact-card animate-on-scroll">
             <h2 class="section-title" style="margin-bottom: 0.25rem;">Contattami</h2>
             <p style="color: var(--gray-500); font-size: 0.9375rem; margin-bottom: 1.5rem;">Hai qualche richiesta particolare?</p>
             <div class="contact-items">
-                <a href="https://wa.me/39368663093" target="_blank" rel="noopener noreferrer" class="contact-item" style="text-decoration: none; cursor: pointer;">
+                <a href="https://wa.me/39368663093" target="_blank" rel="noopener noreferrer" class="contact-item animate-on-scroll stagger-1" style="text-decoration: none; cursor: pointer;">
                     <div class="contact-item-icon phone">
                         <i class="fab fa-whatsapp"></i>
                     </div>
@@ -1197,7 +1647,7 @@
                     </div>
                 </a>
                 
-                <a href="mailto:paolavacirca09@gmail.com" class="contact-item" style="text-decoration: none; cursor: pointer;">
+                <a href="mailto:paolavacirca09@gmail.com" class="contact-item animate-on-scroll stagger-2" style="text-decoration: none; cursor: pointer;">
                     <div class="contact-item-icon email">
                         <i class="fas fa-envelope"></i>
                     </div>
@@ -1214,8 +1664,8 @@
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
     
     <section class="social-section">
-        <h2 class="social-title">Seguimi</h2>
-        <div class="social-icons">
+        <h2 class="social-title animate-on-scroll">Seguimi</h2>
+        <div class="social-icons animate-on-scroll stagger-1">
             <a href="https://www.tiktok.com/@paola9770" target="_blank" rel="noopener noreferrer" class="social-icon-link tiktok">
                 <i class="fab fa-tiktok"></i>
             </a>
@@ -1227,11 +1677,6 @@
             <a href="https://www.facebook.com/paolavacirca.quadri/" target="_blank" rel="noopener noreferrer" class="social-icon-link facebook">
                 <i class="fab fa-facebook-f"></i>
             </a>
-        </div>
-        
-        <div class="elfsight-wrapper">
-            <script src="https://elfsightcdn.com/platform.js" async></script>
-            <div class="elfsight-app-34d59269-7ac9-42dd-9a84-e6f99d79d2d7" data-elfsight-app-lazy></div>
         </div>
     </section>
     
@@ -1250,6 +1695,7 @@
                 <li><a href="/catalogo">Catalogo</a></li>
                 <li><a href="/bomboniere">Bomboniere</a></li>
                 <li><a href="#contatti">Contatti</a></li>
+                <li><a href="/termini">Termini e Condizioni</a></li>
                 <li><a href="/privacy">Privacy Policy</a></li>
                 <li><a href="/cookies">Cookie Policy</a></li>
             </ul>
@@ -1286,20 +1732,204 @@
         
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
+            rootMargin: '0px 0px -60px 0px'
         };
         
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('visible');
                 }
             });
         }, observerOptions);
         
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
 
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        // CATALOG CAROUSEL (INFINITE)
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+        (function() {
+            const track = document.querySelector('.catalog-carousel-track');
+            const wrapper = document.querySelector('.catalog-carousel-wrapper');
+            if (!track) return;
+
+            const originals = track.querySelectorAll('.catalog-carousel-item');
+            originals.forEach(item => track.appendChild(item.cloneNode(true)));
+
+            const allItems = track.querySelectorAll('.catalog-carousel-item');
+            const speed = 0.4;
+            let pos = 0;
+            let paused = false;
+            let rafId;
+
+            function getSetWidth() {
+                let w = 0;
+                for (let i = 0; i < originals.length; i++) {
+                    w += allItems[i].offsetWidth;
+                }
+                return w;
+            }
+
+            function animate() {
+                if (!paused) {
+                    pos -= speed;
+                    if (Math.abs(pos) >= getSetWidth()) {
+                        pos += getSetWidth();
+                    }
+                    track.style.transform = 'translateX(' + pos + 'px)';
+                }
+                rafId = requestAnimationFrame(animate);
+            }
+
+            wrapper.addEventListener('mouseenter', function() { paused = true; });
+            wrapper.addEventListener('mouseleave', function() { paused = false; });
+            wrapper.addEventListener('touchstart', function() { paused = true; }, { passive: true });
+            wrapper.addEventListener('touchend', function() { setTimeout(function() { paused = false; }, 500); }, { passive: true });
+
+            animate();
+        })();
+
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        // REVIEW DATES (RELATIVE)
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+        (function() {
+            const now = new Date();
+            document.querySelectorAll('.review-date[data-date]').forEach(el => {
+                const reviewDate = new Date(el.dataset.date);
+                const diffMs = now - reviewDate;
+                const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+                
+                if (diffDays === 0) {
+                    el.textContent = 'Oggi';
+                } else if (diffDays === 1) {
+                    el.textContent = 'Ieri';
+                } else if (diffDays < 7) {
+                    el.textContent = diffDays + ' giorni fa';
+                } else if (diffDays < 30) {
+                    const weeks = Math.floor(diffDays / 7);
+                    el.textContent = weeks + (weeks === 1 ? ' settimana fa' : ' settimane fa');
+                } else if (diffDays < 365) {
+                    const months = Math.floor(diffDays / 30);
+                    el.textContent = months + (months === 1 ? ' mese fa' : ' mesi fa');
+                } else {
+                    const years = Math.floor(diffDays / 365);
+                    el.textContent = years + (years === 1 ? ' anno fa' : ' anni fa');
+                }
+            });
+        })();
+
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        // REVIEW PHOTO SLIDER
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+        function reviewSlider(btn, dir) {
+            const slider = btn.closest('.review-photo-slider');
+            const track = slider.querySelector('.review-photo-slider-track');
+            const imgs = track.querySelectorAll('img');
+            const prevBtn = slider.querySelector('.prev');
+            const nextBtn = slider.querySelector('.next');
+            const total = imgs.length;
+            
+            if (!track.dataset.index) track.dataset.index = '0';
+            let idx = parseInt(track.dataset.index) + dir;
+            
+            if (idx < 0) idx = total - 1;
+            if (idx >= total) idx = 0;
+            
+            track.dataset.index = idx;
+            track.style.transform = 'translateX(-' + (idx * 100) + '%)';
+            
+            prevBtn.style.display = idx === 0 ? 'none' : 'flex';
+            nextBtn.style.display = idx === total - 1 ? 'none' : 'flex';
+        }
+
+        // Init: hide prev on first load
+        document.querySelectorAll('.review-photo-slider').forEach(slider => {
+            slider.querySelector('.prev').style.display = 'none';
+        });
+
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        // REVIEW CARDS SCROLL SCALE
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+        (function() {
+            const track = document.getElementById('reviewsTrack');
+            if (!track) return;
+            const cards = track.querySelectorAll('.review-card');
+            const maxScale = 1.05;
+            const minScale = 0.85;
+
+            function updateScales() {
+                const trackRect = track.getBoundingClientRect();
+                const center = trackRect.left + trackRect.width / 2;
+
+                cards.forEach(card => {
+                    const cardRect = card.getBoundingClientRect();
+                    const cardCenter = cardRect.left + cardRect.width / 2;
+                    const dist = Math.abs(center - cardCenter);
+                    const halfW = trackRect.width / 2;
+                    const ratio = Math.min(dist / halfW, 1);
+                    const scale = maxScale - ratio * (maxScale - minScale);
+                    card.style.transform = 'scale(' + scale + ')';
+                    card.style.opacity = 1 - ratio * 0.3;
+                });
+            }
+
+            track.addEventListener('scroll', updateScales, { passive: true });
+            window.addEventListener('resize', updateScales);
+            updateScales();
+        })();
+
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        // REVIEW READ MORE
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+        (function() {
+            document.querySelectorAll('.review-text').forEach(text => {
+                const card = text.closest('.review-card');
+                if (!card) return;
+                
+                // Check if text needs truncation (more than 3 lines)
+                const lineHeight = parseFloat(getComputedStyle(text).lineHeight);
+                const maxHeight = lineHeight * 3;
+                
+                if (text.scrollHeight > maxHeight + 5) {
+                    const btn = document.createElement('button');
+                    btn.className = 'review-read-more';
+                    btn.textContent = 'Read more';
+                    btn.addEventListener('click', () => {
+                        text.classList.toggle('expanded');
+                        btn.textContent = text.classList.contains('expanded') ? 'Show less' : 'Read more';
+                    });
+                    text.parentNode.insertBefore(btn, text.nextSibling);
+                }
+            });
+        })();
+
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        // BUTTON RIPPLE EFFECT
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
         
+        document.querySelectorAll('.btn-primary, .btn-secondary').forEach(btn => {
+            btn.addEventListener('mousedown', function(e) {
+                const circle = document.createElement('span');
+                const diameter = Math.max(btn.clientWidth, btn.clientHeight);
+                const radius = diameter / 2;
+                circle.style.width = circle.style.height = diameter + 'px';
+                circle.style.left = (e.clientX - btn.getBoundingClientRect().left - radius) + 'px';
+                circle.style.top = (e.clientY - btn.getBoundingClientRect().top - radius) + 'px';
+                circle.style.position = 'absolute';
+                circle.style.borderRadius = '50%';
+                circle.style.background = 'rgba(255,255,255,0.4)';
+                circle.style.transform = 'scale(0)';
+                circle.style.animation = 'ripple 0.5s ease-out';
+                circle.style.pointerEvents = 'none';
+                btn.appendChild(circle);
+                setTimeout(() => circle.remove(), 500);
+            });
+        });
 
         
         // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -1367,5 +1997,6 @@
     </script>
 
 
+    <script src="/assets/js/cookie-consent.js"></script>
 </body>
 </html>

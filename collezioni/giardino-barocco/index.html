@@ -333,6 +333,7 @@
             position: relative;
             aspect-ratio: 1/1;
             overflow: hidden;
+            cursor: zoom-in;
         }
         
         .main-image {
@@ -711,6 +712,46 @@
                 padding: 0.875rem 1.5rem;
             }
         }
+
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        /* ANIMATIONS */
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+        .btn-primary, .btn-secondary, .bundle-cta, .collection-cta {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary:active, .btn-secondary:active, .bundle-cta:active, .collection-cta:active {
+            transform: scale(0.96);
+            transition: transform 100ms ease;
+        }
+
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-1 { transition-delay: 0.05s; }
+        .stagger-2 { transition-delay: 0.12s; }
+        .stagger-3 { transition-delay: 0.19s; }
+        .stagger-4 { transition-delay: 0.26s; }
+        .stagger-5 { transition-delay: 0.33s; }
+        .stagger-6 { transition-delay: 0.40s; }
+        .stagger-7 { transition-delay: 0.47s; }
     </style>
 </head>
 <body>
@@ -763,8 +804,8 @@
     <!-- SHIPPING BAR -->
     <div class="shipping-bar">
         <div class="shipping-bar-content">
-            <span><i class="fas fa-truck"></i> Spedizione gratuita per ordini superiori ad €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
-            <span><i class="fas fa-truck"></i> Spedizione gratuita per ordini superiori ad €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
+            <span><i class="fas fa-truck"></i> Spedizione Gratuita in Tutta Italia per Ordini Superiori a €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
+            <span><i class="fas fa-truck"></i> Spedizione Gratuita in Tutta Italia per Ordini Superiori a €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
         </div>
     </div>
     
@@ -791,9 +832,9 @@
     <!-- PRODUCTS GRID -->
     <div class="products-grid">
         <!-- Product 1 -->
-        <div class="product-card">
+        <div class="product-card animate-on-scroll stagger-1">
             <span class="discount-badge">-20%</span>
-            <div class="product-image-wrapper">
+            <div class="product-image-wrapper" data-lightbox="product">
                 <img src="/assets/images/giardino-barocco-1.jpg" 
                      alt="Anfora Giardino Barocco" 
                      class="main-image"
@@ -813,7 +854,7 @@
                     </div>
                     <div class="savings">Risparmi €20,00</div>
                 </div>
-                <button class="add-to-cart-btn" onclick="addToCart('anfora-etna', 'Anfora Giardino Barocco', 80, 'etna', 100)">
+                <button class="add-to-cart-btn" onclick="addToCart('anfora-giardino-barocco', 'Anfora Giardino Barocco', 80, 'giardino-barocco', 100)">
                     <i class="fas fa-shopping-cart"></i>
                     Aggiungi al Carrello
                 </button>
@@ -821,9 +862,9 @@
         </div>
         
         <!-- Product 2 -->
-        <div class="product-card">
+        <div class="product-card animate-on-scroll stagger-2">
             <span class="discount-badge">-20%</span>
-            <div class="product-image-wrapper">
+            <div class="product-image-wrapper" data-lightbox="product">
                 <img src="/assets/images/giardino-barocco-2.jpg" 
                      alt="Ciotola Giardino Barocco" 
                      class="main-image"
@@ -843,7 +884,7 @@
                     </div>
                     <div class="savings">Risparmi €14,00</div>
                 </div>
-                <button class="add-to-cart-btn" onclick="addToCart('ciotola-giardino-barocco', 'Ciotola Giardino Barocco', 56, 'etna', 70)">
+                <button class="add-to-cart-btn" onclick="addToCart('ciotola-giardino-barocco', 'Ciotola Giardino Barocco', 56, 'giardino-barocco', 70)">
                     <i class="fas fa-shopping-cart"></i>
                     Aggiungi al Carrello
                 </button>
@@ -851,9 +892,9 @@
         </div>
         
         <!-- Product 3 -->
-        <div class="product-card">
+        <div class="product-card animate-on-scroll stagger-3">
             <span class="discount-badge">-20%</span>
-            <div class="product-image-wrapper">
+            <div class="product-image-wrapper" data-lightbox="product">
                 <img src="/assets/images/giardino-barocco-3.jpg" 
                      alt="Piatto Giardino Barocco" 
                      class="main-image"
@@ -873,7 +914,7 @@
                     </div>
                     <div class="savings">Risparmi €12,00</div>
                 </div>
-                <button class="add-to-cart-btn" onclick="addToCart('piatto-giardino-barocco', 'Piatto Giardino Barocco', 48, 'etna', 60)">
+                <button class="add-to-cart-btn" onclick="addToCart('piatto-giardino-barocco', 'Piatto Giardino Barocco', 48, 'giardino-barocco', 60)">
                     <i class="fas fa-shopping-cart"></i>
                     Aggiungi al Carrello
                 </button>
@@ -881,9 +922,9 @@
         </div>
         
         <!-- Product 4 -->
-        <div class="product-card">
+        <div class="product-card animate-on-scroll stagger-4">
             <span class="discount-badge">-20%</span>
-            <div class="product-image-wrapper">
+            <div class="product-image-wrapper" data-lightbox="product">
                 <img src="/assets/images/giardino-barocco-4.jpg" 
                      alt="Vaso Giardino Barocco" 
                      class="main-image"
@@ -912,7 +953,7 @@
     </div>
     
     <!-- BUNDLE SECTION -->
-    <div class="bundle-section">
+    <div class="bundle-section animate-on-scroll stagger-2">
         <div class="bundle-card">
             <span class="best-offer-badge">MIGLIOR OFFERTA</span>
             
@@ -951,6 +992,7 @@
                 <li><a href="/catalogo">Catalogo</a></li>
                 <li><a href="/bomboniere">Bomboniere</a></li>
                 <li><a href="/#contatti">Contatti</a></li>
+                <li><a href="/termini">Termini e Condizioni</a></li>
                 <li><a href="/privacy">Privacy Policy</a></li>
                 <li><a href="/cookies">Cookie Policy</a></li>
             </ul>
@@ -1007,16 +1049,32 @@
         }
 
         function addToCart(id, name, price, collection, originalPrice = null) {
+            if (cart.find(item => item.id === 'bundle-giardino-barocco')) {
+                const btn = event.target.closest('.add-to-cart-btn');
+                btn.innerHTML = '<i class="fas fa-exclamation-circle"></i> Collezione già nel carrello';
+                setTimeout(() => {
+                    btn.innerHTML = '<i class="fas fa-shopping-bag"></i> Aggiungi al Carrello';
+                }, 1000);
+                return;
+            }
+
             const existingItem = cart.find(item => item.id === id);
             
             const productImageMap = {
-                'anfora-etna': '/assets/images/giardino-barocco-1.jpg',
+                'anfora-giardino-barocco': '/assets/images/giardino-barocco-1.jpg',
                 'ciotola-giardino-barocco': '/assets/images/giardino-barocco-2.jpg',
-                'piatto-giardino-barocco': '/assets/images/giardino-barocco-3.jpg'
+                'piatto-giardino-barocco': '/assets/images/giardino-barocco-3.jpg',
+                'vaso-giardino-barocco': '/assets/images/giardino-barocco-4.jpg'
             };
             
             if (existingItem) {
-                existingItem.quantity += 1;
+                const btn = event.target.closest('.add-to-cart-btn');
+                btn.innerHTML = '<i class="fas fa-check"></i> Già nel Carrello';
+                setTimeout(() => {
+                    btn.innerHTML = '<i class="fas fa-shopping-bag"></i> Procedi al Checkout';
+                    btn.onclick = () => window.location.href = '/checkout';
+                }, 1000);
+                return;
             } else {
                 cart.push({
                     id: id,
@@ -1038,22 +1096,22 @@
             setTimeout(() => {
                 btn.innerHTML = '<i class="fas fa-shopping-bag"></i> Procedi al Checkout';
                 btn.onclick = () => window.location.href = '/checkout';
-            }, 2000);
+            }, 1000);
         }
         
         function addBundleToCart() {
-            cart = cart.filter(item => !['anfora-etna', 'ciotola-giardino-barocco', 'piatto-giardino-barocco'].includes(item.id));
+            cart = cart.filter(item => !['anfora-giardino-barocco', 'ciotola-giardino-barocco', 'piatto-giardino-barocco', 'vaso-giardino-barocco'].includes(item.id));
             
-            const bundleExists = cart.find(item => item.id === 'bundle-etna');
+            const bundleExists = cart.find(item => item.id === 'bundle-giardino-barocco');
             if (bundleExists) {
                 bundleExists.quantity += 1;
             } else {
                 cart.push({
-                    id: 'bundle-etna',
+                    id: 'bundle-giardino-barocco',
                     name: 'Collezione Giardino Barocco Completa',
                     price: 161,
                     originalPrice: 230,
-                    collection: 'etna-bundle',
+                    collection: 'giardino-barocco-bundle',
                     quantity: 1,
                     isBundle: true,
                     image: '/assets/images/collezione-giardino-barocco.png'
@@ -1069,12 +1127,27 @@
             setTimeout(() => {
                 btn.innerHTML = '<i class="fas fa-shopping-bag"></i> Procedi al Checkout';
                 btn.onclick = () => window.location.href = '/checkout';
-            }, 2000);
+            }, 1000);
         }
         
         updateCartBadge();
 
-        const productIds = ['anfora-etna', 'ciotola-giardino-barocco', 'piatto-giardino-barocco'];
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -60px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+        const productIds = ['anfora-giardino-barocco', 'ciotola-giardino-barocco', 'piatto-giardino-barocco', 'vaso-giardino-barocco'];
         document.querySelectorAll('.add-to-cart-btn').forEach((btn, i) => {
             if (cart.find(item => item.id === productIds[i])) {
                 btn.innerHTML = '<i class="fas fa-shopping-bag"></i> Procedi al Checkout';
@@ -1083,12 +1156,35 @@
         });
 
         const bundleBtn = document.querySelector('.bundle-cta');
-        if (cart.find(item => item.id === 'bundle-etna')) {
+        if (cart.find(item => item.id === 'bundle-giardino-barocco')) {
             bundleBtn.innerHTML = '<i class="fas fa-shopping-bag"></i> Procedi al Checkout';
             bundleBtn.onclick = () => window.location.href = '/checkout';
         }
     </script>
 
+    <script>
+        document.querySelectorAll('.btn-primary, .btn-secondary, .bundle-cta, .collection-cta').forEach(btn => {
+            btn.addEventListener('mousedown', function(e) {
+                const circle = document.createElement('span');
+                const diameter = Math.max(btn.clientWidth, btn.clientHeight);
+                const radius = diameter / 2;
+                circle.style.width = circle.style.height = diameter + 'px';
+                circle.style.left = (e.clientX - btn.getBoundingClientRect().left - radius) + 'px';
+                circle.style.top = (e.clientY - btn.getBoundingClientRect().top - radius) + 'px';
+                circle.style.position = 'absolute';
+                circle.style.borderRadius = '50%';
+                circle.style.background = 'rgba(255,255,255,0.4)';
+                circle.style.transform = 'scale(0)';
+                circle.style.animation = 'ripple 0.5s ease-out';
+                circle.style.pointerEvents = 'none';
+                btn.appendChild(circle);
+                setTimeout(() => circle.remove(), 500);
+            });
+        });
+    </script>
 
+    <script src="/assets/js/lightbox.js"></script>
+
+    <script src="/assets/js/cookie-consent.js"></script>
 </body>
 </html>
