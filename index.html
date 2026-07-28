@@ -1861,6 +1861,9 @@
             const maxScale = 1.05;
             const minScale = 0.85;
 
+            const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            if (isTouch) return;
+
             function updateScales() {
                 const trackRect = track.getBoundingClientRect();
                 const center = trackRect.left + trackRect.width / 2;
