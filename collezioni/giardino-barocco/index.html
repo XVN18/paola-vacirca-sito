@@ -292,15 +292,12 @@
             background: var(--white);
             border-radius: var(--radius-lg);
             overflow: hidden;
-            box-shadow: 0 4px 24px rgba(31, 20, 5, 0.08);
-            border: 1px solid var(--gray-200);
-            transition: all var(--transition-spring);
-            position: relative;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all var(--transition-base);
         }
         
         .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 40px rgba(31, 20, 5, 0.15);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
         }
         
         .discount-badge {
@@ -317,16 +314,18 @@
         }
         
         .handmade-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
             display: inline-flex;
             align-items: center;
             gap: 0.35rem;
             background: var(--secondary);
             color: white;
-            padding: 0.25rem 0.75rem;
+            padding: 0.35rem 0.85rem;
             border-radius: var(--radius-full);
             font-size: 0.75rem;
             font-weight: 600;
-            margin-bottom: 0.5rem;
         }
         
         .product-image-wrapper {
@@ -340,18 +339,12 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: opacity 0.3s ease;
-        }
-        
-        .product-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
             transition: transform 0.5s ease;
         }
         
-        .product-card:hover .product-image {
-            transform: scale(1.05);
+        
+        .product-card:hover .main-image {
+            transform: scale(1.03);
         }
         
         .product-content {
@@ -360,21 +353,21 @@
         
         .product-name {
             font-family: var(--font-display);
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--gray-900);
             margin-bottom: 0.75rem;
         }
         
         .product-description {
-            font-size: 0.875rem;
+            font-size: 0.9375rem;
             color: var(--gray-700);
-            line-height: 1.6;
-            margin-bottom: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
         }
         
         .price-wrapper {
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
         
         .original-price {
@@ -406,13 +399,13 @@
         
         .add-to-cart-btn {
             width: 100%;
-            padding: 0.875rem 1.25rem;
+            padding: 1rem 1.5rem;
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
             border: none;
             border-radius: var(--radius-full);
             font-family: var(--font-body);
-            font-size: 0.875rem;
+            font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
             transition: all var(--transition-base);
@@ -674,6 +667,8 @@
             
             .products-grid {
                 grid-template-columns: 1fr;
+                max-width: 600px;
+                margin: 0 auto;
             }
             
             .collection-hero-title {
@@ -752,6 +747,25 @@
         .stagger-5 { transition-delay: 0.33s; }
         .stagger-6 { transition-delay: 0.40s; }
         .stagger-7 { transition-delay: 0.47s; }
+
+        /* TRUST BADGES */
+        .product-details-trust { max-width: 600px; margin: 0 auto; padding: 0 2rem; }
+        .trust-badges { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
+        .trust-badge { background: rgba(196, 146, 58, 0.1); padding: 1rem; border-radius: var(--radius-md); border: 1px solid rgba(196, 146, 58, 0.2); text-align: center; }
+        .trust-badge-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .trust-badge-text { font-size: 0.8125rem; color: var(--gray-700); font-weight: 600; }
+
+        /* ACCORDION */
+        .accordion-section { max-width: 600px; margin: 0 auto; padding: 0 2rem 2rem; }
+        .accordion { border-top: 1px solid var(--gray-200); }
+        .accordion-item { border-bottom: 1px solid var(--gray-200); }
+        .accordion-header { padding: 1.25rem 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: var(--gray-900); transition: color var(--transition-base); }
+        .accordion-header:hover { color: var(--primary); }
+        .accordion-icon { transition: transform var(--transition-base); }
+        .accordion-icon.open { transform: rotate(180deg); }
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .accordion-content.open { max-height: 500px; padding-bottom: 1.25rem; }
+        .accordion-text { font-size: 0.875rem; color: var(--gray-700); line-height: 1.7; }
     </style>
 </head>
 <body>
@@ -835,13 +849,13 @@
         <div class="product-card animate-on-scroll stagger-1">
             <span class="discount-badge">-20%</span>
             <div class="product-image-wrapper" data-lightbox="product">
-                <img src="/assets/images/giardino-barocco-1.jpg" 
+                    <span class="handmade-badge"><i class="fas fa-hand-sparkles"></i> Fatto a mano</span>
+                    <img src="/assets/images/giardino-barocco-1.jpg" 
                      alt="Anfora Giardino Barocco" 
                      class="main-image"
                      loading="lazy">
             </div>
             <div class="product-content">
-                <span class="handmade-badge"><i class="fas fa-hand-sparkles"></i> Fatto a mano</span>
                 <h3 class="product-name">Anfora Giardino Barocco</h3>
                 <p class="product-description">
                     Un'anfora imponente decorata con le iconiche linee verticali verdi e bianche del Giardino Barocco, impreziosita dal fiore di papavero rosso, marchio unico dell'artista Paola Vacirca.
@@ -858,6 +872,48 @@
                     <i class="fas fa-shopping-cart"></i>
                     Aggiungi al Carrello
                 </button>
+                <div class="trust-badges" style="margin-top: 1rem;">
+                    <div class="trust-badge">
+                        <div class="trust-badge-icon"><i class="fas fa-box"></i></div>
+                        <div class="trust-badge-text">Imballaggio sicuro</div>
+                    </div>
+                    <a href="https://wa.me/39368663093" target="_blank" rel="noopener" style="text-decoration: none; color: inherit;">
+                        <div class="trust-badge" style="cursor: pointer;">
+                            <div class="trust-badge-icon"><i class="fab fa-whatsapp" style="color: #25d366;"></i></div>
+                            <div class="trust-badge-text">Supporto WhatsApp</div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="accordion" style="margin-top: 1rem;">
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            Materiali e dimensioni
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p class="accordion-text">
+                                <strong>Materiale:</strong> Ceramica di Caltagirone 100% artigianale<br>
+                                <strong>Dimensioni:</strong> Variabili in base al prodotto<br>
+                                <strong>Finitura:</strong> Smaltata a mano con colori atossici
+                            </p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            Spedizione e resi
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p class="accordion-text">
+                                <strong>Spedizione:</strong> Gratuita per ordini superiori a €80<br>
+                                <strong>Imballaggio:</strong> Curatissimo con protezioni multiple<br>
+                                <strong>Resi:</strong> Accettati entro 30 giorni dall'acquisto<br>
+                                <strong>Garanzia:</strong> Soddisfatti o rimborsati
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         
@@ -865,13 +921,13 @@
         <div class="product-card animate-on-scroll stagger-2">
             <span class="discount-badge">-20%</span>
             <div class="product-image-wrapper" data-lightbox="product">
-                <img src="/assets/images/giardino-barocco-2.jpg" 
+                    <span class="handmade-badge"><i class="fas fa-hand-sparkles"></i> Fatto a mano</span>
+                    <img src="/assets/images/giardino-barocco-2.jpg" 
                      alt="Ciotola Giardino Barocco" 
                      class="main-image"
                      loading="lazy">
             </div>
             <div class="product-content">
-                <span class="handmade-badge"><i class="fas fa-hand-sparkles"></i> Fatto a mano</span>
                 <h3 class="product-name">Ciotola Giardino Barocco</h3>
                 <p class="product-description">
                     Una ciotola che celebra l'eleganza del Giardino Barocco con le sue caratteristiche righe verticali verdi e bianche e il papavero rosso che spicca al centro, firma inconfondibile di Paola Vacirca.
@@ -888,6 +944,48 @@
                     <i class="fas fa-shopping-cart"></i>
                     Aggiungi al Carrello
                 </button>
+                <div class="trust-badges" style="margin-top: 1rem;">
+                    <div class="trust-badge">
+                        <div class="trust-badge-icon"><i class="fas fa-box"></i></div>
+                        <div class="trust-badge-text">Imballaggio sicuro</div>
+                    </div>
+                    <a href="https://wa.me/39368663093" target="_blank" rel="noopener" style="text-decoration: none; color: inherit;">
+                        <div class="trust-badge" style="cursor: pointer;">
+                            <div class="trust-badge-icon"><i class="fab fa-whatsapp" style="color: #25d366;"></i></div>
+                            <div class="trust-badge-text">Supporto WhatsApp</div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="accordion" style="margin-top: 1rem;">
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            Materiali e dimensioni
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p class="accordion-text">
+                                <strong>Materiale:</strong> Ceramica di Caltagirone 100% artigianale<br>
+                                <strong>Dimensioni:</strong> Variabili in base al prodotto<br>
+                                <strong>Finitura:</strong> Smaltata a mano con colori atossici
+                            </p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            Spedizione e resi
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p class="accordion-text">
+                                <strong>Spedizione:</strong> Gratuita per ordini superiori a €80<br>
+                                <strong>Imballaggio:</strong> Curatissimo con protezioni multiple<br>
+                                <strong>Resi:</strong> Accettati entro 30 giorni dall'acquisto<br>
+                                <strong>Garanzia:</strong> Soddisfatti o rimborsati
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         
@@ -895,13 +993,13 @@
         <div class="product-card animate-on-scroll stagger-3">
             <span class="discount-badge">-20%</span>
             <div class="product-image-wrapper" data-lightbox="product">
-                <img src="/assets/images/giardino-barocco-3.jpg" 
+                    <span class="handmade-badge"><i class="fas fa-hand-sparkles"></i> Fatto a mano</span>
+                    <img src="/assets/images/giardino-barocco-3.jpg" 
                      alt="Piatto Giardino Barocco" 
                      class="main-image"
                      loading="lazy">
             </div>
             <div class="product-content">
-                <span class="handmade-badge"><i class="fas fa-hand-sparkles"></i> Fatto a mano</span>
                 <h3 class="product-name">Piatto Giardino Barocco</h3>
                 <p class="product-description">
                     Un piatto decorativo che racchiude l'essenza del Giardino Barocco: linee verticali alternate verdi e bianche con il papavero rosso di Paola Vacirca, un'opera d'arte unica per la tua tavola.
@@ -918,6 +1016,48 @@
                     <i class="fas fa-shopping-cart"></i>
                     Aggiungi al Carrello
                 </button>
+                <div class="trust-badges" style="margin-top: 1rem;">
+                    <div class="trust-badge">
+                        <div class="trust-badge-icon"><i class="fas fa-box"></i></div>
+                        <div class="trust-badge-text">Imballaggio sicuro</div>
+                    </div>
+                    <a href="https://wa.me/39368663093" target="_blank" rel="noopener" style="text-decoration: none; color: inherit;">
+                        <div class="trust-badge" style="cursor: pointer;">
+                            <div class="trust-badge-icon"><i class="fab fa-whatsapp" style="color: #25d366;"></i></div>
+                            <div class="trust-badge-text">Supporto WhatsApp</div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="accordion" style="margin-top: 1rem;">
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            Materiali e dimensioni
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p class="accordion-text">
+                                <strong>Materiale:</strong> Ceramica di Caltagirone 100% artigianale<br>
+                                <strong>Dimensioni:</strong> Variabili in base al prodotto<br>
+                                <strong>Finitura:</strong> Smaltata a mano con colori atossici
+                            </p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            Spedizione e resi
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p class="accordion-text">
+                                <strong>Spedizione:</strong> Gratuita per ordini superiori a €80<br>
+                                <strong>Imballaggio:</strong> Curatissimo con protezioni multiple<br>
+                                <strong>Resi:</strong> Accettati entro 30 giorni dall'acquisto<br>
+                                <strong>Garanzia:</strong> Soddisfatti o rimborsati
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         
@@ -925,13 +1065,13 @@
         <div class="product-card animate-on-scroll stagger-4">
             <span class="discount-badge">-20%</span>
             <div class="product-image-wrapper" data-lightbox="product">
-                <img src="/assets/images/giardino-barocco-4.jpg" 
+                    <span class="handmade-badge"><i class="fas fa-hand-sparkles"></i> Fatto a mano</span>
+                    <img src="/assets/images/giardino-barocco-4.jpg" 
                      alt="Vaso Giardino Barocco" 
                      class="main-image"
                      loading="lazy">
             </div>
             <div class="product-content">
-                <span class="handmade-badge"><i class="fas fa-hand-sparkles"></i> Fatto a mano</span>
                 <h3 class="product-name">Vaso Giardino Barocco</h3>
                 <p class="product-description">
                     Un vaso elegante che celebra il Giardino Barocco di Palermo. Decorato con le icone linee verticali verdi e bianche e il papavero rosso, un pezzo unico dell'artista Paola Vacirca.
@@ -948,6 +1088,48 @@
                     <i class="fas fa-shopping-cart"></i>
                     Aggiungi al Carrello
                 </button>
+                <div class="trust-badges" style="margin-top: 1rem;">
+                    <div class="trust-badge">
+                        <div class="trust-badge-icon"><i class="fas fa-box"></i></div>
+                        <div class="trust-badge-text">Imballaggio sicuro</div>
+                    </div>
+                    <a href="https://wa.me/39368663093" target="_blank" rel="noopener" style="text-decoration: none; color: inherit;">
+                        <div class="trust-badge" style="cursor: pointer;">
+                            <div class="trust-badge-icon"><i class="fab fa-whatsapp" style="color: #25d366;"></i></div>
+                            <div class="trust-badge-text">Supporto WhatsApp</div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="accordion" style="margin-top: 1rem;">
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            Materiali e dimensioni
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p class="accordion-text">
+                                <strong>Materiale:</strong> Ceramica di Caltagirone 100% artigianale<br>
+                                <strong>Dimensioni:</strong> Variabili in base al prodotto<br>
+                                <strong>Finitura:</strong> Smaltata a mano con colori atossici
+                            </p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            Spedizione e resi
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p class="accordion-text">
+                                <strong>Spedizione:</strong> Gratuita per ordini superiori a €80<br>
+                                <strong>Imballaggio:</strong> Curatissimo con protezioni multiple<br>
+                                <strong>Resi:</strong> Accettati entro 30 giorni dall'acquisto<br>
+                                <strong>Garanzia:</strong> Soddisfatti o rimborsati
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -1131,6 +1313,13 @@
         }
         
         updateCartBadge();
+
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            content.classList.toggle('open');
+            icon.classList.toggle('open');
+        }
 
         const observerOptions = {
             threshold: 0.1,

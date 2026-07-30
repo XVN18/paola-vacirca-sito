@@ -531,6 +531,7 @@
         .reviews-section {
             padding: 4rem 0;
             background: var(--white);
+            overflow: visible;
         }
         
         .reviews-header {
@@ -571,6 +572,66 @@
             margin: 0;
             width: 100%;
             overflow: visible;
+            padding-bottom: 1rem;
+            position: relative;
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid var(--gray-200);
+            background: var(--white);
+            color: var(--gray-700);
+            font-size: 0.875rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all var(--transition-base);
+            z-index: 10;
+        }
+
+        .carousel-arrow:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .carousel-arrow-left {
+            left: max(0.5rem, calc(50vw - 180px));
+        }
+
+        .carousel-arrow-right {
+            right: max(0.5rem, calc(50vw - 180px));
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--gray-300);
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            padding: 0;
+        }
+
+        .carousel-dot.active {
+            background: var(--primary);
+            width: 24px;
+            border-radius: 4px;
         }
         
         .reviews-carousel-track {
@@ -580,7 +641,7 @@
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
             scrollbar-width: none;
-            padding: 2rem calc(50vw - 136px) 1rem;
+            padding: 2rem calc(50vw - 136px) 3rem;
             align-items: flex-start;
         }
         
@@ -788,6 +849,13 @@
             }
             .reviews-avg {
                 font-size: 1.5rem;
+            }
+            .carousel-arrow {
+                display: none;
+            }
+            .reviews-carousel-track {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
             }
         }
         
@@ -1059,6 +1127,22 @@
         .contact-item-value.email {
             font-family: var(--font-body);
             font-size: 0.9375rem;
+        }
+
+        .btn-contact-whatsapp {
+            width: 100%; padding: 1rem 1.5rem; background: #25D366; color: white; border: none; border-radius: var(--radius-full); font-family: var(--font-body); font-size: 0.9375rem; font-weight: 600; cursor: pointer; transition: all var(--transition-base); display: flex; align-items: center; justify-content: center; gap: 0.5rem; text-decoration: none;
+        }
+        .btn-contact-whatsapp:hover {
+            transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4); color: white;
+        }
+        .btn-contact-email {
+            width: 100%; padding: 1rem 1.5rem; background: var(--gray-900); color: white; border: none; border-radius: var(--radius-full); font-family: var(--font-body); font-size: 0.9375rem; font-weight: 600; cursor: pointer; transition: all var(--transition-base); display: flex; align-items: center; justify-content: center; gap: 0.5rem; text-decoration: none;
+        }
+        .btn-contact-email:hover {
+            transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4); color: white;
+        }
+        .btn-contact-email svg {
+            width: 1.15rem; height: 1.15rem;
         }
         
 
@@ -1469,10 +1553,11 @@
                 <div class="reviews-stars">
                     <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                 </div>
-                <span class="reviews-count">12 recensioni su Google</span>
+                <span class="reviews-count">13 recensioni su Google</span>
             </div>
         </div>
         <div class="reviews-carousel-wrapper animate-on-scroll stagger-1">
+            <button class="carousel-arrow carousel-arrow-left" onclick="scrollReviews(-1)"><i class="fas fa-chevron-left"></i></button>
             <div class="reviews-carousel-track" id="reviewsTrack">
                 <!-- RECENSIONE 1 -->
                 <div class="review-card">
@@ -1574,6 +1659,8 @@
                     <span style="position:relative; z-index:1; font-family:var(--font-display); font-size:1.125rem; font-weight:600; color:#fff; text-align:center; padding:1.5rem;">Visualizza Tutte le Recensioni <i class="fas fa-arrow-right" style="margin-left:0.375rem;"></i></span>
                 </a>
             </div>
+            <button class="carousel-arrow carousel-arrow-right" onclick="scrollReviews(1)"><i class="fas fa-chevron-right"></i></button>
+            <div class="carousel-dots" id="reviewsDots"></div>
         </div>
     </section>
     
@@ -1592,6 +1679,9 @@
                 <div class="catalog-carousel-item"><a href="/catalogo/catalogo-5"><img src="/assets/images/catalogo-5.jpg" alt="Ceramica 5" loading="lazy"></a></div>
                 <div class="catalog-carousel-item"><a href="/catalogo/catalogo-6"><img src="/assets/images/catalogo-6.PNG" alt="Ceramica 6" loading="lazy"></a></div>
                 <div class="catalog-carousel-item"><a href="/catalogo/catalogo-7"><img src="/assets/images/catalogo-7.PNG" alt="Ceramica 7" loading="lazy"></a></div>
+                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-8"><img src="/assets/images/Vaso-fiori.PNG" alt="Vaso Fiori" loading="lazy"></a></div>
+                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-9"><img src="/assets/images/testa-di-moro-Leggenda.PNG" alt="Testa di Moro Leggenda" loading="lazy"></a></div>
+                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-10"><img src="/assets/images/Piatto.PNG" alt="Piatto" loading="lazy"></a></div>
             </div>
         </div>
         <a href="/catalogo" class="catalog-cta animate-on-scroll stagger-2">
@@ -1635,26 +1725,17 @@
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
     
     <section class="contact-section" id="contatti">
-        <div class="contact-card animate-on-scroll">
+        <div class="animate-on-scroll" style="max-width: 500px; margin: 0 auto; text-align: center;">
             <h2 class="section-title" style="margin-bottom: 0.25rem;">Contattami</h2>
             <p style="color: var(--gray-500); font-size: 0.9375rem; margin-bottom: 1.5rem;">Hai qualche richiesta particolare?</p>
-            <div class="contact-items">
-                <a href="https://wa.me/39368663093" target="_blank" rel="noopener noreferrer" class="contact-item animate-on-scroll stagger-1" style="text-decoration: none; cursor: pointer;">
-                    <div class="contact-item-icon phone">
-                        <i class="fab fa-whatsapp"></i>
-                    </div>
-                    <div class="contact-item-body">
-                        <div class="contact-item-value" style="font-family: var(--font-body); font-size: 0.9375rem;">+39 368 663 093</div>
-                    </div>
+            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                <a href="https://wa.me/39368663093?text=Buongiorno%20Paola%2C%20vorrei%20avere%20maggiori%20informazioni" target="_blank" rel="noopener noreferrer" class="btn-contact-whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                    Contatta Paola Vacirca
                 </a>
-                
-                <a href="mailto:paolavacirca09@gmail.com" class="contact-item animate-on-scroll stagger-2" style="text-decoration: none; cursor: pointer;">
-                    <div class="contact-item-icon email">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="contact-item-body">
-                        <div class="contact-item-value email">paolavacirca09@gmail.com</div>
-                    </div>
+                <a href="mailto:paolavacirca09@gmail.com" class="btn-contact-email">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    Manda una e-mail
                 </a>
             </div>
         </div>
@@ -1665,7 +1746,8 @@
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
     
     <section class="social-section">
-        <h2 class="social-title animate-on-scroll">Seguimi</h2>
+        <h2 class="social-title animate-on-scroll" style="margin-bottom: 0.25rem;">Seguimi</h2>
+        <p style="color: var(--gray-500); font-size: 0.9375rem; margin-bottom: 1.5rem; text-align: center;">Scopri come realizzo le mie Creazioni</p>
         <div class="social-icons animate-on-scroll stagger-1">
             <a href="https://www.tiktok.com/@paola9770" target="_blank" rel="noopener noreferrer" class="social-icon-link tiktok">
                 <i class="fab fa-tiktok"></i>
@@ -1910,6 +1992,54 @@
                     text.parentNode.insertBefore(btn, text.nextSibling);
                 }
             });
+        })();
+
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        // REVIEWS CAROUSEL NAVIGATION
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+        (function() {
+            const track = document.getElementById('reviewsTrack');
+            const dotsContainer = document.getElementById('reviewsDots');
+            if (!track || !dotsContainer) return;
+            const cards = track.querySelectorAll('.review-card');
+            const cardWidth = 272 + 24;
+
+            function scrollReviews(dir) {
+                track.scrollBy({ left: dir * cardWidth, behavior: 'smooth' });
+            }
+            window.scrollReviews = scrollReviews;
+
+            function updateDots() {
+                const scrollLeft = track.scrollLeft;
+                const currentIndex = Math.round(scrollLeft / cardWidth);
+                const dots = dotsContainer.querySelectorAll('.carousel-dot');
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === currentIndex);
+                });
+            }
+
+            cards.forEach((_, i) => {
+                const dot = document.createElement('button');
+                dot.className = 'carousel-dot';
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => {
+                    track.scrollTo({ left: i * cardWidth, behavior: 'smooth' });
+                });
+                dotsContainer.appendChild(dot);
+            });
+
+            track.addEventListener('scroll', updateDots, { passive: true });
+
+            function updateArrows() {
+                const leftArrow = document.querySelector('.carousel-arrow-left');
+                const rightArrow = document.querySelector('.carousel-arrow-right');
+                if (leftArrow) leftArrow.style.opacity = track.scrollLeft < 10 ? '0.3' : '1';
+                if (rightArrow) rightArrow.style.opacity = track.scrollLeft >= track.scrollWidth - track.clientWidth - 10 ? '0.3' : '1';
+            }
+
+            track.addEventListener('scroll', updateArrows, { passive: true });
+            updateArrows();
         })();
 
         // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

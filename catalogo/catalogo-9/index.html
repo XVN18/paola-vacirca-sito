@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catalogo 5 | Le Ceramiche di Caltagirone</title>
-    <meta name="description" content="Scopri il Catalogo 5 di Paola Vacirca. Ceramica artigianale di Caltagirone.">
+    <title>Testa di Moro Leggenda | Le Ceramiche di Caltagirone</title>
+    <meta name="description" content="Scopri il Testa di Moro Leggenda di Paola Vacirca. Ceramica artigianale di Caltagirone.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -603,20 +603,20 @@
         <div class="product-card">
             <div class="product-image-wrapper" data-lightbox="product">
                 <span class="handmade-badge"><i class="fas fa-hand-sparkles"></i> Fatto a mano</span>
-                <img src="/assets/images/catalogo-5.jpg" 
-                     alt="Catalogo 5" 
+                <img src="/assets/images/testa-di-moro-leggenda.PNG" 
+                     alt="Testa di Moro Leggenda" 
                      class="main-image"
                      loading="lazy">
             </div>
             <div class="product-content">
-                <h1 class="product-name animate-on-scroll">Catalogo 5</h1>
+                <h1 class="product-name animate-on-scroll">Testa di Moro Leggenda</h1>
                 <p class="product-description animate-on-scroll stagger-1">
-                    Ceramica artigianale di Caltagirone, creata a mano con passione da Paola Vacirca. Ogni pezzo è unico, custodisce la tradizione e l'arte della Sicilia.
+                    Una splendida Testa di Moro decorata a mano che racconta l'antica leggenda siciliana. Realizzata con la maestria artigianale di Caltagirone, un simbolo di passione e tradizione.
                 </p>
                 <div class="price-wrapper animate-on-scroll stagger-2">
                     <div class="product-price">€59,88</div>
                 </div>
-                <button class="add-to-cart-btn animate-on-scroll stagger-2" onclick="addToCart('catalogo-5', 'Catalogo 5', 59.88, 'catalogo', 59.88)">
+                <button class="add-to-cart-btn animate-on-scroll stagger-2" onclick="addToCart('testa-di-moro-leggenda', 'Testa di Moro Leggenda', 59.88, 'catalogo', 59.88)">
                     <i class="fas fa-shopping-cart"></i>
                     Aggiungi al Carrello
                 </button>
@@ -712,7 +712,7 @@
         }
 
         const cartBtn = document.querySelector('.add-to-cart-btn');
-        if (cart.find(item => item.id === 'catalogo-5')) {
+        if (cart.find(item => item.id === 'testa-di-moro-leggenda')) {
             cartBtn.innerHTML = '<i class="fas fa-shopping-bag"></i> Procedi al Checkout';
             cartBtn.onclick = () => window.location.href = '/checkout';
         }
@@ -728,7 +728,7 @@
                 }, 1000);
                 return;
             } else {
-                cart.push({ id, name, price, collection, quantity: 1, image: '/assets/images/catalogo-5.jpg', originalPrice });
+                cart.push({ id, name, price, collection, quantity: 1, image: '/assets/images/testa-di-moro-leggenda.PNG', originalPrice });
             }
             localStorage.setItem('cart', JSON.stringify(cart));
 
@@ -738,7 +738,7 @@
             const cartRect = cartIcon.getBoundingClientRect();
 
             const flyer = document.createElement('img');
-            flyer.src = '/assets/images/catalogo-5.jpg';
+            flyer.src = '/assets/images/testa-di-moro-leggenda.PNG';
             flyer.className = 'fly-to-cart';
             flyer.style.left = btnRect.left + btnRect.width / 2 - 25 + 'px';
             flyer.style.top = btnRect.top + 'px';
