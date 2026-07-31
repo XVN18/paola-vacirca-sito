@@ -173,15 +173,6 @@
             gap: 1rem;
         }
         
-                .sub-navbar { position: fixed; bottom: 10px; left: 50%; transform: translateX(-50%); z-index: 999; background: rgba(26, 18, 11, 0.7); backdrop-filter: blur(10px); border-radius: 30px; padding: 0.4rem 2rem; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(196, 146, 58, 0.1); border: 1px solid rgba(196, 146, 58, 0.15); display: none; }
-        .sub-navbar::-webkit-scrollbar { display: none; }
-        .sub-navbar-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: center; gap: 0.3rem; align-items: center; }
-        .sub-navbar a { display: inline-flex; flex-direction: column; align-items: center; gap: 3px; text-decoration: none; color: rgba(255, 255, 255, 0.7); font-size: 0.6rem; font-weight: 500; padding: 6px 12px; border-radius: 12px; -webkit-tap-highlight-color: transparent; outline: none; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); white-space: nowrap; position: relative; }
-        .sub-navbar a i { font-size: 1.15rem; background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(255,255,255,0.7)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; transition: all 0.3s ease; }
-        .sub-navbar a:hover { color: var(--primary); background: none; transform: translateY(-2px); }
-        .sub-navbar a:hover i { background: linear-gradient(135deg, var(--primary), var(--primary-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; filter: drop-shadow(0 2px 4px rgba(196, 146, 58, 0.3)); }
-        .sub-navbar a.active { color: var(--primary); background: none; }
-        .sub-navbar a.active i { background: linear-gradient(135deg, var(--primary), var(--primary-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
         
         .shipping-bar {
             position: -webkit-sticky;
@@ -393,7 +384,7 @@
         .collection-name {
             font-family: var(--font-display);
             font-size: 1.5rem;
-            font-weight: 700;
+            font-weight: 400;
             color: var(--gray-900);
             margin-bottom: 0.75rem;
         }
@@ -446,6 +437,12 @@
             background: var(--white);
             max-width: 800px;
             margin: 0 auto;
+        }
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--gray-900);
+            margin-bottom: 0;
         }
         .faq-section .section-title {
             text-align: center;
@@ -512,6 +509,104 @@
             transform: translateY(-3px) scale(1.03);
             box-shadow: 0 12px 32px rgba(196, 146, 58, 0.5);
             transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        /* CATALOG CAROUSEL SECTION */
+        .catalog-carousel-section {
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .catalog-carousel-section .section-title {
+            margin-bottom: 1rem;
+        }
+
+        .catalog-carousel-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: var(--radius-xl);
+            position: relative;
+        }
+
+        .catalog-carousel-track {
+            display: flex;
+        }
+
+        .catalog-carousel-item {
+            flex: 0 0 30%;
+            padding: 0 0.4rem;
+        }
+
+        .catalog-carousel-item img {
+            width: 100%;
+            height: 340px;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            display: block;
+            cursor: pointer;
+        }
+
+        .catalog-carousel-item a {
+            display: block;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .catalog-carousel-item img:hover {
+            transform: scale(1.04);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+        }
+
+        .catalog-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            border-radius: var(--radius-full);
+            font-family: var(--font-body);
+            font-size: 0.9375rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(196, 146, 58, 0.4);
+            transition: all var(--transition-base);
+        }
+
+        .catalog-cta:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 12px 32px rgba(196, 146, 58, 0.5);
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .catalog-cta i {
+            transition: transform var(--transition-base);
+        }
+
+        .catalog-cta:hover i {
+            transform: translateX(4px);
+        }
+
+        @media (max-width: 1024px) {
+            .catalog-carousel-item {
+                flex: 0 0 38%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .catalog-carousel-item {
+                flex: 0 0 55%;
+            }
+            .catalog-carousel-item img {
+                height: 260px;
+            }
         }
         
         /* FOOTER */
@@ -584,7 +679,6 @@
             .nav-links {
                 display: none;
             }
-            .sub-navbar { display: block; }
             
             
             .collections-grid {
@@ -603,14 +697,7 @@
                 font-size: 0.58rem;
             }
             
-            .sub-navbar a {
-                font-size: 0.6rem;
-                min-width: 50px;
-            }
             
-            .sub-navbar a i {
-                font-size: 1rem;
-            }
         }
 
         /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
@@ -652,6 +739,13 @@
         .stagger-5 { transition-delay: 0.33s; }
         .stagger-6 { transition-delay: 0.40s; }
         .stagger-7 { transition-delay: 0.47s; }
+            /* SHIPPING BAR MOBILE */
+        @media (max-width: 768px) {
+            .shipping-bar {
+                font-size: 0.6875rem;
+                padding: 0.25rem 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -664,7 +758,7 @@
             
             <ul class="nav-links">
                 <li><a href="/">Home</a></li>
-                <li><a href="/chi-sono">Chi Sono</a></li>
+                <li><a href="/caltagirone">Caltagirone</a></li>
                 <li><a href="/collezioni">Collezioni</a></li>
                 <li><a href="/catalogo">Catalogo</a></li>
                 <li><a href="/bomboniere">Bomboniere</a></li>
@@ -680,28 +774,7 @@
             </div>
         </div>
     </nav>
-    <nav class="sub-navbar">
-        <div class="sub-navbar-container">
-            <a href="/" class="active">
-                <i class="fas fa-home"></i>
-                Home
-            </a>
-            <a href="/opere-d-arte">
-                <i class="fas fa-flask"></i>
-                Creazioni
-            </a>
-            <a href="/chi-sono">
-                <i class="fas fa-user"></i>
-                Chi Sono
-            </a>
-            <a href="/faq">
-                <i class="fas fa-question-circle"></i>
-                FAQ
-            </a>
-        </div>
-    </nav>
-    
-    <!-- SHIPPING BAR -->
+<!-- SHIPPING BAR -->
     <div class="shipping-bar">
         <div class="shipping-bar-content">
             <span><i class="fas fa-truck"></i> Spedizione Gratuita in Tutta Italia per Ordini Superiori a €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
@@ -711,7 +784,7 @@
     
     <!-- BREADCRUMB -->
     <div class="breadcrumb">
-        <a href="/opere-d-arte" class="breadcrumb-back">
+        <a href="/creazioni" class="breadcrumb-back" onclick="history.back(); return false;">
             <i class="fas fa-arrow-left"></i>
             Indietro
         </a>
@@ -849,6 +922,29 @@
         </div>
     </section>
 
+    <!-- CATALOG CAROUSEL SECTION -->
+    <section class="catalog-carousel-section">
+        <h2 class="section-title animate-on-scroll">Altri articoli che potrebbero interessarti</h2>
+        <div class="catalog-carousel-wrapper animate-on-scroll stagger-2">
+            <div class="catalog-carousel-track">
+                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-1"><img src="/assets/images/catalogo-1.jpg" alt="Ceramica 1" loading="lazy"></a></div>
+                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-2"><img src="/assets/images/catalogo-2.jpg" alt="Ceramica 2" loading="lazy"></a></div>
+                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-3"><img src="/assets/images/catalogo-3.PNG" alt="Ceramica 3" loading="lazy"></a></div>
+                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-4"><img src="/assets/images/catalogo-4.PNG" alt="Ceramica 4" loading="lazy"></a></div>
+                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-5"><img src="/assets/images/catalogo-5.jpg" alt="Ceramica 5" loading="lazy"></a></div>
+                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-6"><img src="/assets/images/catalogo-6.PNG" alt="Ceramica 6" loading="lazy"></a></div>
+                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-7"><img src="/assets/images/catalogo-7.PNG" alt="Ceramica 7" loading="lazy"></a></div>
+                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-8"><img src="/assets/images/Vaso-fiori.PNG" alt="Vaso Fiori" loading="lazy"></a></div>
+                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-9"><img src="/assets/images/testa-di-moro-Leggenda.PNG" alt="Testa di Moro Leggenda" loading="lazy"></a></div>
+                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-10"><img src="/assets/images/Piatto.PNG" alt="Piatto" loading="lazy"></a></div>
+            </div>
+        </div>
+        <a href="/catalogo" class="catalog-cta animate-on-scroll stagger-2">
+            Scopri il Catalogo
+            <i class="fas fa-arrow-right"></i>
+        </a>
+    </section>
+
     <!-- FOOTER -->
     <footer>
         <div class="footer-container">
@@ -927,6 +1023,48 @@
             const item = el.closest('.faq-item');
             item.classList.toggle('open');
         }
+
+        // CATALOG CAROUSEL (INFINITE)
+        (function() {
+            const track = document.querySelector('.catalog-carousel-track');
+            const wrapper = document.querySelector('.catalog-carousel-wrapper');
+            if (!track) return;
+
+            const originals = track.querySelectorAll('.catalog-carousel-item');
+            originals.forEach(item => track.appendChild(item.cloneNode(true)));
+
+            const allItems = track.querySelectorAll('.catalog-carousel-item');
+            const speed = 0.4;
+            let pos = 0;
+            let paused = false;
+            let rafId;
+
+            function getSetWidth() {
+                let w = 0;
+                for (let i = 0; i < originals.length; i++) {
+                    w += allItems[i].offsetWidth;
+                }
+                return w;
+            }
+
+            function animate() {
+                if (!paused) {
+                    pos -= speed;
+                    if (Math.abs(pos) >= getSetWidth()) {
+                        pos += getSetWidth();
+                    }
+                    track.style.transform = 'translateX(' + pos + 'px)';
+                }
+                rafId = requestAnimationFrame(animate);
+            }
+
+            wrapper.addEventListener('mouseenter', function() { paused = true; });
+            wrapper.addEventListener('mouseleave', function() { paused = false; });
+            wrapper.addEventListener('touchstart', function() { paused = true; }, { passive: true });
+            wrapper.addEventListener('touchend', function() { setTimeout(function() { paused = false; }, 500); }, { passive: true });
+
+            animate();
+        })();
     </script>
 
     <script src="/assets/js/cookie-consent.js"></script>

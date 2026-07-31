@@ -98,7 +98,7 @@
         
         body {
             font-family: var(--font-body);
-            background: var(--white);
+            background: var(--gray-100);
             color: var(--gray-900);
             line-height: 1.6;
         }
@@ -216,96 +216,7 @@
             align-items: center;
             gap: 1rem;
         }
-        
-        
         /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-        /* SUB-NAVBAR */
-        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-        
-        .sub-navbar {
-            position: fixed;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 999;
-            background: rgba(26, 18, 11, 0.7);
-            backdrop-filter: blur(10px);
-            border-radius: 30px;
-            padding: 0.4rem 2rem;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(196, 146, 58, 0.1);
-            border: 1px solid rgba(196, 146, 58, 0.15);
-            display: none;
-        }
-        
-        .sub-navbar::-webkit-scrollbar {
-            display: none;
-        }
-        
-        .sub-navbar-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            gap: 0.3rem;
-            align-items: center;
-        }
-        
-        .sub-navbar a {
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 3px;
-            text-decoration: none;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.6rem;
-            font-weight: 500;
-            padding: 6px 12px;
-            border-radius: 12px;
-            outline: none;
-            -webkit-tap-highlight-color: transparent;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            white-space: nowrap;
-            position: relative;
-        }
-        
-        .sub-navbar a i {
-            font-size: 1.15rem;
-            background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(255,255,255,0.7));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            transition: all 0.3s ease;
-        }
-        
-        .sub-navbar a:hover {
-            color: var(--primary);
-            background: none;
-            transform: translateY(-2px);
-        }
-        
-        .sub-navbar a:hover i {
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            filter: drop-shadow(0 2px 4px rgba(196, 146, 58, 0.3));
-        }
-        
-        .sub-navbar a.active {
-            color: var(--primary);
-            background: none;
-        }
-        
-        .sub-navbar a.active i {
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
         .shipping-bar {
             position: -webkit-sticky;
             position: sticky;
@@ -407,12 +318,112 @@
 
         
         /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        /* EYEBROW */
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+        .eyebrow {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--primary);
+            background: rgba(196, 146, 58, 0.12);
+            padding: 0.35rem 1rem;
+            border-radius: var(--radius-full);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-body {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 400;
+            line-height: 1.4;
+            color: var(--gray-900);
+            margin-bottom: 0;
+        }
+
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        /* CHI SONO SECTION */
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+        .about-section {
+            padding: 4rem 2rem;
+            background: var(--gray-100);
+        }
+
+        .about-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 2.5rem;
+        }
+
+        .about-image-wrapper {
+            position: relative;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            aspect-ratio: 4 / 5;
+            width: min(340px, 100%);
+            background: var(--gray-200);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-500);
+            font-size: 3rem;
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .about-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--gray-900);
+            margin: 0.75rem 0 0.5rem;
+        }
+
+        .about-subtitle {
+            font-size: 0.9375rem;
+            color: var(--gray-500);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text {
+            font-size: 1.0625rem;
+            color: var(--gray-700);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            max-width: 720px;
+        }
+
+        .about-link {
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .about-container {
+                gap: 2rem;
+            }
+        }
+
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
         /* REVIEWS SECTION */
         /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
         
         .reviews-section {
             padding: 4rem 0;
-            background: var(--white);
+            background: var(--gray-100);
             overflow: visible;
         }
         
@@ -743,7 +754,7 @@
         
         .section-title {
             font-family: var(--font-display);
-            font-size: 2.375rem;
+            font-size: 1.5rem;
             color: var(--gray-900);
             margin-bottom: 0;
         }
@@ -758,8 +769,8 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            padding: 5rem 2rem 4rem;
-            background: linear-gradient(rgba(26, 18, 11, 0.75), rgba(26, 18, 11, 0.85)), url('/assets/images/hero.JPG') center/cover no-repeat;
+            padding: 3rem 2rem 4rem;
+            background: linear-gradient(rgba(26, 18, 11, 0.75), rgba(26, 18, 11, 0.85)), url('/assets/images/caltagirone-hero.png') center/cover no-repeat;
             background-attachment: fixed;
             text-align: center;
             position: relative;
@@ -769,6 +780,7 @@
         .catalog-carousel-section .section-title {
             margin-bottom: 1rem;
             color: #FEFAF5;
+            font-size: 2.375rem;
             text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
         }
 
@@ -887,7 +899,7 @@
         
         .map-header h2 {
             font-family: var(--font-display);
-            font-size: 2.375rem;
+            font-size: 1.5rem;
             color: var(--gray-900);
             margin-bottom: 0.5rem;
         }
@@ -1054,6 +1066,11 @@
         .social-section {
             padding: 4rem 2rem;
             background: var(--gray-100);
+            text-align: center;
+        }
+        
+        .faq-section {
+            background: var(--gray-100);
         }
         
         .social-icons {
@@ -1065,7 +1082,7 @@
         
         .social-title {
             font-family: var(--font-display);
-            font-size: 2.25rem;
+            font-size: 1.5rem;
             color: var(--gray-900);
             text-align: center;
             margin-bottom: 1.5rem;
@@ -1110,6 +1127,90 @@
         
         .social-icon-link.facebook:hover {
             box-shadow: 0 8px 24px rgba(24, 119, 242, 0.4);
+        }
+        
+        /* FAQ PREVIEW */
+        .home-faq-container {
+            max-width: 640px;
+            margin: 2.5rem auto 0;
+            text-align: left;
+        }
+        
+        .home-faq-item {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            margin-bottom: 1rem;
+            overflow: hidden;
+            border: 1px solid var(--gray-200);
+        }
+        
+        .home-faq-question {
+            padding: 1.25rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            color: var(--gray-900);
+        }
+        
+        .home-faq-question i {
+            color: var(--primary);
+            transition: transform 0.3s;
+            flex-shrink: 0;
+        }
+        
+        .home-faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            font-size: 0.875rem;
+            color: var(--gray-500);
+            line-height: 1.7;
+        }
+        
+        .home-faq-item.open .home-faq-answer {
+            padding: 0 1.5rem 1.25rem;
+            max-height: 300px;
+        }
+        
+        .home-faq-item.open .home-faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .home-faq-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            border-radius: var(--radius-full);
+            font-family: var(--font-body);
+            font-size: 0.9375rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(196, 146, 58, 0.4);
+            transition: all var(--transition-base);
+        }
+        
+        .home-faq-cta:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 12px 32px rgba(196, 146, 58, 0.5);
+        }
+        
+        .home-faq-cta i {
+            transition: transform var(--transition-base);
+        }
+        
+        .home-faq-cta:hover i {
+            transform: translateX(4px);
         }
         
         /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
@@ -1208,6 +1309,11 @@
         /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
         
         @media (max-width: 768px) {
+            .shipping-bar {
+                font-size: 0.6875rem;
+                padding: 0.25rem 0;
+            }
+
             .catalog-carousel-section {
                 background-attachment: scroll;
             }
@@ -1224,9 +1330,6 @@
                 display: none;
             }
             
-            .sub-navbar {
-                display: block;
-            }
             
             
             .logo-text {
@@ -1237,17 +1340,10 @@
                 font-size: 0.58rem;
             }
             
-            .sub-navbar a {
-                font-size: 0.6rem;
-                min-width: 50px;
-            }
             
-            .sub-navbar a i {
-                font-size: 1rem;
-            }
             
             .section-title {
-                font-size: 1.875rem;
+                font-size: 1.5rem;
             }
             
 
@@ -1330,7 +1426,7 @@
             
             <ul class="nav-links">
                 <li><a href="/">Home</a></li>
-                <li><a href="/chi-sono">Chi Sono</a></li>
+                <li><a href="/caltagirone">Caltagirone</a></li>
                 <li><a href="/collezioni">Collezioni</a></li>
                 <li><a href="/catalogo">Catalogo</a></li>
                 <li><a href="/bomboniere">Bomboniere</a></li>
@@ -1345,28 +1441,6 @@
                 </a>
                 
             </div>
-        </div>
-    </nav>
-    
-    <!-- SUB-NAVBAR -->
-    <nav class="sub-navbar">
-        <div class="sub-navbar-container">
-            <a href="/" class="active">
-                <i class="fas fa-home"></i>
-                Home
-            </a>
-            <a href="/opere-d-arte">
-                <i class="fas fa-flask"></i>
-                Creazioni
-            </a>
-            <a href="/chi-sono">
-                <i class="fas fa-user"></i>
-                Chi Sono
-            </a>
-            <a href="/faq">
-                <i class="fas fa-question-circle"></i>
-                FAQ
-            </a>
         </div>
     </nav>
     
@@ -1389,35 +1463,38 @@
         <p class="catalog-hero-description animate-on-scroll stagger-1">Dalla Classica Testa di Moro Siciliana a Stravaganti Opere in Ceramica.</p>
         <div class="catalog-carousel-wrapper animate-on-scroll stagger-2">
             <div class="catalog-carousel-track">
-                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-1"><img src="/assets/images/catalogo-1.jpg" alt="Ceramica 1" loading="lazy"></a></div>
-                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-2"><img src="/assets/images/catalogo-2.jpg" alt="Ceramica 2" loading="lazy"></a></div>
-                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-3"><img src="/assets/images/catalogo-3.PNG" alt="Ceramica 3" loading="lazy"></a></div>
-                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-4"><img src="/assets/images/catalogo-4.PNG" alt="Ceramica 4" loading="lazy"></a></div>
-                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-5"><img src="/assets/images/catalogo-5.jpg" alt="Ceramica 5" loading="lazy"></a></div>
                 <div class="catalog-carousel-item"><a href="/catalogo/catalogo-6"><img src="/assets/images/catalogo-6.PNG" alt="Ceramica 6" loading="lazy"></a></div>
                 <div class="catalog-carousel-item"><a href="/catalogo/catalogo-7"><img src="/assets/images/catalogo-7.PNG" alt="Ceramica 7" loading="lazy"></a></div>
-                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-8"><img src="/assets/images/Vaso-fiori.PNG" alt="Vaso Fiori" loading="lazy"></a></div>
-                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-9"><img src="/assets/images/testa-di-moro-Leggenda.PNG" alt="Testa di Moro Leggenda" loading="lazy"></a></div>
+                <div class="catalog-carousel-item"><a href="/collezioni/giardino-barocco"><img src="/assets/images/collezione-giardino-barocco.png" alt="Collezione Giardino Barocco" loading="lazy"></a></div>
+                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-1"><img src="/assets/images/catalogo-1.jpg" alt="Ceramica 1" loading="lazy"></a></div>
+                <div class="catalog-carousel-item"><a href="/bomboniere/bomboniera-2"><img src="/assets/images/bomboniera-2.PNG" alt="Bomboniera Siciliana" loading="lazy"></a></div>
+                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-5"><img src="/assets/images/catalogo-5.jpg" alt="Ceramica 5" loading="lazy"></a></div>
+                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-4"><img src="/assets/images/catalogo-4.PNG" alt="Ceramica 4" loading="lazy"></a></div>
+                <div class="catalog-carousel-item"><a href="/bomboniere/bomboniera-3"><img src="/assets/images/bomboniera-3.PNG" alt="Bomboniera Barocco" loading="lazy"></a></div>
                 <div class="catalog-carousel-item"><a href="/catalogo/catalogo-10"><img src="/assets/images/Piatto.PNG" alt="Piatto" loading="lazy"></a></div>
+                <div class="catalog-carousel-item"><a href="/collezioni/testa-di-moro"><img src="/assets/images/testa-di-moro-collezione.PNG" alt="Collezione Testa di Moro" loading="lazy"></a></div>
+                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-2"><img src="/assets/images/catalogo-2.jpg" alt="Ceramica 2" loading="lazy"></a></div>
+                <div class="catalog-carousel-item"><a href="/bomboniere/cuore-siciliano"><img src="/assets/images/bomboniera-1.PNG" alt="Bomboniera Cuore Siciliano" loading="lazy"></a></div>
+                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-8"><img src="/assets/images/Vaso-fiori.PNG" alt="Vaso Fiori" loading="lazy"></a></div>
+                <div class="catalog-carousel-item"><a href="/collezioni/etna"><img src="/assets/images/Copertina-Collezione-Etna.PNG" alt="Collezione Etna" loading="lazy"></a></div>
+                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-3"><img src="/assets/images/catalogo-3.PNG" alt="Ceramica 3" loading="lazy"></a></div>
+                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-9"><img src="/assets/images/testa-di-moro-Leggenda.PNG" alt="Testa di Moro Leggenda" loading="lazy"></a></div>
             </div>
         </div>
-        <a href="/catalogo" class="catalog-cta animate-on-scroll stagger-2">
-            Scopri il Catalogo
+        <a href="/creazioni" class="catalog-cta animate-on-scroll stagger-2">
+            Scopri le mie creazioni
             <i class="fas fa-arrow-right"></i>
         </a>
     </section>
-    
-    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-    <!-- GOOGLE REVIEWS SECTION -->
-    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-    
+
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
     <!-- GOOGLE REVIEWS SECTION -->
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
     
     <section class="reviews-section">
         <div class="reviews-header animate-on-scroll">
-            <h2 class="section-title">Ecco le Voci dei Miei Clienti</h2>
+            <span class="eyebrow">Recensioni</span>
+            <h2 class="section-body">Ecco le Voci dei Miei Clienti</h2>
             <div class="reviews-rating-summary">
                 <span class="reviews-avg">5.0</span>
                 <div class="reviews-stars">
@@ -1533,7 +1610,28 @@
             <div class="carousel-dots" id="reviewsDots"></div>
         </div>
     </section>
-    
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <!-- CHI SONO SECTION -->
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+
+    <section class="about-section">
+        <div class="about-container">
+            <div class="about-content animate-on-scroll">
+                <span class="eyebrow">Chi Sono</span>
+                <h2 class="about-title">Paola Vacirca</h2>
+                <p class="about-subtitle">Ceramista ed Artista Calatina</p>
+            </div>
+            <div class="about-image-wrapper animate-on-scroll stagger-1">
+                <i class="fas fa-image"></i>
+            </div>
+            <div class="about-content animate-on-scroll stagger-2">
+                <p class="about-text">Da sempre la mia passione è creare ceramiche ed opere d'arte uniche interamente curate a mano con l'obbiettivo di portare l'antichissima arte della ceramica di <a href="/caltagirone/" class="about-link">Caltagirone</a> nella case di tutto il mondo.</p>
+                <p class="about-text">Realizzo ogni mia opera nel mio laboratorio in Via Gabelle 15, un posto magico ed accogliente dove prendono vita le mie <a href="/creazioni/" class="about-link">Creazioni</a>, ti aspetto!</p>
+            </div>
+        </div>
+    </section>
+
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
     <!-- MAP SECTION -->
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
@@ -1541,6 +1639,7 @@
     <section class="map-section">
         <div class="map-container">
             <div class="map-header animate-on-scroll">
+                <span class="eyebrow">Posizione</span>
                 <h2>Vieni a Trovarmi</h2>
                 <p class="map-location">📍 Via Gabelle, 15 Caltagirone CT</p>
             </div>
@@ -1570,16 +1669,13 @@
     
     <section class="contact-section" id="contatti">
         <div class="animate-on-scroll" style="max-width: 500px; margin: 0 auto; text-align: center;">
+            <span class="eyebrow">WhatsApp</span>
             <h2 class="section-title" style="margin-bottom: 0.25rem;">Contattami</h2>
             <p style="color: var(--gray-500); font-size: 0.9375rem; margin-bottom: 1.5rem;">Hai qualche richiesta particolare?</p>
             <div style="display: flex; flex-direction: column; gap: 0.75rem;">
                 <a href="https://wa.me/39368663093?text=Buongiorno%20Paola%2C%20vorrei%20avere%20maggiori%20informazioni" target="_blank" rel="noopener noreferrer" class="btn-contact-whatsapp">
                     <i class="fab fa-whatsapp"></i>
                     Contatta Paola Vacirca
-                </a>
-                <a href="mailto:paolavacirca09@gmail.com" class="btn-contact-email">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                    Manda una e-mail
                 </a>
             </div>
         </div>
@@ -1590,6 +1686,7 @@
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
     
     <section class="social-section">
+        <span class="eyebrow animate-on-scroll">Social</span>
         <h2 class="social-title animate-on-scroll" style="margin-bottom: 0.25rem;">Seguimi</h2>
         <p style="color: var(--gray-500); font-size: 0.9375rem; margin-bottom: 1.5rem; text-align: center;">Scopri come realizzo le mie Creazioni</p>
         <div class="social-icons animate-on-scroll stagger-1">
@@ -1604,6 +1701,52 @@
             <a href="https://www.facebook.com/paolavacirca.quadri/" target="_blank" rel="noopener noreferrer" class="social-icon-link facebook">
                 <i class="fab fa-facebook-f"></i>
             </a>
+        </div>
+    </section>
+    
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <!-- FAQ SECTION -->
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    
+    <section class="social-section faq-section">
+        <span class="eyebrow animate-on-scroll" style="margin-bottom: 0.25rem;">Domande Frequenti</span>
+        <h2 class="social-title animate-on-scroll" style="margin-bottom: 0.25rem;">FAQ</h2>
+        <p style="color: var(--gray-500); font-size: 0.9375rem; margin-bottom: 1.5rem; text-align: center;">Le domande più frequenti dei nostri clienti</p>
+        
+        <div class="home-faq-container animate-on-scroll stagger-2">
+            <div class="home-faq-item">
+                <div class="home-faq-question" onclick="toggleHomeFaq(this)">
+                    Come vengono realizzate le ceramiche?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="home-faq-answer">
+                    Le realizzo interamente a mano nel mio laboratorio in Via Gabelle 15.
+                </div>
+            </div>
+            <div class="home-faq-item">
+                <div class="home-faq-question" onclick="toggleHomeFaq(this)">
+                    Quanto tempo richiede la spedizione?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="home-faq-answer">
+                    Per gli articoli del <a href="/catalogo" style="color: var(--primary); font-weight: 600; text-decoration: underline;">Catalogo</a> e delle <a href="/collezioni" style="color: var(--primary); font-weight: 600; text-decoration: underline;">Collezioni</a>, essendo già pronti per essere spediti, riceverai il tuo ordine entro 3-7 giorni lavorativi. Per quanto riguarda le <a href="/bomboniere" style="color: var(--primary); font-weight: 600; text-decoration: underline;">Bomboniere</a> può variare in base alla quantità e alle personalizzazioni richieste.
+                </div>
+            </div>
+            <div class="home-faq-item">
+                <div class="home-faq-question" onclick="toggleHomeFaq(this)">
+                    Posso personalizzare i prodotti?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="home-faq-answer">
+                    Si! Per le <a href="/bomboniere" style="color: var(--primary); font-weight: 600; text-decoration: underline;">Bomboniere</a> è possibile richiedere diverse colorazioni e l'aggiunta di date ed iniziali. Per quanto riguarda gli articoli del <a href="/catalogo" style="color: var(--primary); font-weight: 600; text-decoration: underline;">Catalogo</a> e delle <a href="/collezioni" style="color: var(--primary); font-weight: 600; text-decoration: underline;">Collezioni</a> non è possibile ma si può richiedere su <a href="https://wa.me/39368663093" target="_blank" rel="noopener noreferrer" style="color: var(--primary); font-weight: 600; text-decoration: underline;">WhatsApp</a> la creazione di un articolo completamente personalizzato che rispecchi le vostre esigenze.
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <a href="/faq" class="home-faq-cta">
+                    Scopri tutte le FAQ
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
         </div>
     </section>
     
@@ -1652,6 +1795,10 @@
         }
         
         updateCartBadge();
+
+        function toggleHomeFaq(el) {
+            el.parentElement.classList.toggle('open');
+        }
         
         // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
         // SCROLL REVEAL ANIMATIONS
@@ -1973,7 +2120,6 @@
         }
     }
     </script>
-
 
     <script src="/assets/js/cookie-consent.js"></script>
 </body>

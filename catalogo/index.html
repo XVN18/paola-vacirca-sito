@@ -170,18 +170,6 @@
             gap: 1rem;
         }
 
-        /* SUB-NAVBAR */
-        .sub-navbar { position: fixed; bottom: 10px; left: 50%; transform: translateX(-50%); z-index: 999; background: rgba(26, 18, 11, 0.7); backdrop-filter: blur(10px); border-radius: 30px; padding: 0.4rem 2rem; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(196, 146, 58, 0.1); border: 1px solid rgba(196, 146, 58, 0.15); display: none; }
-        .sub-navbar::-webkit-scrollbar { display: none; }
-        .sub-navbar-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: center; gap: 0.3rem; align-items: center; }
-        .sub-navbar a { display: inline-flex; flex-direction: column; align-items: center; gap: 3px; text-decoration: none; color: rgba(255, 255, 255, 0.7); font-size: 0.6rem; font-weight: 500; padding: 6px 12px; border-radius: 12px; -webkit-tap-highlight-color: transparent; outline: none; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); white-space: nowrap; position: relative; }
-        .sub-navbar a i { font-size: 1.15rem; background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(255,255,255,0.7)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; transition: all 0.3s ease; }
-        .sub-navbar a:hover { color: var(--primary); background: none; transform: translateY(-2px); }
-        .sub-navbar a:hover i { background: linear-gradient(135deg, var(--primary), var(--primary-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; filter: drop-shadow(0 2px 4px rgba(196, 146, 58, 0.3)); }
-        .sub-navbar a.active { color: var(--primary); background: none; }
-        .sub-navbar a.active i { background: linear-gradient(135deg, var(--primary), var(--primary-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-
-
         /* SHIPPING BAR */
         .shipping-bar {
             position: -webkit-sticky;
@@ -379,7 +367,6 @@
             .nav-links {
                 display: none;
             }
-            .sub-navbar { display: block; }
 
             .page-title {
                 font-size: 1.5rem;
@@ -397,14 +384,6 @@
                 font-size: 0.58rem;
             }
 
-            .sub-navbar a {
-                font-size: 0.6rem;
-                min-width: 50px;
-            }
-
-            .sub-navbar a i {
-                font-size: 1rem;
-            }
         }
 
         /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
@@ -528,6 +507,115 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 16px rgba(196, 146, 58, 0.3);
         }
+
+        /* COLLECTIONS CAROUSEL */
+        .collections-carousel-section {
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .collections-carousel-section .section-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--gray-900);
+            margin-bottom: 2rem;
+        }
+
+        .collections-carousel-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: var(--radius-xl);
+            position: relative;
+        }
+
+        .collections-carousel-track {
+            display: flex;
+        }
+
+        .collections-carousel-item {
+            flex: 0 0 30%;
+            padding: 0 0.4rem;
+        }
+
+        .collections-carousel-item img {
+            width: 100%;
+            height: 340px;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            display: block;
+            cursor: pointer;
+        }
+
+        .collections-carousel-item a {
+            display: block;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .collections-carousel-item img:hover {
+            transform: scale(1.04);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+        }
+
+        .collections-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            border-radius: var(--radius-full);
+            font-family: var(--font-body);
+            font-size: 0.9375rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(196, 146, 58, 0.4);
+            transition: all var(--transition-base);
+        }
+
+        .collections-cta:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 12px 32px rgba(196, 146, 58, 0.5);
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .collections-cta i {
+            transition: transform var(--transition-base);
+        }
+
+        .collections-cta:hover i {
+            transform: translateX(4px);
+        }
+
+        @media (max-width: 1024px) {
+            .collections-carousel-item {
+                flex: 0 0 38%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .collections-carousel-item {
+                flex: 0 0 55%;
+            }
+            .collections-carousel-item img {
+                height: 260px;
+            }
+        }
+
+            /* SHIPPING BAR MOBILE */
+        @media (max-width: 768px) {
+            .shipping-bar {
+                font-size: 0.6875rem;
+                padding: 0.25rem 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -540,7 +628,7 @@
             
             <ul class="nav-links">
                 <li><a href="/">Home</a></li>
-                <li><a href="/chi-sono">Chi Sono</a></li>
+                <li><a href="/caltagirone">Caltagirone</a></li>
                 <li><a href="/collezioni">Collezioni</a></li>
                 <li><a href="/catalogo">Catalogo</a></li>
                 <li><a href="/bomboniere">Bomboniere</a></li>
@@ -556,29 +644,7 @@
             </div>
         </div>
     </nav>
-
-    <nav class="sub-navbar">
-        <div class="sub-navbar-container">
-            <a href="/" class="active">
-                <i class="fas fa-home"></i>
-                Home
-            </a>
-            <a href="/opere-d-arte">
-                <i class="fas fa-flask"></i>
-                Creazioni
-            </a>
-            <a href="/chi-sono">
-                <i class="fas fa-user"></i>
-                Chi Sono
-            </a>
-            <a href="/faq">
-                <i class="fas fa-question-circle"></i>
-                FAQ
-            </a>
-        </div>
-    </nav>
-    
-    <!-- SHIPPING BAR -->
+<!-- SHIPPING BAR -->
     <div class="shipping-bar">
         <div class="shipping-bar-content">
             <span><i class="fas fa-truck"></i> Spedizione Gratuita in Tutta Italia per Ordini Superiori a €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
@@ -588,7 +654,7 @@
     
     <!-- BREADCRUMB -->
     <div class="breadcrumb">
-        <a href="/opere-d-arte" class="breadcrumb-back">
+        <a href="/creazioni" class="breadcrumb-back" onclick="history.back(); return false;">
             <i class="fas fa-arrow-left"></i>
             Indietro
         </a>
@@ -598,8 +664,8 @@
     
     <!-- PAGE HEADER -->
     <div class="page-header">
-        <h1 class="page-title">Il Catalogo di Paola Vacirca</h1>
-        <p class="page-subtitle">Qual'è il Regalo Perfetto Dopo una Vacanza in Sicilia? Un Pezzo di Ceramica Realizzato interamente a Mano!</p>
+        <h1 class="page-title">Il Mio Meraviglioso Catalogo</h1>
+        <p class="page-subtitle">Opere uniche ed inconfondibili che andranno ad arricchire la tua casa.</p>
         <div class="decorative-line"></div>
     </div>
     
@@ -677,7 +743,23 @@
             <a href="/faq" class="btn-primary">Scopri tutte le FAQ</a>
         </div>
     </section>
-    
+
+    <!-- COLLECTIONS CAROUSEL -->
+    <section class="collections-carousel-section">
+        <h2 class="section-title animate-on-scroll">Hai già visto le mie Collezioni?</h2>
+        <div class="collections-carousel-wrapper animate-on-scroll stagger-2">
+            <div class="collections-carousel-track">
+                <div class="collections-carousel-item"><a href="/collezioni/etna"><img src="/assets/images/Copertina-Collezione-Etna.PNG" alt="Collezione Etna" loading="lazy"></a></div>
+                <div class="collections-carousel-item"><a href="/collezioni/giardino-barocco"><img src="/assets/images/collezione-giardino-barocco.png" alt="Collezione Giardino Barocco" loading="lazy"></a></div>
+                <div class="collections-carousel-item"><a href="/collezioni/testa-di-moro"><img src="/assets/images/testa-di-moro-collezione.PNG" alt="Collezione Testa di Moro" loading="lazy"></a></div>
+            </div>
+        </div>
+        <a href="/collezioni" class="collections-cta animate-on-scroll stagger-2">
+            Scopri le collezioni
+            <i class="fas fa-arrow-right"></i>
+        </a>
+    </section>
+
     <!-- FOOTER -->
     <footer>
         <div class="footer-container">
@@ -716,6 +798,48 @@
         updateCartBadge();
 
         function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
+    </script>
+    <script>
+        // COLLECTIONS CAROUSEL (INFINITE)
+        (function() {
+            const track = document.querySelector('.collections-carousel-track');
+            const wrapper = document.querySelector('.collections-carousel-wrapper');
+            if (!track) return;
+
+            const originals = track.querySelectorAll('.collections-carousel-item');
+            originals.forEach(item => track.appendChild(item.cloneNode(true)));
+
+            const allItems = track.querySelectorAll('.collections-carousel-item');
+            const speed = 0.4;
+            let pos = 0;
+            let paused = false;
+
+            function getSetWidth() {
+                let w = 0;
+                for (let i = 0; i < originals.length; i++) {
+                    w += allItems[i].offsetWidth;
+                }
+                return w;
+            }
+
+            function animate() {
+                if (!paused) {
+                    pos -= speed;
+                    if (Math.abs(pos) >= getSetWidth()) {
+                        pos += getSetWidth();
+                    }
+                    track.style.transform = 'translateX(' + pos + 'px)';
+                }
+                requestAnimationFrame(animate);
+            }
+
+            wrapper.addEventListener('mouseenter', function() { paused = true; });
+            wrapper.addEventListener('mouseleave', function() { paused = false; });
+            wrapper.addEventListener('touchstart', function() { paused = true; }, { passive: true });
+            wrapper.addEventListener('touchend', function() { setTimeout(function() { paused = false; }, 500); }, { passive: true });
+
+            animate();
+        })();
     </script>
     <script>
         const observerOptions = {

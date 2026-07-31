@@ -49,15 +49,6 @@
         .cart-icon:hover { color: var(--primary-light); }
         .cart-badge { position: absolute; top: -8px; right: -8px; background: var(--accent); color: white; font-size: 0.65rem; font-weight: 600; padding: 2px 6px; border-radius: var(--radius-full); min-width: 18px; text-align: center; }
         .nav-right { display: flex; align-items: center; gap: 1rem; }
-        .sub-navbar { position: fixed; bottom: 10px; left: 50%; transform: translateX(-50%); z-index: 999; background: rgba(26, 18, 11, 0.7); backdrop-filter: blur(10px); border-radius: 30px; padding: 0.4rem 2rem; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(196, 146, 58, 0.1); border: 1px solid rgba(196, 146, 58, 0.15); display: none; }
-        .sub-navbar::-webkit-scrollbar { display: none; }
-        .sub-navbar-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: center; gap: 0.3rem; align-items: center; }
-        .sub-navbar a { display: inline-flex; flex-direction: column; align-items: center; gap: 3px; text-decoration: none; color: rgba(255, 255, 255, 0.7); font-size: 0.6rem; font-weight: 500; padding: 6px 12px; border-radius: 12px; -webkit-tap-highlight-color: transparent; outline: none; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); white-space: nowrap; position: relative; }
-        .sub-navbar a i { font-size: 1.15rem; background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(255,255,255,0.7)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; transition: all 0.3s ease; }
-        .sub-navbar a:hover { color: var(--primary); background: none; transform: translateY(-2px); }
-        .sub-navbar a:hover i { background: linear-gradient(135deg, var(--primary), var(--primary-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; filter: drop-shadow(0 2px 4px rgba(196, 146, 58, 0.3)); }
-        .sub-navbar a.active { color: var(--primary); background: none; }
-        .sub-navbar a.active i { background: linear-gradient(135deg, var(--primary), var(--primary-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
         /* BREADCRUMB */
         .breadcrumb {
             position: sticky;
@@ -146,16 +137,20 @@
         .trust-item { display: flex; flex-direction: column; align-items: center; gap: 0.25rem; }
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            .sub-navbar { display: block; }
             .logo-text { font-size: 1.125rem; }
-            .sub-navbar a { font-size: 0.6rem; min-width: 50px; }
-            .sub-navbar a i { font-size: 1rem; }
             .progress-bar { padding: 1.5rem 1rem 0.75rem; }
             .progress-container { gap: 0.25rem; }
             .step-label { font-size: 0.65rem; }
             .step-circle { width: 28px; height: 28px; font-size: 0.75rem; }
             .checkout-container { padding: 0.75rem; }
             .order-summary { padding: 1rem; }
+        }
+            /* SHIPPING BAR MOBILE */
+        @media (max-width: 768px) {
+            .shipping-bar {
+                font-size: 0.6875rem;
+                padding: 0.25rem 0;
+            }
         }
     </style>
 </head>
@@ -168,7 +163,7 @@
             </a>
             <ul class="nav-links">
                 <li><a href="/">Home</a></li>
-                <li><a href="/chi-sono">Chi Sono</a></li>
+                <li><a href="/caltagirone">Caltagirone</a></li>
                 <li><a href="/collezioni">Collezioni</a></li>
                 <li><a href="/catalogo">Catalogo</a></li>
                 <li><a href="/bomboniere">Bomboniere</a></li>
@@ -183,29 +178,7 @@
             </div>
         </div>
     </nav>
-    
-    <nav class="sub-navbar">
-        <div class="sub-navbar-container">
-            <a href="/" class="active">
-                <i class="fas fa-home"></i>
-                Home
-            </a>
-            <a href="/opere-d-arte">
-                <i class="fas fa-flask"></i>
-                Creazioni
-            </a>
-            <a href="/chi-sono">
-                <i class="fas fa-user"></i>
-                Chi Sono
-            </a>
-            <a href="/faq">
-                <i class="fas fa-question-circle"></i>
-                FAQ
-            </a>
-        </div>
-    </nav>
-    
-    <!-- SHIPPING BAR -->
+<!-- SHIPPING BAR -->
     <div class="shipping-bar">
         <div class="shipping-bar-content">
             <span><i class="fas fa-truck"></i> Spedizione Gratuita in Tutta Italia per Ordini Superiori a €80 <i class="fas fa-truck" style="transform: scaleX(-1)"></i></span>
@@ -215,7 +188,7 @@
 
     <!-- BREADCRUMB -->
     <div class="breadcrumb">
-        <a href="/" class="breadcrumb-back">
+        <a href="/" class="breadcrumb-back" onclick="history.back(); return false;">
             <i class="fas fa-arrow-left"></i>
             Indietro
         </a>
