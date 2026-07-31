@@ -342,124 +342,6 @@
             margin-right: 3rem;
         }
         
-        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-        /* HERO SECTION */
-        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-        
-        .hero {
-            position: relative;
-            overflow: hidden;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .hero-slide {
-            position: absolute;
-            inset: 0;
-            z-index: 0;
-            opacity: 0;
-            transition: opacity 1.2s ease-in-out;
-        }
-
-        .hero-slide.active {
-            opacity: 1;
-        }
-
-        .hero-slide-cream {
-            background: #d8b48c;
-        }
-
-        .hero-slide-green {
-            background: #5a5b3a;
-        }
-
-        .hero-slide-purple {
-            background: #b6522b;
-        }
-
-        .hero-slide-yellow {
-            background: #e1b14e;
-        }
-
-        .hero-slide-blue {
-            background: #6d7f86;
-        }
-
-        .hero-slide-image {
-            background: url('/assets/images/hero.JPG') center/cover no-repeat;
-            transform: scale(1);
-            transition: opacity 1.2s ease-in-out, transform 8s ease-out;
-        }
-
-        .hero-slide-image.active {
-            transform: scale(1.2);
-        }
-        
-        .hero-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            margin-top: -13rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-            padding: 1rem 2rem;
-        }
-        
-        .hero-content {
-            max-width: 720px;
-            margin-top: 0;
-            transition: opacity 1s ease-in-out;
-        }
-
-        .hero-content.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-        
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: rgba(255, 250, 245, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--primary-light);
-            border-radius: var(--radius-full);
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--primary-dark);
-            margin-bottom: 1.5rem;
-        }
-        
-        .hero-title {
-            font-family: var(--font-display);
-            font-size: 3.25rem;
-            line-height: 1.2;
-            color: #fff;
-            margin-bottom: 1.5rem;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.2);
-        }
-        
-        .hero-description {
-            font-size: 1.0625rem;
-            color: rgba(255,255,255,0.9);
-            line-height: 1.7;
-            max-width: 600px;
-            margin-bottom: 2rem;
-        }
-        
-        .hero-cta-group {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-top: 0;
-        }
         
         .btn-primary {
             display: inline-flex;
@@ -871,13 +753,31 @@
         /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
         .catalog-carousel-section {
-            padding: 4rem 2rem;
-            background: var(--gray-100);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 5rem 2rem 4rem;
+            background: linear-gradient(rgba(26, 18, 11, 0.75), rgba(26, 18, 11, 0.85)), url('/assets/images/hero.JPG') center/cover no-repeat;
+            background-attachment: fixed;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
         .catalog-carousel-section .section-title {
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
+            color: #FEFAF5;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .catalog-hero-description {
+            font-size: 1.0625rem;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.7;
+            max-width: 640px;
+            margin: 0 auto 2.5rem;
         }
 
         .catalog-carousel-wrapper {
@@ -1307,15 +1207,13 @@
         /* RESPONSIVE */
         /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
         
+        @media (max-width: 768px) {
+            .catalog-carousel-section {
+                background-attachment: scroll;
+            }
+        }
+        
         @media (max-width: 1024px) {
-            .hero-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .hero-content {
-                text-align: center;
-            }
             
             
 
@@ -1339,10 +1237,6 @@
                 font-size: 0.58rem;
             }
             
-            .hero-title {
-                font-size: 2rem;
-            }
-            
             .sub-navbar a {
                 font-size: 0.6rem;
                 min-width: 50px;
@@ -1350,10 +1244,6 @@
             
             .sub-navbar a i {
                 font-size: 1rem;
-            }
-            
-            .hero {
-                padding: 0 1rem;
             }
             
             .section-title {
@@ -1491,50 +1381,30 @@
     <div class="page-wrapper">
     
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-    <!-- HERO SECTION -->
+    <!-- HERO: ARTE E CERAMICA DI CALTAGIRONE -->
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
     
-    <section class="hero">
-        <div class="hero-slide hero-slide-image active"></div>
-        <div class="hero-slide hero-slide-cream"></div>
-        <div class="hero-slide hero-slide-image"></div>
-        <div class="hero-slide hero-slide-green"></div>
-        <div class="hero-slide hero-slide-image"></div>
-        <div class="hero-slide hero-slide-purple"></div>
-        <div class="hero-slide hero-slide-image"></div>
-        <div class="hero-slide hero-slide-yellow"></div>
-        <div class="hero-slide hero-slide-image"></div>
-        <div class="hero-slide hero-slide-blue"></div>
-        <div class="hero-container">
-            <div class="hero-content hidden">
-                <img src="/assets/images/logo.PNG" alt="Paola Vacirca" style="height: 125px; width: auto; margin-bottom: 1rem; filter: brightness(0) invert(1);">
-                <h1 class="hero-title">Arte e Ceramica di Caltagirone</h1>
-                <p class="hero-description">Dalla Classica Testa di Moro Siciliana a Stravaganti Opere in Ceramica che Ricordano i Colori della Tradizione.</p>
-            </div>
-            <div class="hero-cta-group" style="justify-content: center; transition: opacity 1s ease-in-out;">
-                <a href="/opere-d-arte" class="btn-primary">
-                    Scopri le mie Creazioni
-                    <i class="fas fa-arrow-right"></i>
-                </a>
+    <section class="catalog-carousel-section">
+        <h2 class="section-title animate-on-scroll">Arte e Ceramica di Caltagirone</h2>
+        <p class="catalog-hero-description animate-on-scroll stagger-1">Dalla Classica Testa di Moro Siciliana a Stravaganti Opere in Ceramica.</p>
+        <div class="catalog-carousel-wrapper animate-on-scroll stagger-2">
+            <div class="catalog-carousel-track">
+                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-1"><img src="/assets/images/catalogo-1.jpg" alt="Ceramica 1" loading="lazy"></a></div>
+                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-2"><img src="/assets/images/catalogo-2.jpg" alt="Ceramica 2" loading="lazy"></a></div>
+                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-3"><img src="/assets/images/catalogo-3.PNG" alt="Ceramica 3" loading="lazy"></a></div>
+                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-4"><img src="/assets/images/catalogo-4.PNG" alt="Ceramica 4" loading="lazy"></a></div>
+                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-5"><img src="/assets/images/catalogo-5.jpg" alt="Ceramica 5" loading="lazy"></a></div>
+                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-6"><img src="/assets/images/catalogo-6.PNG" alt="Ceramica 6" loading="lazy"></a></div>
+                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-7"><img src="/assets/images/catalogo-7.PNG" alt="Ceramica 7" loading="lazy"></a></div>
+                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-8"><img src="/assets/images/Vaso-fiori.PNG" alt="Vaso Fiori" loading="lazy"></a></div>
+                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-9"><img src="/assets/images/testa-di-moro-Leggenda.PNG" alt="Testa di Moro Leggenda" loading="lazy"></a></div>
+                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-10"><img src="/assets/images/Piatto.PNG" alt="Piatto" loading="lazy"></a></div>
             </div>
         </div>
-        <script>
-            (function() {
-                const slides = document.querySelectorAll('.hero-slide');
-                const content = document.querySelector('.hero-content');
-                let current = 0;
-                setInterval(() => {
-                    slides[current].classList.remove('active');
-                    current = (current + 1) % slides.length;
-                    slides[current].classList.add('active');
-                    if (slides[current].classList.contains('hero-slide-image')) {
-                        content.classList.add('hidden');
-                    } else {
-                        content.classList.remove('hidden');
-                    }
-                }, 8000);
-            })();
-        </script>
+        <a href="/catalogo" class="catalog-cta animate-on-scroll stagger-2">
+            Scopri il Catalogo
+            <i class="fas fa-arrow-right"></i>
+        </a>
     </section>
     
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
@@ -1662,32 +1532,6 @@
             <button class="carousel-arrow carousel-arrow-right" onclick="scrollReviews(1)"><i class="fas fa-chevron-right"></i></button>
             <div class="carousel-dots" id="reviewsDots"></div>
         </div>
-    </section>
-    
-    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-    <!-- CATALOG CAROUSEL -->
-    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-    
-    <section class="catalog-carousel-section">
-        <h2 class="section-title animate-on-scroll">Una Vetrina delle Mie Creazioni</h2>
-        <div class="catalog-carousel-wrapper animate-on-scroll stagger-1">
-            <div class="catalog-carousel-track">
-                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-1"><img src="/assets/images/catalogo-1.jpg" alt="Ceramica 1" loading="lazy"></a></div>
-                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-2"><img src="/assets/images/catalogo-2.jpg" alt="Ceramica 2" loading="lazy"></a></div>
-                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-3"><img src="/assets/images/catalogo-3.PNG" alt="Ceramica 3" loading="lazy"></a></div>
-                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-4"><img src="/assets/images/catalogo-4.PNG" alt="Ceramica 4" loading="lazy"></a></div>
-                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-5"><img src="/assets/images/catalogo-5.jpg" alt="Ceramica 5" loading="lazy"></a></div>
-                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-6"><img src="/assets/images/catalogo-6.PNG" alt="Ceramica 6" loading="lazy"></a></div>
-                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-7"><img src="/assets/images/catalogo-7.PNG" alt="Ceramica 7" loading="lazy"></a></div>
-                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-8"><img src="/assets/images/Vaso-fiori.PNG" alt="Vaso Fiori" loading="lazy"></a></div>
-                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-9"><img src="/assets/images/testa-di-moro-Leggenda.PNG" alt="Testa di Moro Leggenda" loading="lazy"></a></div>
-                <div class="catalog-carousel-item"><a href="/catalogo/catalogo-10"><img src="/assets/images/Piatto.PNG" alt="Piatto" loading="lazy"></a></div>
-            </div>
-        </div>
-        <a href="/catalogo" class="catalog-cta animate-on-scroll stagger-2">
-            Scopri il Catalogo
-            <i class="fas fa-arrow-right"></i>
-        </a>
     </section>
     
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
